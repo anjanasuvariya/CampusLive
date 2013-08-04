@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2013 7:28:49 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="quiz.model.QzQuestions" table="qz_questions" catalog="placecom">
+        <id name="qzQuestionId" type="java.lang.Integer">
+            <column name="qz_question_id" />
+            <generator class="identity" />
+        </id>
+        <property name="qzQuizId" type="int">
+            <column name="qz_quiz_id" not-null="true" />
+        </property>
+        <property name="qzUserId" type="int">
+            <column name="qz_user_id" not-null="true" />
+        </property>
+        <property name="qzQuestion" type="string">
+            <column name="qz_question" length="1000" not-null="true" />
+        </property>
+        <property name="qzOption1" type="string">
+            <column name="qz_option1" length="300" />
+        </property>
+        <property name="qzOption2" type="string">
+            <column name="qz_option2" length="300" />
+        </property>
+        <property name="qzOption3" type="string">
+            <column name="qz_option3" length="300" />
+        </property>
+        <property name="qzOption4" type="string">
+            <column name="qz_option4" length="300" />
+        </property>
+        <property name="qzCorrectAnswer" type="java.lang.Integer">
+            <column name="qz_correct_answer" />
+        </property>
+        <property name="qzQuestionMarks" type="java.lang.Float">
+            <column name="qz_question_marks" precision="12" scale="0" />
+        </property>
+        <property name="qzNegQuestionMarks" type="java.lang.Float">
+            <column name="qz_neg_question_marks" precision="12" scale="0" />
+        </property>
+        <property name="qzCreatedOn" type="timestamp">
+            <column name="qz_created_on" length="19" not-null="true" />
+        </property>
+        <property name="qzCreatedBy" type="string">
+            <column name="qz_created_by" length="100" not-null="true" />
+        </property>
+        <property name="qzStatus" type="int">
+            <column name="qz_status" not-null="true">
+                <comment>complete=1</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 6, 2005 12:32:09 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="common.model.CmnElementMst" table="cmn_element_mst" catalog="placecom">
+        <id name="elementId" type="java.lang.Long">
+            <column name="ELEMENT_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="elementName" type="string">
+            <column name="ELEMENT_NAME" length="100" not-null="true" />
+        </property>
+        <property name="elementDesc" type="string">
+            <column name="ELEMENT_DESC" length="130" />
+        </property>
+        <property name="parentElementId" type="java.lang.Long">
+            <column name="PARENT_ELEMENT_ID" />
+        </property>
+        <property name="elementOrder" type="java.lang.Integer">
+            <column name="ELEMENT_ORDER" />
+        </property>
+        <property name="elementUrl" type="string">
+            <column name="ELEMENT_URL" length="130" />
+        </property>
+        <property name="activateFlag" type="char">
+            <column name="ACTIVATE_FLAG" length="1" not-null="true" />
+        </property>
+        <property name="createdUserId" type="java.lang.Long">
+            <column name="CREATED_USER_ID" />
+        </property>
+        <property name="createdDate" type="date">
+            <column name="CREATED_DATE" length="10" />
+        </property>
+        <property name="updatedUserId" type="java.lang.Long">
+            <column name="UPDATED_USER_ID" />
+        </property>
+        <property name="updatedDate" type="date">
+            <column name="UPDATED_DATE" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

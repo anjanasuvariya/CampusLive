@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2013 7:28:49 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="placecom" name="assignment.model.AssgEvaluateMst" table="assg_evaluate_mst">
+    <id name="assgEvalId" type="java.lang.Integer">
+      <column name="assg_eval_id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="assgSubmitId" type="java.lang.Integer">
+      <column name="assg_submit_id"/>
+    </property>
+    <property name="assgMstId" type="java.lang.Integer">
+      <column name="assg_mst_id"/>
+    </property>
+    <property name="assgUserId" type="java.lang.Integer">
+      <column name="assg_user_id"/>
+    </property>
+    <property name="assgEvaluatedMarks" type="java.lang.Integer">
+      <column name="assg_evaluated_marks"/>
+    </property>
+    <property name="assgTotalMarks" type="java.lang.Integer">
+      <column name="assg_total_marks"/>
+    </property>
+    <property name="assgRejected" type="java.lang.Integer">
+      <column name="assg_rejected"/>
+    </property>
+    <property name="assgCopied" type="java.lang.Integer">
+      <column name="assg_copied"/>
+    </property>
+    <property name="assgRemarks" type="string">
+      <column length="50" name="assg_remarks"/>
+    </property>
+    <property name="assgEvalIdHide" type="java.lang.Integer">
+      <column name="assg_eval_id_hide"/>
+    </property>
+  </class>
+</hibernate-mapping>

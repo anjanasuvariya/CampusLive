@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2013 7:28:49 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="placecom" name="assignment.model.AssgSubmitMst" table="assg_submit_mst">
+    <id name="assgSubmitId" type="java.lang.Integer">
+      <column name="assg_submit_id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="assgId" type="java.lang.Integer">
+      <column name="assg_id"/>
+    </property>
+    <property name="assgUserId" type="java.lang.Integer">
+      <column name="assg_user_id"/>
+    </property>
+    <property name="assgSubmitType" type="java.lang.Integer">
+      <column name="assg_submit_type"/>
+    </property>
+    <property name="assgFileUrl" type="string">
+      <column length="200" name="assg_file_url"/>
+    </property>
+    <property name="assgResponseText" type="string">
+      <column length="2000" name="assg_response_text"/>
+    </property>
+    <property name="assgUsername" type="string">
+      <column length="50" name="assg_username"/>
+    </property>
+    <property name="assgSubmitIdHide" type="java.lang.Integer">
+      <column name="assg_submit_id_hide"/>
+    </property>
+  </class>
+</hibernate-mapping>

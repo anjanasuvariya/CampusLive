@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2013 7:28:49 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="GD.model.ChatMsg" table="chat_msg" catalog="placecom">
+        <id name="chatMsgId" type="java.lang.Integer">
+            <column name="chat_msg_id" />
+            <generator class="identity" />
+        </id>
+        <property name="chatUserId" type="java.lang.Integer">
+            <column name="chat_user_id" />
+        </property>
+        <property name="chatPadId" type="java.lang.Integer">
+            <column name="chat_pad_id" />
+        </property>
+        <property name="chatPositionId" type="java.lang.Integer">
+            <column name="chat_position_id" />
+        </property>
+        <property name="chatMsgValue" type="string">
+            <column name="chat_msg_value" length="250" />
+        </property>
+        <property name="chatMsgTime" type="timestamp">
+            <column name="chat_msg_time" length="19" />
+        </property>
+        <property name="chatVisible" type="java.lang.Integer">
+            <column name="chat_visible" />
+        </property>
+    </class>
+</hibernate-mapping>

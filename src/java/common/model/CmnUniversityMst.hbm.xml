@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 6, 2005 12:32:09 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="common.model.CmnUniversityMst" table="cmn_university_mst" catalog="placecom">
+        <id name="unvId" type="java.lang.Long">
+            <column name="UNV_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="unvName" type="string">
+            <column name="UNV_NAME" length="200" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

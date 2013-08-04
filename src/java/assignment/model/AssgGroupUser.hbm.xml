@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2013 7:28:49 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="placecom" name="assignment.model.AssgGroupUser" table="assg_group_user">
+    <id name="assgUsergroupId" type="java.lang.Integer">
+      <column name="assg_usergroup_id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="assgGroupId" type="int">
+      <column name="assg_group_id" not-null="true"/>
+    </property>
+    <property name="assgUserId" type="int">
+      <column name="assg_user_id" not-null="true"/>
+    </property>
+    <property name="assgUserName" type="string">
+      <column length="50" name="assg_user_name"/>
+    </property>
+    <property name="assgUsergroupIdHide" type="java.lang.Integer">
+      <column name="assg_usergroup_id_hide"/>
+    </property>
+  </class>
+</hibernate-mapping>

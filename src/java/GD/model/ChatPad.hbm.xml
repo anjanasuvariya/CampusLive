@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2013 7:28:49 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="GD.model.ChatPad" table="chat_pad" catalog="placecom">
+        <id name="chatPadId" type="java.lang.Integer">
+            <column name="chat_pad_id" />
+            <generator class="identity" />
+        </id>
+        <property name="chatPadName" type="string">
+            <column name="chat_pad_name" length="45" />
+        </property>
+        <property name="chatPadDesc" type="string">
+            <column name="chat_pad_desc" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

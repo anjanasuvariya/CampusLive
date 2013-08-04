@@ -1,0 +1,144 @@
+legend {
+font-size: 17px;
+}
+ 
+fieldset {
+border: 0;
+}
+ 
+.checklist {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+.checklist-remove {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+.checklist li {
+float: left;
+margin-right: 10px;
+background: url(../../img/style/checkbox/checkboxbg.gif) no-repeat 0 0;
+width: 105px;
+height: 150px;
+position: relative;
+font: Verdana;
+}
+
+.checklist-remove li {
+float: left;
+margin-right: 10px;
+background: url(../../img/style/checkbox/checkremovebg.jpg) no-repeat 0 0;
+width: 105px;
+height: 150px;
+position: relative;
+font: Verdana;
+}
+
+
+.checklist li.selected {
+background-position: -105px 0;
+}
+
+.checklist-remove li.selected {
+background-position: -105px 0;
+}
+
+.checklist li.selected .checkbox-select {
+display: none;
+}
+ 
+.checklist-remove li.selected .checkbox-remove {
+display: none;
+}
+
+.checkbox-select {
+display: block;
+float: left;
+position: absolute;
+top: 118px;
+left: 10px;
+width: 85px;
+height: 23px;
+background: url(../../img/style/checkbox/select.gif) no-repeat 0 0;
+text-indent: -9999px;
+}
+
+.checkbox-remove {
+display: block;
+float: left;
+position: absolute;
+top: 118px;
+left: 10px;
+width: 85px;
+height: 23px;
+background: url(../../img/style/checkbox/remove.gif) no-repeat 0 0;
+text-indent: -9999px;
+}
+
+.checklist li input {
+display: none;
+}
+ 
+.checklist-remove li input {
+display: none;
+}
+
+a.checkbox-deselect {
+display: none;
+color: white;
+font-weight: bold;
+text-decoration: none;
+position: absolute;
+top: 120px;
+right: 10px;
+}
+ 
+a.checkbox-remove-deselect {
+display: none;
+color: white;
+font-weight: bold;
+text-decoration: none;
+position: absolute;
+top: 120px;
+right: 10px;
+}
+
+
+.checklist li.selected a.checkbox-deselect {
+display: block;
+}
+
+.checklist-remove li.selected a.checkbox-remove-deselect {
+display: block;
+}
+
+.checklist li label {
+display: block;
+text-align: center;
+padding: 8px;
+}
+
+.checklist-remove li label {
+display: block;
+text-align: center;
+padding: 8px;
+}
+
+.sendit {
+display: block;
+float: left;
+top: 118px;
+left: 10px;
+width: 115px;
+height: 34px;
+border: 0;
+cursor: pointer;
+background: url(../../img/style/checkbox/sendit.gif) no-repeat 0 0;
+text-indent: -9999px;
+margin: 20px 0;
+}
+

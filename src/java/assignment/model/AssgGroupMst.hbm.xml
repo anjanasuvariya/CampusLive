@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2013 7:28:49 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="placecom" name="assignment.model.AssgGroupMst" table="assg_group_mst">
+    <id name="assgGroupId" type="java.lang.Integer">
+      <column name="assg_group_id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="assgGroupDtlId" type="java.lang.Integer">
+      <column name="assg_group_dtl_id">
+        <comment>No use for NOW</comment>
+      </column>
+    </property>
+    <property name="assgGroupName" type="string">
+      <column length="25" name="assg_group_name"/>
+    </property>
+    <property name="assgGroupDesc" type="string">
+      <column length="100" name="assg_group_desc"/>
+    </property>
+    <property name="assgGroupOwnerId" type="java.lang.Integer">
+      <column name="assg_group_owner_id"/>
+    </property>
+    <property name="assgGroupIdHide" type="java.lang.Integer">
+      <column name="assg_group_id_hide"/>
+    </property>
+  </class>
+</hibernate-mapping>

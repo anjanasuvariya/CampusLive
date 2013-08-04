@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/PlaceCom</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
+    <property name="show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <mapping resource="user/model/UserContactDtls.hbm.xml"/>
+    <mapping resource="user/model/UserPersonalDtls.hbm.xml"/>
+    <mapping resource="user/model/UserAchievementDtls.hbm.xml"/>
+    <mapping resource="user/model/UserEducationDtls.hbm.xml"/>
+    <mapping resource="user/model/UserOrganizationDtls.hbm.xml"/>
+    <mapping resource="common/model/CmnElementMst.hbm.xml"/>
+    <mapping resource="common/model/CmnRoleActivationMpg.hbm.xml"/>
+    <mapping resource="common/model/CmnRoleElementRlt.hbm.xml"/>
+    <mapping resource="common/model/CmnUserRoleRlt.hbm.xml"/>
+    <mapping resource="common/model/CmnUserMst.hbm.xml"/>
+    <mapping resource="common/model/CmnUniversityMst.hbm.xml"/>
+    <mapping resource="common/model/CmnRoleMst.hbm.xml"/>
+    <mapping resource="user/model/UserProjectDtls.hbm.xml"/>
+    <mapping resource="user/model/UserRecommendationDtls.hbm.xml"/>
+    
+    <mapping resource="assignment/model/AssgGroupUser.hbm.xml"/>
+    <mapping resource="assignment/model/AssgMst.hbm.xml"/>
+    <mapping resource="assignment/model/AssgDtl.hbm.xml"/>
+    <mapping resource="assignment/model/AssgSubmitMst.hbm.xml"/>
+    <mapping resource="assignment/model/AssgEvaluateMst.hbm.xml"/>
+    <mapping resource="assignment/model/AssgGroupMst.hbm.xml"/>
+    <mapping resource="GD/model/ChatMsg.hbm.xml"/>
+    <mapping resource="GD/model/ChatPad.hbm.xml"/>
+    <mapping resource="GD/model/ChatUserVote.hbm.xml"/>
+    <mapping resource="GD/model/ChatUser.hbm.xml"/>
+    <mapping resource="quiz/model/QzQuizes.hbm.xml"/>
+    <mapping resource="quiz/model/QzUsers.hbm.xml"/>
+    <mapping resource="quiz/model/QzQuestions.hbm.xml"/>
+     
+  </session-factory>
+</hibernate-configuration>

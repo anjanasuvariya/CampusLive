@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2013 7:28:49 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="GD.model.ChatUser" table="chat_user" catalog="placecom">
+        <id name="chatUserId" type="java.lang.Integer">
+            <column name="chat_user_id" />
+            <generator class="identity" />
+        </id>
+        <property name="chatUserName" type="string">
+            <column name="chat_user_name" length="45" />
+        </property>
+        <property name="chatUserDesc" type="string">
+            <column name="chat_user_desc" length="45" />
+        </property>
+        <property name="chatUserImage" type="binary">
+            <column name="chat_user_image" />
+        </property>
+        <property name="chatUserVotes" type="java.lang.Integer">
+            <column name="chat_user_votes">
+                <comment>Stores Votes Given To User</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

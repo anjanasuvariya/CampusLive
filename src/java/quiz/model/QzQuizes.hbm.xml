@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2013 7:28:49 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="quiz.model.QzQuizes" table="qz_quizes" catalog="placecom">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="qzUserId" type="int">
+            <column name="qz_userId" not-null="true" />
+        </property>
+        <property name="quizName" type="string">
+            <column name="quiz_name" length="100" />
+        </property>
+        <property name="quizDesc" type="string">
+            <column name="quiz_desc" length="80" />
+        </property>
+        <property name="quizScope" type="string">
+            <column name="quiz_scope" length="20" />
+        </property>
+        <property name="quizSubject" type="string">
+            <column name="quiz_subject" length="50" />
+        </property>
+        <property name="createdOn" type="timestamp">
+            <column name="created_on" length="19" not-null="true" />
+        </property>
+        <property name="createdBy" type="string">
+            <column name="created_by" length="100" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="12" not-null="true" />
+        </property>
+        <property name="finalStatus" type="string">
+            <column name="final_status" length="30" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

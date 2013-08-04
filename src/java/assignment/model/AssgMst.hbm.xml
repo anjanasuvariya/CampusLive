@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 1, 2013 7:28:49 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="placecom" name="assignment.model.AssgMst" table="assg_mst">
+    <id name="assgId" type="java.lang.Integer">
+      <column name="assg_id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="assgOwnerId" type="java.lang.Integer">
+      <column name="assg_owner_id">
+        <comment>UserId Simply</comment>
+      </column>
+    </property>
+    <property name="assgTitle" type="string">
+      <column length="25" name="assg_title"/>
+    </property>
+    <property name="assgSubject" type="string">
+      <column length="50" name="assg_subject"/>
+    </property>
+    <property name="assgDetails" type="string">
+      <column length="80" name="assg_details"/>
+    </property>
+    <property name="assgDiscussionId" type="java.lang.Integer">
+      <column name="assg_discussion_id"/>
+    </property>
+    <property name="assgSubmitType" type="java.lang.Integer">
+      <column name="assg_submit_type">
+        <comment>Text/File Upload</comment>
+      </column>
+    </property>
+    <property name="assgSubmitDate" type="timestamp">
+      <column length="19" name="assg_submit_date"/>
+    </property>
+    <property name="assgSubmissionDetails" type="string">
+      <column length="300" name="assg_submission_details"/>
+    </property>
+    <property name="assgFileUrl" type="string">
+      <column length="300" name="assg_file_url"/>
+    </property>
+    <property name="assgIdHide" type="java.lang.Integer">
+      <column name="assg_id_hide"/>
+    </property>
+    <property name="assgEvaluateIdHide" type="java.lang.Integer">
+      <column name="assg_evaluate_id_hide"/>
+    </property>
+  </class>
+</hibernate-mapping>

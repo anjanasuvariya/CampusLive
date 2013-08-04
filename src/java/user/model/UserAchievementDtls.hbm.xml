@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 11, 2013 8:28:10 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="user.model.UserAchievementDtls" table="user_achievement_dtls" catalog="placecom">
+        <id name="userAchievementId" type="java.lang.Long">
+            <column name="USER_ACHIEVEMENT_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="achievementTitle" type="string">
+            <column name="ACHIEVEMENT_TITLE" length="200" not-null="true" />
+        </property>
+        <property name="achievementCategory" type="string">
+            <column name="ACHIEVEMENT_CATEGORY" length="150" />
+        </property>
+        <property name="achievementImage" type="string">
+            <column name="ACHIEVEMENT_IMAGE" length="250" />
+        </property>
+        <property name="eventName" type="string">
+            <column name="EVENT_NAME" length="150" />
+        </property>
+        <property name="eventOrganizers" type="string">
+            <column name="EVENT_ORGANIZERS" length="200" />
+        </property>
+        <property name="eventDescription" type="string">
+            <column name="EVENT_DESCRIPTION" length="500" />
+        </property>
+        <property name="createdUserId" type="long">
+            <column name="CREATED_USER_ID" not-null="true" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CREATED_DATE" length="19" not-null="true" />
+        </property>
+        <property name="updatedUserId" type="java.lang.Long">
+            <column name="UPDATED_USER_ID" />
+        </property>
+        <property name="updatedDate" type="timestamp">
+            <column name="UPDATED_DATE" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>
