@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
@@ -25,7 +26,8 @@ import user.model.UserRecommendationDtls;
  * @author SACHIN PATEL
  */
 public class ViewUserRecommendationDtlForm extends org.apache.struts.action.ActionForm {
-    
+
+    private static final Logger logger = Logger.getLogger(ViewUserRecommendationDtlForm.class);
     List<UserRecommendationDtls> userRecommendationDtlList = new ArrayList<UserRecommendationDtls>();
 
     public List<UserRecommendationDtls> getUserRecommendationDtlList() {
@@ -35,8 +37,7 @@ public class ViewUserRecommendationDtlForm extends org.apache.struts.action.Acti
     public void setUserRecommendationDtlList(List<UserRecommendationDtls> userRecommendationDtlList) {
         this.userRecommendationDtlList = userRecommendationDtlList;
     }
-    
-    
+
     /**
      *
      */
@@ -54,16 +55,14 @@ public class ViewUserRecommendationDtlForm extends org.apache.struts.action.Acti
      */
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
-       UserRecommendationDtlDAO lObjUserRecommendationDtlDAO = new UserRecommendationDtlDAOImpl();
-        try
-        {
-              HttpSession session = request.getSession();
-              CmnUserMst lObjCmnUserMst = (CmnUserMst) session.getAttribute("cmnUserMst");
-              userRecommendationDtlList = lObjUserRecommendationDtlDAO.getUserRecommendationDtls(lObjCmnUserMst.getUserId());
-              request.setAttribute("userRecommendationDtlList", userRecommendationDtlList);
-        }     
-        catch(Exception e)
-        {
+        UserRecommendationDtlDAO lObjUserRecommendationDtlDAO = new UserRecommendationDtlDAOImpl();
+        try {
+            HttpSession session = request.getSession();
+            CmnUserMst lObjCmnUserMst = (CmnUserMst) session.getAttribute("cmnUserMst");
+            userRecommendationDtlList = lObjUserRecommendationDtlDAO.getUserRecommendationDtls(lObjCmnUserMst.getUserId());
+            request.setAttribute("userRecommendationDtlList", userRecommendationDtlList);
+        } catch (Exception e) {
+            logger.error("Error in view user recommendation detail form : " + e, e);
             e.printStackTrace();
         }
         return errors;

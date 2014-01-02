@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 16, 2013 10:33:54 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="placeComm.model.PcStudentInterestInviteDtls" table="pc_student_interest_invite_dtls" catalog="placecom">
+        <id name="studInvtDtlId" type="java.lang.Long">
+            <column name="STUD_INVT_DTL_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="invtDtlId" type="long">
+            <column name="INVT_DTL_ID" not-null="true" />
+        </property>
+        <property name="studUserId" type="long">
+            <column name="STUD_USER_ID" not-null="true" />
+        </property>
+        <property name="studSelectionFlag" type="string">
+            <column name="STUD_SELECTION_FLAG" length="30" />
+        </property>
+        <property name="hrSelectionFlag" type="string">
+            <column name="HR_SELECTION_FLAG" length="30" />
+        </property>
+        <property name="universityId" type="long">
+            <column name="UNIVERSITY_ID" not-null="true" />
+        </property>
+        <property name="createdUserId" type="long">
+            <column name="CREATED_USER_ID" not-null="true" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CREATED_DATE" length="19" not-null="true" />
+        </property>
+        <property name="updatedUserId" type="java.lang.Long">
+            <column name="UPDATED_USER_ID" />
+        </property>
+        <property name="updatedDate" type="timestamp">
+            <column name="UPDATED_DATE" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

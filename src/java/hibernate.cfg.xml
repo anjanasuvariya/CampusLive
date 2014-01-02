@@ -23,7 +23,6 @@
     <mapping resource="common/model/CmnRoleMst.hbm.xml"/>
     <mapping resource="user/model/UserProjectDtls.hbm.xml"/>
     <mapping resource="user/model/UserRecommendationDtls.hbm.xml"/>
-    
     <mapping resource="assignment/model/AssgGroupUser.hbm.xml"/>
     <mapping resource="assignment/model/AssgMst.hbm.xml"/>
     <mapping resource="assignment/model/AssgDtl.hbm.xml"/>
@@ -37,6 +36,14 @@
     <mapping resource="quiz/model/QzQuizes.hbm.xml"/>
     <mapping resource="quiz/model/QzUsers.hbm.xml"/>
     <mapping resource="quiz/model/QzQuestions.hbm.xml"/>
-     
+    <mapping resource="placeComm/model/PcCompanyDtls.hbm.xml"/>
+    <mapping resource="placeComm/model/PcHrDtls.hbm.xml"/>
+    <mapping resource="placeComm/model/PcAlumniDtls.hbm.xml"/>
+    <mapping resource="placeComm/model/PcAppointmentDtls.hbm.xml"/>
+    <mapping resource="placeComm/model/HstAppointmentDtls.hbm.xml"/>
+    <mapping resource="placeComm/model/PcInterestInvitesDtls.hbm.xml"/>
+    <mapping resource="placeComm/model/PcStudentInterestInviteDtls.hbm.xml"/>
+    <mapping resource="common/model/CmnEducationMst.hbm.xml"/>
+    <mapping resource="admin/model/TmpUserExcelData.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

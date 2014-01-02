@@ -63,7 +63,8 @@ function addNewEducationRow()
             +'<input type="hidden" name="hdnSpecialization" id="hdnSpecialization'+Number(rowCnt)+'" value="'+document.getElementById("specialization").value+'"/>'
             +'<input type="hidden" name="hdnTitle" id="hdnTitle'+Number(rowCnt)+'" value="'+document.getElementById("title").value+'"/>'
             +'<input type="hidden" name="hdnMajor" id="hdnMajor'+Number(rowCnt)+'" value="'+document.getElementById("major").value+'"/>'
-            +'<input type="hidden" name="hdnMinorMajor" id="hdnMinorMajor'+Number(rowCnt)+'" value="'+document.getElementById("minorMajor").value+'"/>';
+            +'<input type="hidden" name="hdnMinorMajor" id="hdnMinorMajor'+Number(rowCnt)+'" value="'+document.getElementById("minorMajor").value+'"/>'
+            +'<input type="hidden" name="hdnPercentage" id="hdnPercentage'+Number(rowCnt)+'" value="'+document.getElementById("percentage").value+'"/>';
 
             newCell = newRow.insertCell(4);
             newCell.innerHTML = '<a href="#" onclick="editRow(this,'+Number(rowCnt)+');">Edit</a>/<a href="#" onclick="removeRow(this);">Delete</a>';
@@ -99,6 +100,7 @@ function editRow(row,rowCnt) {
         document.getElementById("title").value = document.getElementById("hdnTitle"+rowCnt).value;
         document.getElementById("major").value = document.getElementById("hdnMajor"+rowCnt).value;
         document.getElementById("minorMajor").value = document.getElementById("hdnMinorMajor"+rowCnt).value;
+        document.getElementById("percentage").value = document.getElementById("hdnPercentage"+rowCnt).value;
         document.getElementById("hdnRowCnt").value = rowCnt;
                              
         var rowObj=row.parentNode.parentNode.rowIndex;
@@ -145,7 +147,8 @@ function updateRowData()
             +'<input type="hidden" name="hdnSpecialization" id="hdnSpecialization'+Number(rowCnt)+'" value="'+document.getElementById("specialization").value+'"/>'
             +'<input type="hidden" name="hdnTitle" id="hdnTitle'+Number(rowCnt)+'" value="'+document.getElementById("title").value+'"/>'
             +'<input type="hidden" name="hdnMajor" id="hdnMajor'+Number(rowCnt)+'" value="'+document.getElementById("major").value+'"/>'
-            +'<input type="hidden" name="hdnMinorMajor" id="hdnMinorMajor'+Number(rowCnt)+'" value="'+document.getElementById("minorMajor").value+'"/>';
+            +'<input type="hidden" name="hdnMinorMajor" id="hdnMinorMajor'+Number(rowCnt)+'" value="'+document.getElementById("minorMajor").value+'"/>'
+            +'<input type="hidden" name="hdnPercentage" id="hdnPercentage'+Number(rowCnt)+'" value="'+document.getElementById("percentage").value+'"/>';
 
 
             document.getElementById("hdnName"+rowCnt).value = document.getElementById("name").value ;
@@ -154,6 +157,7 @@ function updateRowData()
             document.getElementById("hdnTitle"+rowCnt).value = document.getElementById("title").value;
             document.getElementById("hdnMajor"+rowCnt).value = document.getElementById("major").value ;
             document.getElementById("hdnMinorMajor"+rowCnt).value = document.getElementById("minorMajor").value ;
+            document.getElementById("hdnPercentage"+rowCnt).value = document.getElementById("percentage").value ;
             document.getElementById("hdnRowCnt").value = "";
             document.getElementById("hdnRowObj").value = "";
             document.getElementById("btnUpdate").style.display="none";
@@ -177,6 +181,9 @@ function resetFields()
     document.getElementById("title").value = "";
     document.getElementById("major").value = "";
     document.getElementById("minorMajor").value = "";
+    document.getElementById("percentage").value="";
     document.getElementById("hdnRowCnt").value = "";
+    alert("here");
+    
 }
 

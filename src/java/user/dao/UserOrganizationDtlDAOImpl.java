@@ -17,12 +17,13 @@ import user.model.UserOrganizationDtls;
  *
  * @author SACHIN PATEL
  */
-public class UserOrganizationDtlDAOImpl implements UserOrganizationDtlDAO{
+public class UserOrganizationDtlDAOImpl implements UserOrganizationDtlDAO {
 
     @Override
     public void saveUserOrganizationDtls(UserOrganizationDtls userOrganizationDtl) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = null;
         try {
+            session = HibernateUtil.getSessionFactory().openSession();
             Transaction tx = session.beginTransaction();
             System.out.println("userOrganizationDtl.getOrgDtlId....." + userOrganizationDtl.getOrgDtlId());
             if (userOrganizationDtl.getOrgDtlId() != null) {
@@ -45,11 +46,11 @@ public class UserOrganizationDtlDAOImpl implements UserOrganizationDtlDAO{
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
             Transaction tx = session.beginTransaction();
-            
+
             String lStrHqlQuery = " from UserOrganizationDtls u where u.createdUserId=" + lLngUserId;
             System.out.println("Query======" + lStrHqlQuery);
             Query query = session.createQuery(lStrHqlQuery);
-            
+
             lLstUserOrganizationDtls = query.list();
             tx.commit();
             session.close();
@@ -62,15 +63,15 @@ public class UserOrganizationDtlDAOImpl implements UserOrganizationDtlDAO{
 
     @Override
     public void deleteUserOrganizationDtls(List<UserOrganizationDtls> lLstUserOrganizationDtls) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = null;
         try {
+            session = HibernateUtil.getSessionFactory().openSession();
             Transaction tx = session.beginTransaction();
-            
-            for(UserOrganizationDtls lObjUserOrganizationDtl : lLstUserOrganizationDtls)
-            {
+
+            for (UserOrganizationDtls lObjUserOrganizationDtl : lLstUserOrganizationDtls) {
                 session.delete(lObjUserOrganizationDtl);
             }
-            
+
             tx.commit();
 
         } catch (Exception e) {
@@ -79,5 +80,4 @@ public class UserOrganizationDtlDAOImpl implements UserOrganizationDtlDAO{
             session.close();
         }
     }
-    
 }

@@ -1,5 +1,5 @@
 package user.model;
-// Generated Jul 13, 2013 10:51:48 AM by Hibernate Tools 3.2.1.GA
+// Generated Oct 6, 2013 1:31:18 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -21,6 +21,7 @@ public class UserProjectDtls  implements java.io.Serializable {
      private Date createdDate;
      private Long updatedUserId;
      private Date updatedDate;
+     private Long universityId;
 
     public UserProjectDtls() {
     }
@@ -31,7 +32,7 @@ public class UserProjectDtls  implements java.io.Serializable {
         this.createdUserId = createdUserId;
         this.createdDate = createdDate;
     }
-    public UserProjectDtls(String projName, String projRole, Date projStartDate, Date projEndDate, String projTeamMembers, String projDescription, long createdUserId, Date createdDate, Long updatedUserId, Date updatedDate) {
+    public UserProjectDtls(String projName, String projRole, Date projStartDate, Date projEndDate, String projTeamMembers, String projDescription, long createdUserId, Date createdDate, Long updatedUserId, Date updatedDate, Long universityId) {
        this.projName = projName;
        this.projRole = projRole;
        this.projStartDate = projStartDate;
@@ -42,6 +43,7 @@ public class UserProjectDtls  implements java.io.Serializable {
        this.createdDate = createdDate;
        this.updatedUserId = updatedUserId;
        this.updatedDate = updatedDate;
+       this.universityId = universityId;
     }
    
     public Long getProjDtlId() {
@@ -120,6 +122,13 @@ public class UserProjectDtls  implements java.io.Serializable {
     
     public void setUpdatedDate(Date updatedDate) {
         this.updatedDate = updatedDate;
+    }
+    public Long getUniversityId() {
+        return this.universityId;
+    }
+    
+    public void setUniversityId(Long universityId) {
+        this.universityId = universityId;
     }
 
 

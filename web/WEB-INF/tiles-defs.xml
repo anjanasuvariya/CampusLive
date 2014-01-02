@@ -37,19 +37,27 @@
     end samples -->
 
     <definition name="project-template-student-sidebar" path="/WEB-INF/jsp/Templates/layout_student_sidebar.jsp" >
-    <put name="student-sidebar" value="/WEB-INF/jsp/Templates/student-sidebar.jsp"/>    
+        <put name="student-sidebar" value="/WEB-INF/jsp/Templates/student-sidebar.jsp"/>    
     </definition>
     
     <definition name="project-template-student-header" path="/WEB-INF/jsp/Templates/layout_student_header.jsp" >
-    <put name="student-header" value="/WEB-INF/jsp/Templates/student-header.jsp"/>    
+        <put name="student-header" value="/WEB-INF/jsp/Templates/student-header.jsp"/>    
     </definition>
     
     <definition name="project-template-faculty-sidebar" path="/WEB-INF/jsp/Templates/layout_faculty_sidebar.jsp" >
-    <put name="faculty-sidebar" value="/WEB-INF/jsp/Templates/faculty-sidebar.jsp"/>    
+        <put name="faculty-sidebar" value="/WEB-INF/jsp/Templates/faculty-sidebar.jsp"/>    
     </definition>
     
     <definition name="project-template-faculty-header" path="/WEB-INF/jsp/Templates/layout_faculty_header.jsp" >
-    <put name="faculty-header" value="/WEB-INF/jsp/Templates/faculty-header.jsp"/>    
+        <put name="faculty-header" value="/WEB-INF/jsp/Templates/faculty-header.jsp"/>    
     </definition>
-
+    <definition path="/WEB-INF/jsp/PlaceComm/layoutPlaceCommHeader.jsp" name="project-template-placecomm-header">
+        <put name="placecomm-header" value="/WEB-INF/jsp/PlaceComm/placeCommHeader.jsp"/>
+    </definition>
+    <definition path="/WEB-INF/jsp/PlaceComm/layoutPlaceCommFooter.jsp" name="project-template-placecomm-footer">
+        <put name="placecomm-footer" value="/WEB-INF/jsp/PlaceComm/placeCommFooter.jsp"/>
+    </definition>
+    <definition path="/WEB-INF/jsp/PlaceComm/layoutPlaceCommStory.jsp" name="project-template-placecomm-story">
+        <put name="placecomm-story" value="/WEB-INF/jsp/PlaceComm/placeCommStory.jsp"/>
+    </definition>
 </tiles-definitions>

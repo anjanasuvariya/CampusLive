@@ -2,6 +2,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:set var="userPersonalDtl" value="${requestScope.userPersonalDtl}"/>
+<c:set var="cmnUserMst" value="${sessionScope.cmnUserMst}"/>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,7 +14,8 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+      
+    <link href="resources/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -31,8 +34,8 @@
         }
       }
     </style>
-    <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
-
+    <link href="resources/css/bootstrap-responsive.css" rel="stylesheet">
+    
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://twitter.github.io/bootstrap/assets/js/html5shiv.js"></script>
@@ -101,6 +104,7 @@
         <div class="span9">
           <div class="well sidebar-nav">
  <html:errors/>            
+      
 <form class="form-horizontal" action="saveUserPersonalDtl.do" method="post" enctype="multipart/form-data"  runat="server">
 <fieldset>
 
@@ -113,8 +117,11 @@
       <input type="hidden" id="personalDtlId" name="personalDtlId" value="${userPersonalDtl.personalDtlId}"/>
       <input type="hidden" id="createdUserId" name="createdUserId" value="${userPersonalDtl.createdUserId}"/>
       <input type="hidden" id="createdDate" name="createdDate" value="${userPersonalDtl.createdDate}"/>
-      <input id="studName" name="personName" type="text" placeholder="Student Name goes here" class="input-xlarge" value="${userPersonalDtl.personName}">
-    
+      <input type="hidden" id="universityId" name="universityId" value="${userPersonalDtl.universityId}"/>
+      <input type="text" class="input-text" Placeholder="First Name" id="userFirstName" name="userFirstName" style="width: 11%;" value="${cmnUserMst.userFirstName}" /> 
+      <input type="text" class="input-text" Placeholder="Middle Name" id="userMiddleName" name="userMiddleName" style="width: 11%;" value="${cmnUserMst.userMiddleName}"/> 
+      <input type="text" class="input-text" Placeholder="Last Name" id="userLastName" name="userLastName" style="width: 11%;" value="${cmnUserMst.userLastName}"/><br/>
+       
   </div>
 </div>
 
@@ -122,7 +129,8 @@
 <div class="control-group">
   <label class="control-label">Image</label>
   <div class="controls">
-       <input type="file" id="file" class="input-file" onchange="readImageURL(this)"/>
+      <input type="file" id="file" class="input-file" onchange="readImageURL(this)"/>
+       
        <img id="photoImage" src="#" alt="your image" height="150" width="160" style="border: #990000;border-color: red"/>
     
   </div>
@@ -188,7 +196,39 @@
 <div class="control-group">
   <label class="control-label">Current City</label>
   <div class="controls">
-      <input id="city" name="currentCity" type="text" placeholder="Where are you right now?" class="input-xlarge" value="${userPersonalDtl.currentCity}">
+      <input id="currentCity" name="currentCity" type="text" placeholder="Where are you right now?" class="input-xlarge" value="${userPersonalDtl.currentCity}">
+    
+  </div>
+</div>
+      
+ <div class="control-group">
+  <label class="control-label">Facebook Link</label>
+  <div class="controls">
+   <div class="input-prepend">
+      <span class="add-on">www.facebook.com/</span>
+      <input id="facebookLink" name="facebookLink" class="input-small"  type="text" value="${userPersonalDtl.facebookLink}">
+    </div>
+  </div>
+</div>
+      
+ <div class="control-group">
+     <label class="control-label" for="twitterLink">Twitter Link</label>
+  <div class="controls">
+    <div class="input-prepend">
+      <span class="add-on">www.twitter.com/</span>
+      <input id="twitterLink" name="twitterLink" class="input-small"  type="text" value="${userPersonalDtl.twitterLink}">
+    </div>
+    
+  </div>
+</div>
+      
+ <div class="control-group">
+  <label class="control-label">LinkedIn Link</label>
+  <div class="controls">
+    <div class="input-prepend">
+      <span class="add-on">www.LinkedIn.com/</span>
+      <input id="linkedInLink" name="linkedInLink" class="input-small"  type="text" value="${userPersonalDtl.linkedInLink}">
+    </div>
     
   </div>
 </div>

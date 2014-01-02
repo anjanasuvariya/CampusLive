@@ -17,7 +17,7 @@ public class CmnUserMst  implements java.io.Serializable {
      private String activateFlag;
      private String userFirstName;
      private String userMiddleName;
-     private String userLastname;
+     private String userLastName;
      private Date userDateOfBirth;
      private Date firstLoginDate;
      private Date pwdChangedDate;
@@ -25,7 +25,7 @@ public class CmnUserMst  implements java.io.Serializable {
      private String secretAnswer;
      private Integer invalidLoginCnt;
      private Date unlockTime;
-     private long universityId;
+     private Long universityId;
      private String userActivationCode;
      private Long createdUserId;
      private Date createdDate;
@@ -36,21 +36,21 @@ public class CmnUserMst  implements java.io.Serializable {
     }
 
 	
-    public CmnUserMst(String userName, String userPassword, String isLocked, String activateFlag, long universityId) {
+    public CmnUserMst(String userName, String userPassword, String isLocked, String activateFlag, Long universityId) {
         this.userName = userName;
         this.userPassword = userPassword;
         this.isLocked = isLocked;
         this.activateFlag = activateFlag;
         this.universityId = universityId;
     }
-    public CmnUserMst(String userName, String userPassword, String isLocked, String activateFlag, String userFirstName, String userMiddleName, String userLastname, Date userDateOfBirth, Date firstLoginDate, Date pwdChangedDate, Long secretQueCode, String secretAnswer, Integer invalidLoginCnt, Date unlockTime, long universityId, String userActivationCode, Long createdUserId, Date createdDate, Long updatedUserId, Date updatedDate) {
+    public CmnUserMst(String userName, String userPassword, String isLocked, String activateFlag, String userFirstName, String userMiddleName, String userLastName, Date userDateOfBirth, Date firstLoginDate, Date pwdChangedDate, Long secretQueCode, String secretAnswer, Integer invalidLoginCnt, Date unlockTime, Long universityId, String userActivationCode, Long createdUserId, Date createdDate, Long updatedUserId, Date updatedDate) {
        this.userName = userName;
        this.userPassword = userPassword;
        this.isLocked = isLocked;
        this.activateFlag = activateFlag;
        this.userFirstName = userFirstName;
        this.userMiddleName = userMiddleName;
-       this.userLastname = userLastname;
+       this.userLastName = userLastName;
        this.userDateOfBirth = userDateOfBirth;
        this.firstLoginDate = firstLoginDate;
        this.pwdChangedDate = pwdChangedDate;
@@ -115,13 +115,15 @@ public class CmnUserMst  implements java.io.Serializable {
     public void setUserMiddleName(String userMiddleName) {
         this.userMiddleName = userMiddleName;
     }
-    public String getUserLastname() {
-        return this.userLastname;
+
+    public String getUserLastName() {
+        return userLastName;
+    }
+
+    public void setUserLastName(String userLastName) {
+        this.userLastName = userLastName;
     }
     
-    public void setUserLastname(String userLastname) {
-        this.userLastname = userLastname;
-    }
     public Date getUserDateOfBirth() {
         return this.userDateOfBirth;
     }
@@ -171,11 +173,11 @@ public class CmnUserMst  implements java.io.Serializable {
     public void setUnlockTime(Date unlockTime) {
         this.unlockTime = unlockTime;
     }
-    public long getUniversityId() {
+    public Long getUniversityId() {
         return this.universityId;
     }
     
-    public void setUniversityId(long universityId) {
+    public void setUniversityId(Long universityId) {
         this.universityId = universityId;
     }
     public String getUserActivationCode() {

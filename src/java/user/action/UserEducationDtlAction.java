@@ -11,6 +11,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -27,6 +28,7 @@ public class UserEducationDtlAction extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
+    private static final Logger logger = Logger.getLogger(UserEducationDtlAction.class);
 
     /**
      * This is the action called from the Struts framework.
@@ -45,30 +47,27 @@ public class UserEducationDtlAction extends org.apache.struts.action.Action {
         Calendar cal = Calendar.getInstance();
         UserEducationDtlDAO lObjUserEducationDtlDAO = new UserEducationDtlDAOImpl();
         List<UserEducationDtls> lLstUserEducationDtls = new ArrayList<UserEducationDtls>();
-        try
-        {
-              HttpSession session = request.getSession();
-              CmnUserMst lObjCmnUserMst = (CmnUserMst) session.getAttribute("cmnUserMst");
-              
-              //delete existing education detail
-              lLstUserEducationDtls = lObjUserEducationDtlDAO.getUserEducationDtls(lObjCmnUserMst.getUserId());
-              if(lLstUserEducationDtls != null && !lLstUserEducationDtls.isEmpty())
-              {
-                  lObjUserEducationDtlDAO.deleteUserEducationDtls(lLstUserEducationDtls);
-              }
-               //insert education detail
-              UserEducationDtlForm userEducationDtlForm = (UserEducationDtlForm) form;
-              lLstUserEducationDtls = userEducationDtlForm.getUserEducationDtlList();
-              for(int lIntCnt=0;lIntCnt<lLstUserEducationDtls.size();lIntCnt++)
-              {
-                  UserEducationDtls lObjUserEducationDtl = lLstUserEducationDtls.get(lIntCnt);
-                  lObjUserEducationDtl.setCreatedDate(cal.getTime());
-                  lObjUserEducationDtl.setCreatedUserId(lObjCmnUserMst.getUserId());
-                  lObjUserEducationDtlDAO.saveUserEducationDtls(lObjUserEducationDtl);
-              }
-        }
-        catch(Exception e)
-        {
+        try {
+            HttpSession session = request.getSession();
+            CmnUserMst lObjCmnUserMst = (CmnUserMst) session.getAttribute("cmnUserMst");
+
+            //delete existing education detail
+            lLstUserEducationDtls = lObjUserEducationDtlDAO.getUserEducationDtls(lObjCmnUserMst.getUserId());
+            if (lLstUserEducationDtls != null && !lLstUserEducationDtls.isEmpty()) {
+                lObjUserEducationDtlDAO.deleteUserEducationDtls(lLstUserEducationDtls);
+            }
+            //insert education detail
+            UserEducationDtlForm userEducationDtlForm = (UserEducationDtlForm) form;
+            lLstUserEducationDtls = userEducationDtlForm.getUserEducationDtlList();
+            for (int lIntCnt = 0; lIntCnt < lLstUserEducationDtls.size(); lIntCnt++) {
+                UserEducationDtls lObjUserEducationDtl = lLstUserEducationDtls.get(lIntCnt);
+                lObjUserEducationDtl.setCreatedDate(cal.getTime());
+                lObjUserEducationDtl.setUniversityId(lObjCmnUserMst.getUniversityId());
+                lObjUserEducationDtl.setCreatedUserId(lObjCmnUserMst.getUserId());
+                lObjUserEducationDtlDAO.saveUserEducationDtls(lObjUserEducationDtl);
+            }
+        } catch (Exception e) {
+            logger.error("Error inserting user education detail : " + e, e);
             e.printStackTrace();
         }
         return mapping.findForward(SUCCESS);

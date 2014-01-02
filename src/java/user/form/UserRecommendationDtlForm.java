@@ -7,6 +7,7 @@ package user.form;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import org.apache.log4j.Logger;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
@@ -20,6 +21,7 @@ import user.model.UserRecommendationDtls;
  */
 public class UserRecommendationDtlForm extends org.apache.struts.action.ActionForm {
 
+    private static final Logger logger = Logger.getLogger(UserRecommendationDtlForm.class);
     List<UserRecommendationDtls> userRecommendationDtlList = new ArrayList<UserRecommendationDtls>();
 
     public List<UserRecommendationDtls> getUserRecommendationDtlList() {
@@ -70,8 +72,9 @@ public class UserRecommendationDtlForm extends org.apache.struts.action.ActionFo
                 }
                 userRecommendationDtlList.add(lObjUserRecommendationDtl);
             }
-           
+
         } catch (Exception e) {
+            logger.error("Error in user recommendation detail form : " + e, e);
             e.printStackTrace();
         }
         return errors;

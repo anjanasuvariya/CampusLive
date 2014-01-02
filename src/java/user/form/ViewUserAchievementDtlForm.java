@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
@@ -17,14 +18,14 @@ import user.dao.UserAchievementDtlDAO;
 import user.dao.UserAchievementDtlDAOImpl;
 import user.model.UserAchievementDtls;
 
-
 /**
  *
  * @author SACHIN PATEL
  */
 public class ViewUserAchievementDtlForm extends org.apache.struts.action.ActionForm {
-    
-     List<UserAchievementDtls> userAchievementDtlList = new ArrayList<UserAchievementDtls>();
+
+    private static final Logger logger = Logger.getLogger(ViewUserAchievementDtlForm.class);
+    List<UserAchievementDtls> userAchievementDtlList = new ArrayList<UserAchievementDtls>();
 
     public List<UserAchievementDtls> getUserAchievementDtlList() {
         return userAchievementDtlList;
@@ -34,7 +35,6 @@ public class ViewUserAchievementDtlForm extends org.apache.struts.action.ActionF
         this.userAchievementDtlList = userAchievementDtlList;
     }
 
-    
     /**
      *
      */
@@ -51,17 +51,15 @@ public class ViewUserAchievementDtlForm extends org.apache.struts.action.ActionF
      * @return
      */
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
-       ActionErrors errors = new ActionErrors();
-       UserAchievementDtlDAO lObjUserAchievementDtlDAO = new UserAchievementDtlDAOImpl();
-        try
-        {
-              HttpSession session = request.getSession();
-              CmnUserMst lObjCmnUserMst = (CmnUserMst) session.getAttribute("cmnUserMst");
-              userAchievementDtlList = lObjUserAchievementDtlDAO.getUserAchievementDtls(lObjCmnUserMst.getUserId());
-              request.setAttribute("userAchievementDtlList", userAchievementDtlList);
-        }     
-        catch(Exception e)
-        {
+        ActionErrors errors = new ActionErrors();
+        UserAchievementDtlDAO lObjUserAchievementDtlDAO = new UserAchievementDtlDAOImpl();
+        try {
+            HttpSession session = request.getSession();
+            CmnUserMst lObjCmnUserMst = (CmnUserMst) session.getAttribute("cmnUserMst");
+            userAchievementDtlList = lObjUserAchievementDtlDAO.getUserAchievementDtls(lObjCmnUserMst.getUserId());
+            request.setAttribute("userAchievementDtlList", userAchievementDtlList);
+        } catch (Exception e) {
+            logger.error("Error in view user achievement detail form : " + e, e);
             e.printStackTrace();
         }
         return errors;

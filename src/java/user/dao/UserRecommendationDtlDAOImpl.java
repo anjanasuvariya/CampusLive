@@ -20,8 +20,9 @@ public class UserRecommendationDtlDAOImpl implements UserRecommendationDtlDAO{
 
     @Override
     public void saveUserRecommendationDtls(UserRecommendationDtls userRecommendationDtl) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = null;
         try {
+            session = HibernateUtil.getSessionFactory().openSession();
             Transaction tx = session.beginTransaction();
             System.out.println("userRecommendationDtl.getRecmdDtlId....." + userRecommendationDtl.getRecmdDtlId());
             if (userRecommendationDtl.getRecmdDtlId() != null) {
@@ -61,8 +62,9 @@ public class UserRecommendationDtlDAOImpl implements UserRecommendationDtlDAO{
 
     @Override
     public void deleteUserRecommendationDtls(List<UserRecommendationDtls> lLstUserRecommendationDtls) throws Exception {
-       Session session = HibernateUtil.getSessionFactory().openSession();
+       Session session = null;
         try {
+            session = HibernateUtil.getSessionFactory().openSession();
             Transaction tx = session.beginTransaction();
             
             for(UserRecommendationDtls lObjUserRecommendationDtl : lLstUserRecommendationDtls)

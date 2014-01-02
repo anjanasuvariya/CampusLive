@@ -9,12 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
-import user.dao.UserAchievementDtlDAO;
-import user.dao.UserAchievementDtlDAOImpl;
 import user.model.UserAchievementDtls;
 
 /**
@@ -23,6 +22,7 @@ import user.model.UserAchievementDtls;
  */
 public class UserAchievementDtlForm extends org.apache.struts.action.ActionForm {
 
+    private static final Logger logger = Logger.getLogger(UserAchievementDtlForm.class);
     List<UserAchievementDtls> userAchievementDtlList = new ArrayList<UserAchievementDtls>();
 
     public List<UserAchievementDtls> getUserAchievementDtlList() {
@@ -82,8 +82,9 @@ public class UserAchievementDtlForm extends org.apache.struts.action.ActionForm 
             } else {
                 errors.add("achievementTitle", new ActionMessage("error.achievement.required"));
             }
-            
+
         } catch (Exception e) {
+            logger.error("Error in user achievement detail form : " + e, e);
             e.printStackTrace();
         }
         return errors;

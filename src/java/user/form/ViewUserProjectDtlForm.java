@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
@@ -22,7 +23,8 @@ import user.model.UserProjectDtls;
  * @author SACHIN PATEL
  */
 public class ViewUserProjectDtlForm extends org.apache.struts.action.ActionForm {
-    
+
+    private static final Logger logger = Logger.getLogger(ViewUserProjectDtlForm.class);
     List<UserProjectDtls> userProjectDtlList = new ArrayList<UserProjectDtls>();
 
     public List<UserProjectDtls> getUserProjectDtlList() {
@@ -32,6 +34,7 @@ public class ViewUserProjectDtlForm extends org.apache.struts.action.ActionForm 
     public void setUserProjectDtlList(List<UserProjectDtls> userProjectDtlList) {
         this.userProjectDtlList = userProjectDtlList;
     }
+
     /**
      *
      */
@@ -50,15 +53,13 @@ public class ViewUserProjectDtlForm extends org.apache.struts.action.ActionForm 
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
         UserProjectDtlDAO lObjUserProjectDtlDAO = new UserProjectDtlDAOImpl();
-        try
-        {
-              HttpSession session = request.getSession();
-              CmnUserMst lObjCmnUserMst = (CmnUserMst) session.getAttribute("cmnUserMst");
-              userProjectDtlList = lObjUserProjectDtlDAO.getUserProjectDtls(lObjCmnUserMst.getUserId());
-              request.setAttribute("userProjectDtlList", userProjectDtlList);
-        }     
-        catch(Exception e)
-        {
+        try {
+            HttpSession session = request.getSession();
+            CmnUserMst lObjCmnUserMst = (CmnUserMst) session.getAttribute("cmnUserMst");
+            userProjectDtlList = lObjUserProjectDtlDAO.getUserProjectDtls(lObjCmnUserMst.getUserId());
+            request.setAttribute("userProjectDtlList", userProjectDtlList);
+        } catch (Exception e) {
+            logger.error("Error in view user project detail form : " + e, e);
             e.printStackTrace();
         }
         return errors;

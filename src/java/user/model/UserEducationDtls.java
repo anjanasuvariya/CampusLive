@@ -1,5 +1,5 @@
 package user.model;
-// Generated Jul 11, 2013 8:28:10 PM by Hibernate Tools 3.2.1.GA
+// Generated Nov 1, 2013 8:33:32 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -23,6 +23,8 @@ public class UserEducationDtls  implements java.io.Serializable {
      private Date createdDate;
      private Long updatedUserId;
      private Date updatedDate;
+     private Long universityId;
+     private Double percentage;
 
     public UserEducationDtls() {
     }
@@ -32,7 +34,7 @@ public class UserEducationDtls  implements java.io.Serializable {
         this.createdUserId = createdUserId;
         this.createdDate = createdDate;
     }
-    public UserEducationDtls(String schoolCollegeName, String schoolCollegeCity, Long schoolCollegeFromYear, Long schoolCollegeToYear, String specialization, String graduationMasterTitle, String majorSubject, String otherMinorMajorSubject, long createdUserId, Date createdDate, Long updatedUserId, Date updatedDate) {
+    public UserEducationDtls(String schoolCollegeName, String schoolCollegeCity, Long schoolCollegeFromYear, Long schoolCollegeToYear, String specialization, String graduationMasterTitle, String majorSubject, String otherMinorMajorSubject, long createdUserId, Date createdDate, Long updatedUserId, Date updatedDate, Long universityId, Double percentage) {
        this.schoolCollegeName = schoolCollegeName;
        this.schoolCollegeCity = schoolCollegeCity;
        this.schoolCollegeFromYear = schoolCollegeFromYear;
@@ -45,6 +47,8 @@ public class UserEducationDtls  implements java.io.Serializable {
        this.createdDate = createdDate;
        this.updatedUserId = updatedUserId;
        this.updatedDate = updatedDate;
+       this.universityId = universityId;
+       this.percentage = percentage;
     }
    
     public Long getUserEducationId() {
@@ -137,6 +141,20 @@ public class UserEducationDtls  implements java.io.Serializable {
     
     public void setUpdatedDate(Date updatedDate) {
         this.updatedDate = updatedDate;
+    }
+    public Long getUniversityId() {
+        return this.universityId;
+    }
+    
+    public void setUniversityId(Long universityId) {
+        this.universityId = universityId;
+    }
+    public Double getPercentage() {
+        return this.percentage;
+    }
+    
+    public void setPercentage(Double percentage) {
+        this.percentage = percentage;
     }
 
 

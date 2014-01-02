@@ -106,13 +106,15 @@
  
      <div class="row">
          <div class="span7 offset1" >  
-<c:if test="${requestScope.fromFlag eq 'signUp'}">             
+<c:if test="${requestScope.fromFlag eq 'signUp'}"> 
     <html:errors/>        
 </c:if>
-    <form class="form-signin" action="createUser.do" id="frmSignUp">
+    <form class="form-signin" action="createUser.do" id="frmSignUp" method="post">
         <div style="border-right: 2px dotted tomato;">
         <h2 class="form-signin-heading">Not a Member yet? Sign Up Here.</h2>
-        
+         <input type="text" class="input-text" Placeholder="First Name" id="userFirstName" name="userFirstName" style="width: 15%;" /> 
+         <input type="text" class="input-text" Placeholder="Middle Name" id="userMiddleName" name="userMiddleName" style="width: 15%;" /> 
+         <input type="text" class="input-text" Placeholder="Last Name" id="userLastName" name="userLastName" style="width: 15%;"/><br/>
         <input type="text" class="input-text" Placeholder="Username" id="userName" name="userName" /><br/>
         <input type="password" class="input-password" Placeholder="Password" name="userPassword" id="userPassword" /><br/>
         <input type="password" class="input-password" Placeholder="Activation Code" name="userActivationCode" id ="userActivationCode"/>
@@ -121,19 +123,19 @@
   <label class="control-label">Category :</label>
   <div class="controls">
     <label class="radio inline">
-      <input type="radio" name="userType" value="Student" checked="checked"/>
+      <input type="radio" name="userType" value="S" checked="checked"/>
       Student
     </label>
     <label class="radio inline">
-      <input type="radio" name="userType" value="Faculty"/>
+      <input type="radio" name="userType" value="F"/>
       Faculty
     </label>
     <label class="radio inline">
-      <input type="radio" name="userType" value="HR Manager"/>
+      <input type="radio" name="userType" value="H"/>
       HR Manager
     </label>
     <label class="radio inline">
-      <input type="radio" name="userType" value="Alumni"/>
+      <input type="radio" name="userType" value="A"/>
       Alumni
     </label>
   </div>
@@ -156,7 +158,7 @@
     <html:errors/>        
 </c:if>  
                  
-       <form class="form-signin" action="login.do" name="frmSignIn">
+       <form class="form-signin" action="login.do" name="frmSignIn" method="post">
           
         <h2 class="form-signin-heading">Sign In</h2>
  

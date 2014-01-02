@@ -1,5 +1,5 @@
 package user.model;
-// Generated Jul 11, 2013 8:28:10 PM by Hibernate Tools 3.2.1.GA
+// Generated Nov 8, 2013 11:52:39 PM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -11,7 +11,6 @@ public class UserPersonalDtls  implements java.io.Serializable {
 
 
      private Long personalDtlId;
-     private String personName;
      private String personPhoto;
      private Date dateOfBirth;
      private String gender;
@@ -23,19 +22,37 @@ public class UserPersonalDtls  implements java.io.Serializable {
      private Date createdDate;
      private Long updatedUserId;
      private Date updatedDate;
+     private Long universityId;
+     private String facebookLink;
+     private String twitterLink;
+     private String linkedInLink;
 
+     //For Display Purpose
+     private Long userId;
+     private String userFirstName;
+     private String userMiddleName;
+     private String userLastName;
+     
     public UserPersonalDtls() {
     }
 
-	
-    public UserPersonalDtls(String personName, String gender, long createdUserId, Date createdDate) {
-        this.personName = personName;
+    public UserPersonalDtls(String gender, long createdUserId, Date createdDate) {
         this.gender = gender;
         this.createdUserId = createdUserId;
         this.createdDate = createdDate;
     }
-    public UserPersonalDtls(String personName, String personPhoto, Date dateOfBirth, String gender, String primaryLangauge, String secondaryLanguage, String interests, String currentCity, long createdUserId, Date createdDate, Long updatedUserId, Date updatedDate) {
-       this.personName = personName;
+	
+    public UserPersonalDtls(Long userId,String userFirstName,String userMiddleName,String userLastName,String gender, String facebookLink, String twitterLink, String linkedInLink) {
+        this.userId = userId;
+        this.userFirstName = userFirstName;
+        this.userMiddleName = userMiddleName;
+        this.userLastName = userLastName;
+        this.gender = gender;
+        this.facebookLink = facebookLink;
+        this.twitterLink = twitterLink;
+        this.linkedInLink = linkedInLink;
+    }
+    public UserPersonalDtls(String personPhoto, Date dateOfBirth, String gender, String primaryLangauge, String secondaryLanguage, String interests, String currentCity, long createdUserId, Date createdDate, Long updatedUserId, Date updatedDate, Long universityId, String facebookLink, String twitterLink, String linkedInLink) {
        this.personPhoto = personPhoto;
        this.dateOfBirth = dateOfBirth;
        this.gender = gender;
@@ -47,6 +64,10 @@ public class UserPersonalDtls  implements java.io.Serializable {
        this.createdDate = createdDate;
        this.updatedUserId = updatedUserId;
        this.updatedDate = updatedDate;
+       this.universityId = universityId;
+       this.facebookLink = facebookLink;
+       this.twitterLink = twitterLink;
+       this.linkedInLink = linkedInLink;
     }
    
     public Long getPersonalDtlId() {
@@ -55,13 +76,6 @@ public class UserPersonalDtls  implements java.io.Serializable {
     
     public void setPersonalDtlId(Long personalDtlId) {
         this.personalDtlId = personalDtlId;
-    }
-    public String getPersonName() {
-        return this.personName;
-    }
-    
-    public void setPersonName(String personName) {
-        this.personName = personName;
     }
     public String getPersonPhoto() {
         return this.personPhoto;
@@ -140,9 +154,66 @@ public class UserPersonalDtls  implements java.io.Serializable {
     public void setUpdatedDate(Date updatedDate) {
         this.updatedDate = updatedDate;
     }
+    public Long getUniversityId() {
+        return this.universityId;
+    }
+    
+    public void setUniversityId(Long universityId) {
+        this.universityId = universityId;
+    }
+    public String getFacebookLink() {
+        return this.facebookLink;
+    }
+    
+    public void setFacebookLink(String facebookLink) {
+        this.facebookLink = facebookLink;
+    }
+    public String getTwitterLink() {
+        return this.twitterLink;
+    }
+    
+    public void setTwitterLink(String twitterLink) {
+        this.twitterLink = twitterLink;
+    }
+    public String getLinkedInLink() {
+        return this.linkedInLink;
+    }
+    
+    public void setLinkedInLink(String linkedInLink) {
+        this.linkedInLink = linkedInLink;
+    }
 
+    public Long getUserId() {
+        return userId;
+    }
 
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
+    public String getUserFirstName() {
+        return userFirstName;
+    }
+
+    public void setUserFirstName(String userFirstName) {
+        this.userFirstName = userFirstName;
+    }
+
+    public String getUserMiddleName() {
+        return userMiddleName;
+    }
+
+    public void setUserMiddleName(String userMiddleName) {
+        this.userMiddleName = userMiddleName;
+    }
+
+    public String getUserLastName() {
+        return userLastName;
+    }
+
+    public void setUserLastName(String userLastName) {
+        this.userLastName = userLastName;
+    }
 
 }
 

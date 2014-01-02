@@ -105,6 +105,7 @@
     <input type="hidden" id="userContactId" name="userContactId" value="${userContactDtl.userContactId}"/>
     <input type="hidden" id="createdUserId" name="createdUserId" value="${userContactDtl.createdUserId}"/>
     <input type="hidden" id="createdDate" name="createdDate" value="${userContactDtl.createdDate}"/>
+    <input type="hidden" id="universityId" name="universityId" value="${userContactDtl.universityId}"/>
 <!-- Form Name -->
 
 <!-- Text input-->

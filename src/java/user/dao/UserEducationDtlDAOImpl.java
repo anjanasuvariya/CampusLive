@@ -21,8 +21,9 @@ public class UserEducationDtlDAOImpl implements UserEducationDtlDAO{
 
     @Override
     public void saveUserEducationDtls(UserEducationDtls userEducationDtl) throws Exception {
-       Session session = HibernateUtil.getSessionFactory().openSession();
+       Session session = null;
         try {
+            session = HibernateUtil.getSessionFactory().openSession();
             Transaction tx = session.beginTransaction();
             System.out.println("userEducationDtl.getUserEducationId....." + userEducationDtl.getUserEducationId());
             if (userEducationDtl.getUserEducationId() != null) {
@@ -61,8 +62,9 @@ public class UserEducationDtlDAOImpl implements UserEducationDtlDAO{
     }
     
     public void deleteUserEducationDtls(List<UserEducationDtls> lLstUserEducationDtls) throws Exception {
-       Session session = HibernateUtil.getSessionFactory().openSession();
+       Session session = null;
         try {
+            session = HibernateUtil.getSessionFactory().openSession();
             Transaction tx = session.beginTransaction();
             
             for(UserEducationDtls lObjUserEducationDtl : lLstUserEducationDtls)

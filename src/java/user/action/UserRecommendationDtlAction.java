@@ -11,16 +11,13 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import user.dao.UserProjectDtlDAO;
-import user.dao.UserProjectDtlDAOImpl;
 import user.dao.UserRecommendationDtlDAO;
 import user.dao.UserRecommendationDtlDAOImpl;
-import user.form.UserProjectDtlForm;
 import user.form.UserRecommendationDtlForm;
-import user.model.UserProjectDtls;
 import user.model.UserRecommendationDtls;
 
 /**
@@ -31,7 +28,7 @@ public class UserRecommendationDtlAction extends org.apache.struts.action.Action
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
-
+private static final Logger logger = Logger.getLogger(UserRecommendationDtlAction.class);
     /**
      * This is the action called from the Struts framework.
      *
@@ -67,6 +64,7 @@ public class UserRecommendationDtlAction extends org.apache.struts.action.Action
               for(int lIntCnt=0;lIntCnt<lLstUserRecommendationDtls.size();lIntCnt++)
               {
                   UserRecommendationDtls lObjUserRecommendationDtl = lLstUserRecommendationDtls.get(lIntCnt);
+                  lObjUserRecommendationDtl.setUniversityId(lObjCmnUserMst.getUniversityId());
                   lObjUserRecommendationDtl.setCreatedDate(cal.getTime());
                   lObjUserRecommendationDtl.setCreatedUserId(lObjCmnUserMst.getUserId());
                   lObjUserRecommendationDtlDAO.saveUserRecommendationDtls(lObjUserRecommendationDtl);
@@ -74,6 +72,7 @@ public class UserRecommendationDtlAction extends org.apache.struts.action.Action
         }
         catch(Exception e)
         {
+            logger.error("Error inserting user recommendation detail : " + e, e);
             e.printStackTrace();
         }
         return mapping.findForward(SUCCESS);

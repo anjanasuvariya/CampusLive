@@ -7,6 +7,7 @@ package user.form;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import org.apache.log4j.Logger;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
@@ -19,6 +20,7 @@ import user.model.UserOrganizationDtls;
  */
 public class UserOrganizationDtlForm extends org.apache.struts.action.ActionForm {
 
+    private static final Logger logger = Logger.getLogger(UserOrganizationDtlForm.class);
     List<UserOrganizationDtls> userOrganizationDtlList = new ArrayList<UserOrganizationDtls>();
 
     public List<UserOrganizationDtls> getUserOrganizationDtlList() {
@@ -53,6 +55,7 @@ public class UserOrganizationDtlForm extends org.apache.struts.action.ActionForm
             String[] lStrOrgStartYear = request.getParameterValues("hdnOrgStartYear");
             String[] lStrOrgEndMonth = request.getParameterValues("hdnOrgEndMonth");
             String[] lStrOrgEndYear = request.getParameterValues("hdnOrgEndYear");
+            String[] lStrOrgWorkExArea = request.getParameterValues("hdnOrgWorkExArea");
             String[] lStrOrgLocation = request.getParameterValues("hdnOrgLocation");
             String[] lStrOrgDescription = request.getParameterValues("hdnOrgDesc");
 
@@ -77,6 +80,9 @@ public class UserOrganizationDtlForm extends org.apache.struts.action.ActionForm
                 if (lStrOrgEndYear[lIntCnt] != null && !"".equals(lStrOrgEndYear[lIntCnt])) {
                     lObjUserOrganizationDtl.setOrgEndYear(Integer.parseInt(lStrOrgEndYear[lIntCnt]));
                 }
+                if (lStrOrgWorkExArea[lIntCnt] != null && !"".equals(lStrOrgWorkExArea[lIntCnt])) {
+                    lObjUserOrganizationDtl.setOrgWorkExArea(lStrOrgWorkExArea[lIntCnt]);
+                }
                 if (lStrOrgLocation[lIntCnt] != null && !"".equals(lStrOrgLocation[lIntCnt])) {
                     lObjUserOrganizationDtl.setOrgLocation(lStrOrgLocation[lIntCnt]);
                 }
@@ -87,6 +93,7 @@ public class UserOrganizationDtlForm extends org.apache.struts.action.ActionForm
             }
 
         } catch (Exception e) {
+            logger.error("Error in user organization detail form : " + e, e);
             e.printStackTrace();
         }
         return errors;

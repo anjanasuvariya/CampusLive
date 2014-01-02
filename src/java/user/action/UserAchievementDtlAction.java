@@ -11,14 +11,15 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+
 import user.dao.UserAchievementDtlDAO;
 import user.dao.UserAchievementDtlDAOImpl;
 import user.form.UserAchievementDtlForm;
 import user.model.UserAchievementDtls;
-
 
 /**
  *
@@ -28,6 +29,7 @@ public class UserAchievementDtlAction extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
+    private static final Logger logger = Logger.getLogger(UserAchievementDtlAction.class);
 
     /**
      * This is the action called from the Struts framework.
@@ -59,11 +61,13 @@ public class UserAchievementDtlAction extends org.apache.struts.action.Action {
             lLstUserAchievementDtls = userAchievementDtlForm.getUserAchievementDtlList();
             for (int lIntCnt = 0; lIntCnt < lLstUserAchievementDtls.size(); lIntCnt++) {
                 UserAchievementDtls lObjUserAchievementDtl = lLstUserAchievementDtls.get(lIntCnt);
+                lObjUserAchievementDtl.setUniversityId(lObjCmnUserMst.getUniversityId());
                 lObjUserAchievementDtl.setCreatedDate(cal.getTime());
                 lObjUserAchievementDtl.setCreatedUserId(lObjCmnUserMst.getUserId());
                 lObjUserAchievementDtlDAO.saveUserAchievementDtls(lObjUserAchievementDtl);
             }
         } catch (Exception e) {
+            logger.error("Error inserting user achievement detail : " + e, e);
             e.printStackTrace();
         }
         return mapping.findForward(SUCCESS);

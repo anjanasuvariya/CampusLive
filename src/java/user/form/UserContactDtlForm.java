@@ -29,6 +29,7 @@ public class UserContactDtlForm extends org.apache.struts.action.ActionForm {
      private String currentAddress;
      private Long createdUserId;
      private String createdDate;
+     private Long universityId;
 
     public Long getUserContactId() {
         return userContactId;
@@ -124,6 +125,14 @@ public class UserContactDtlForm extends org.apache.struts.action.ActionForm {
 
     public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public Long getUniversityId() {
+        return universityId;
+    }
+
+    public void setUniversityId(Long universityId) {
+        this.universityId = universityId;
     }
 
     

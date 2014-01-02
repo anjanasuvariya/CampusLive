@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
@@ -25,8 +26,9 @@ import user.model.UserPersonalDtls;
  * @author SACHIN PATEL
  */
 public class ViewUserPersonalDtlForm extends org.apache.struts.action.ActionForm {
-    
-    
+
+    private static final Logger logger = Logger.getLogger(ViewUserPersonalDtlForm.class);
+
     /**
      *
      */
@@ -51,9 +53,10 @@ public class ViewUserPersonalDtlForm extends org.apache.struts.action.ActionForm
             CmnUserMst lObjCmnUserMst = (CmnUserMst) session.getAttribute("cmnUserMst");
 
             lObjUserPersonalDtl = lObjUserPersonalDtlDAO.getUserPersonalDtl(lObjCmnUserMst.getUserId());
-           
+
             request.setAttribute("userPersonalDtl", lObjUserPersonalDtl);
         } catch (Exception e) {
+            logger.error("Error in view user personal detail form : " + e, e);
             e.printStackTrace();
         }
         return errors;

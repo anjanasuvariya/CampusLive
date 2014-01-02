@@ -1,5 +1,5 @@
 package user.model;
-// Generated Jul 11, 2013 8:28:10 PM by Hibernate Tools 3.2.1.GA
+// Generated Oct 3, 2013 8:55:48 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -24,11 +24,12 @@ public class UserContactDtls  implements java.io.Serializable {
      private Date createdDate;
      private Long updatedUserId;
      private Date updatedDate;
+     private Long universityId;
 
     public UserContactDtls() {
     }
 
-    public UserContactDtls(String mobileNo, String homeContactNo, String workPhoneNo, String universityWebmailId, String personalEmailId, String website, String blog, String permanentAddress, String currentAddress, Long createdUserId, Date createdDate, Long updatedUserId, Date updatedDate) {
+    public UserContactDtls(String mobileNo, String homeContactNo, String workPhoneNo, String universityWebmailId, String personalEmailId, String website, String blog, String permanentAddress, String currentAddress, Long createdUserId, Date createdDate, Long updatedUserId, Date updatedDate, Long universityId) {
        this.mobileNo = mobileNo;
        this.homeContactNo = homeContactNo;
        this.workPhoneNo = workPhoneNo;
@@ -42,6 +43,7 @@ public class UserContactDtls  implements java.io.Serializable {
        this.createdDate = createdDate;
        this.updatedUserId = updatedUserId;
        this.updatedDate = updatedDate;
+       this.universityId = universityId;
     }
    
     public Long getUserContactId() {
@@ -141,6 +143,13 @@ public class UserContactDtls  implements java.io.Serializable {
     
     public void setUpdatedDate(Date updatedDate) {
         this.updatedDate = updatedDate;
+    }
+    public Long getUniversityId() {
+        return this.universityId;
+    }
+    
+    public void setUniversityId(Long universityId) {
+        this.universityId = universityId;
     }
 
 

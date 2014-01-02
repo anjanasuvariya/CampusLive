@@ -1,5 +1,5 @@
 package user.model;
-// Generated Jul 12, 2013 11:27:50 PM by Hibernate Tools 3.2.1.GA
+// Generated Nov 9, 2013 12:35:26 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -23,6 +23,8 @@ public class UserOrganizationDtls  implements java.io.Serializable {
      private Date createdDate;
      private Long updatedUserId;
      private Date updatedDate;
+     private Long universityId;
+     private String orgWorkExArea;
 
     public UserOrganizationDtls() {
     }
@@ -33,7 +35,7 @@ public class UserOrganizationDtls  implements java.io.Serializable {
         this.createdUserId = createdUserId;
         this.createdDate = createdDate;
     }
-    public UserOrganizationDtls(String orgName, String orgTitle, Integer orgStartMonth, Integer orgStartYear, Integer orgEndMonth, Integer orgEndYear, String orgLocation, String orgDescription, long createdUserId, Date createdDate, Long updatedUserId, Date updatedDate) {
+    public UserOrganizationDtls(String orgName, String orgTitle, Integer orgStartMonth, Integer orgStartYear, Integer orgEndMonth, Integer orgEndYear, String orgLocation, String orgDescription, long createdUserId, Date createdDate, Long updatedUserId, Date updatedDate, Long universityId, String orgWorkExArea) {
        this.orgName = orgName;
        this.orgTitle = orgTitle;
        this.orgStartMonth = orgStartMonth;
@@ -46,6 +48,8 @@ public class UserOrganizationDtls  implements java.io.Serializable {
        this.createdDate = createdDate;
        this.updatedUserId = updatedUserId;
        this.updatedDate = updatedDate;
+       this.universityId = universityId;
+       this.orgWorkExArea = orgWorkExArea;
     }
    
     public Long getOrgDtlId() {
@@ -138,6 +142,20 @@ public class UserOrganizationDtls  implements java.io.Serializable {
     
     public void setUpdatedDate(Date updatedDate) {
         this.updatedDate = updatedDate;
+    }
+    public Long getUniversityId() {
+        return this.universityId;
+    }
+    
+    public void setUniversityId(Long universityId) {
+        this.universityId = universityId;
+    }
+    public String getOrgWorkExArea() {
+        return this.orgWorkExArea;
+    }
+    
+    public void setOrgWorkExArea(String orgWorkExArea) {
+        this.orgWorkExArea = orgWorkExArea;
     }
 
 

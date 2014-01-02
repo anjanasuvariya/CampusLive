@@ -207,6 +207,21 @@ alert("Welcome " + name + ", the " + job);
 </div>
 </td>
             </tr>
+
+<tr>
+
+<td>
+ <div class="control-group">
+  <label class="control-label">WorkEx Area</label>
+  <div class="controls"> 
+      <input id="orgWorkExArea" name="orgWorkExArea" type="text" placeholder="Work Experience area" class="input-xlarge" >
+    
+  </div>
+</div>
+</td>
+<td>
+</td>    
+            </tr>
             <tr>
 <!-- Textarea -->
 <td>
@@ -216,7 +231,10 @@ alert("Welcome " + name + ", the " + job);
         <input id="orgLocation" name="orgLocation" type="text" placeholder="City where you worked" class="input-xlarge" >
   </div>
 </div>
-</td><td></td>    
+</td>
+<td>
+ 
+</td>    
             </tr>
             <tr>
 <!-- Textarea -->
@@ -263,6 +281,7 @@ alert("Welcome " + name + ", the " + job);
             <input type="hidden" name="hdnOrgEndYear" id="hdnOrgEndYear${rowCnt.count}" value="${userOrganizationDtl.orgEndYear}"/>
         </td>
         <td width="10%">${userOrganizationDtl.orgLocation}
+            <input type="hidden" name="hdnOrgWorkExArea" id="hdnOrgWorkExArea${rowCnt.count}" value="${userOrganizationDtl.orgWorkExArea}"/>
             <input type="hidden" name="hdnOrgLocation" id="hdnOrgLocation${rowCnt.count}" value="${userOrganizationDtl.orgLocation}"/>
             <input type="hidden" name="hdnOrgDesc" id="hdnOrgDesc${rowCnt.count}" value="${userOrganizationDtl.orgDescription}"/>
         </td>

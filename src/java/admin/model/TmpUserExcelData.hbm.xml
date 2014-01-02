@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 30, 2013 9:10:23 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="admin.model.TmpUserExcelData" table="tmp_user_excel_data" catalog="placecom">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="rollNo" type="string">
+            <column name="roll_no" length="25" not-null="true" />
+        </property>
+        <property name="userFullName" type="string">
+            <column name="user_full_name" length="120" />
+        </property>
+        <property name="emailId" type="string">
+            <column name="email_id" length="100" not-null="true" />
+        </property>
+        <property name="userType" type="string">
+            <column name="user_type" length="1" not-null="true" />
+        </property>
+        <property name="activationCode" type="string">
+            <column name="activation_code" length="15" not-null="true" />
+        </property>
+        <property name="universityId" type="long">
+            <column name="UNIVERSITY_ID" not-null="true" />
+        </property>
+        <property name="createdUserId" type="long">
+            <column name="CREATED_USER_ID" not-null="true" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CREATED_DATE" length="19" not-null="true" />
+        </property>
+        <property name="userId" type="java.lang.Long">
+            <column name="user_id" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -5,13 +5,16 @@
 package user.form;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Part;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
@@ -25,7 +28,9 @@ import org.apache.struts.upload.FormFile;
 public class UserPersonalDtlForm extends org.apache.struts.action.ActionForm {
 
     private Long personalDtlId;
-    private String personName;
+    private String userFirstName;
+    private String userMiddleName;
+    private String userLastName;
     private File file;//The actual file  
     private String userPhotoContentType; //The content type of the file
     private String userPhotoFileName; //The uploaded file name
@@ -38,6 +43,10 @@ public class UserPersonalDtlForm extends org.apache.struts.action.ActionForm {
     private String currentCity;
     private Long createdUserId;
     private String createdDate;
+    private Long universityId;
+    private String facebookLink;
+    private String twitterLink;
+    private String linkedInLink;
 
     public Long getPersonalDtlId() {
         return personalDtlId;
@@ -54,9 +63,7 @@ public class UserPersonalDtlForm extends org.apache.struts.action.ActionForm {
     public void setFile(File file) {
         this.file = file;
     }
-        
 
-    
     public String getUserPhotoContentType() {
         return userPhotoContentType;
     }
@@ -73,12 +80,28 @@ public class UserPersonalDtlForm extends org.apache.struts.action.ActionForm {
         this.userPhotoFileName = userPhotoFileName;
     }
 
-    public String getPersonName() {
-        return personName;
+    public String getUserFirstName() {
+        return userFirstName;
     }
 
-    public void setPersonName(String personName) {
-        this.personName = personName;
+    public void setUserFirstName(String userFirstName) {
+        this.userFirstName = userFirstName;
+    }
+
+    public String getUserMiddleName() {
+        return userMiddleName;
+    }
+
+    public void setUserMiddleName(String userMiddleName) {
+        this.userMiddleName = userMiddleName;
+    }
+
+    public String getUserLastName() {
+        return userLastName;
+    }
+
+    public void setUserLastName(String userLastName) {
+        this.userLastName = userLastName;
     }
 
     public String getDateOfBirth() {
@@ -153,6 +176,40 @@ public class UserPersonalDtlForm extends org.apache.struts.action.ActionForm {
         this.createdDate = createdDate;
     }
 
+    public Long getUniversityId() {
+        return universityId;
+    }
+
+    public void setUniversityId(Long universityId) {
+        this.universityId = universityId;
+    }
+
+    public String getFacebookLink() {
+        return facebookLink;
+    }
+
+    public void setFacebookLink(String facebookLink) {
+        this.facebookLink = facebookLink;
+    }
+
+    public String getTwitterLink() {
+        return twitterLink;
+    }
+
+    public void setTwitterLink(String twitterLink) {
+        this.twitterLink = twitterLink;
+    }
+
+    public String getLinkedInLink() {
+        return linkedInLink;
+    }
+
+    public void setLinkedInLink(String linkedInLink) {
+        this.linkedInLink = linkedInLink;
+    }
+
+    
+    
     /**
      *
      */
@@ -170,14 +227,14 @@ public class UserPersonalDtlForm extends org.apache.struts.action.ActionForm {
      */
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors actionErrors = new ActionErrors();
-        
-        if (getPersonName() == null || getPersonName().length() < 1) {
+
+        if (userFirstName == null || userFirstName.length() < 1) {
 
             actionErrors.add("personName", new ActionMessage("error.personName"));
             // TODO: add 'error.name.required' key to your resources
         }
-        
-        System.out.println("personPhoto......."+getFile());
+
+
 //        if (getDateOfBirth() != null || getDateOfBirth().length() < 1) {
 //            actionErrors.add("dateOfBirth", new ActionMessage("error.dateOfBirth"));
 //

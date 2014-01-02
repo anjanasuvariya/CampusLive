@@ -4,17 +4,18 @@
  */
 package common.form;
 
+
 import common.dao.LoginDAO;
 import common.dao.LoginDAOImpl;
 import common.model.CmnUserMst;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -22,6 +23,7 @@ import org.apache.struts.action.ActionMessage;
  */
 public class LoginForm extends org.apache.struts.action.ActionForm {
 
+    private static final Logger logger = Logger.getLogger(LoginForm.class);
     private String userName;
     private String userPassword;
     List<CmnUserMst> cmnUserMstList;
@@ -67,28 +69,30 @@ public class LoginForm extends org.apache.struts.action.ActionForm {
      */
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors actionErrors = new ActionErrors();
-        LoginDAO lObjLoginDAO = new LoginDAOImpl();
-        if (getUserName() == null || getUserName().length() < 1) {
+        try {
+            LoginDAO lObjLoginDAO = new LoginDAOImpl();
+            if (getUserName() == null || getUserName().length() < 1) {
 
-            actionErrors.add("userName", new ActionMessage("error.userName"));
-            // TODO: add 'error.name.required' key to your resources
-        }
-        if (getUserPassword() == null || getUserPassword().length() < 1) {
-            actionErrors.add("userPassword", new ActionMessage("error.userPassword"));
-            // TODO: add 'error.name.required' key to your resources
-        }
-        if (getUserName() != null && getUserName().length() >= 1 && getUserPassword() != null && getUserPassword().length() >= 1) {
-            try {
+                actionErrors.add("userName", new ActionMessage("error.userName"));
+                // TODO: add 'error.name.required' key to your resources
+            }
+            if (getUserPassword() == null || getUserPassword().length() < 1) {
+                actionErrors.add("userPassword", new ActionMessage("error.userPassword"));
+                // TODO: add 'error.name.required' key to your resources
+            }
+            if (getUserName() != null && getUserName().length() >= 1 && getUserPassword() != null && getUserPassword().length() >= 1) {
+
                 cmnUserMstList = lObjLoginDAO.getUserDtlFromUserNameAndPassword(getUserName().toUpperCase(), getUserPassword());
                 if (cmnUserMstList.isEmpty()) {
-                     actionErrors.add("userPassword", new ActionMessage("error.loginFail"));
+                    actionErrors.add("userPassword", new ActionMessage("error.loginFail"));
                 }
-            } catch (Exception ex) {
-                Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
-                ex.printStackTrace();
+
             }
+            request.setAttribute("fromFlag", "signIn");
+        } catch (Exception ex) {
+            logger.error("Error while validating login data : " + ex, ex);
+            ex.printStackTrace();
         }
-          request.setAttribute("fromFlag", "signIn");
         return actionErrors;
     }
 }

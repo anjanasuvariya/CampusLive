@@ -11,6 +11,7 @@ import java.util.Calendar;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
@@ -23,6 +24,7 @@ import user.model.UserProjectDtls;
  */
 public class UserProjectDtlForm extends org.apache.struts.action.ActionForm {
 
+    private static final Logger logger = Logger.getLogger(UserProjectDtlForm.class);
     List<UserProjectDtls> userProjectDtlList = new ArrayList<UserProjectDtls>();
 
     public List<UserProjectDtls> getUserProjectDtlList() {
@@ -82,8 +84,9 @@ public class UserProjectDtlForm extends org.apache.struts.action.ActionForm {
                 }
                 userProjectDtlList.add(lObjUserProjectDtl);
             }
-            
+
         } catch (Exception e) {
+            logger.error("Error in user project detail form : " + e, e);
             e.printStackTrace();
         }
         return errors;

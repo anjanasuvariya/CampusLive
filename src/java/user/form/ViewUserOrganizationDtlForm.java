@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
@@ -22,7 +23,8 @@ import user.model.UserOrganizationDtls;
  * @author SACHIN PATEL
  */
 public class ViewUserOrganizationDtlForm extends org.apache.struts.action.ActionForm {
-    
+
+    private static final Logger logger = Logger.getLogger(ViewUserOrganizationDtlForm.class);
     List<UserOrganizationDtls> userOrganizationDtlList = new ArrayList<UserOrganizationDtls>();
 
     public List<UserOrganizationDtls> getUserOrganizationDtlList() {
@@ -51,15 +53,13 @@ public class ViewUserOrganizationDtlForm extends org.apache.struts.action.Action
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
         UserOrganizationDtlDAO lObjUserOrganizationDtlDAO = new UserOrganizationDtlDAOImpl();
-        try
-        {
-              HttpSession session = request.getSession();
-              CmnUserMst lObjCmnUserMst = (CmnUserMst) session.getAttribute("cmnUserMst");
-              userOrganizationDtlList = lObjUserOrganizationDtlDAO.getUserOrganizationDtls(lObjCmnUserMst.getUserId());
-              request.setAttribute("userOrganizationDtlList", userOrganizationDtlList);
-        }     
-        catch(Exception e)
-        {
+        try {
+            HttpSession session = request.getSession();
+            CmnUserMst lObjCmnUserMst = (CmnUserMst) session.getAttribute("cmnUserMst");
+            userOrganizationDtlList = lObjUserOrganizationDtlDAO.getUserOrganizationDtls(lObjCmnUserMst.getUserId());
+            request.setAttribute("userOrganizationDtlList", userOrganizationDtlList);
+        } catch (Exception e) {
+            logger.error("Error in view user organization detail form : " + e, e);
             e.printStackTrace();
         }
         return errors;

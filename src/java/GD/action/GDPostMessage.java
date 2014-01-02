@@ -7,6 +7,7 @@ package GD.action;
 import GD.form.GDActionForm;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -19,7 +20,7 @@ public class GDPostMessage extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
-
+    private static final Logger logger = Logger.getLogger(GDPostMessage.class);
     /**
      * This is the action called from the Struts framework.
      *
@@ -34,13 +35,18 @@ public class GDPostMessage extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        System.out.println("Inside execute method of GDPostMessage Class...Now posting the message...");
+        try{
+        logger.info("Inside execute method of GDPostMessage Class...Now posting the message...");
         
         
         ActionForm gdActionForm = (GDActionForm) request.getAttribute("GDActionForm");
         
-        System.out.println("Value Received is:"+ request.getParameter("textarea"));
-        
+        logger.info("Value Received is:"+ request.getParameter("textarea"));
+        }
+        catch(Exception e)
+        {
+            logger.error("Error in execute method : " + e, e);
+        }
         return mapping.findForward(SUCCESS);
     }
 }

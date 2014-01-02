@@ -10,6 +10,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -25,6 +26,7 @@ public class ViewUserContactDtlAction extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
+    private static final Logger logger = Logger.getLogger(ViewUserContactDtlAction.class);
 
     /**
      * This is the action called from the Struts framework.
@@ -54,6 +56,7 @@ public class ViewUserContactDtlAction extends org.apache.struts.action.Action {
             }
             request.setAttribute("userContactDtl", lObjUserContactDtls);
         } catch (Exception e) {
+            logger.error("Error view user contact detail : " + e, e);
             e.printStackTrace();
         }
         return mapping.findForward(SUCCESS);

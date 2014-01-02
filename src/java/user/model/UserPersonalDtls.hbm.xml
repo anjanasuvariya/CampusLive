@@ -1,16 +1,13 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Jul 11, 2013 8:28:10 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Nov 8, 2013 11:52:46 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="user.model.UserPersonalDtls" table="user_personal_dtls" catalog="placecom">
         <id name="personalDtlId" type="java.lang.Long">
             <column name="PERSONAL_DTL_ID" />
             <generator class="identity" />
         </id>
-        <property name="personName" type="string">
-            <column name="PERSON_NAME" length="300" not-null="true" />
-        </property>
         <property name="personPhoto" type="string">
             <column name="PERSON_PHOTO" length="500" />
         </property>
@@ -43,6 +40,18 @@
         </property>
         <property name="updatedDate" type="timestamp">
             <column name="UPDATED_DATE" length="19" />
+        </property>
+        <property name="universityId" type="java.lang.Long">
+            <column name="UNIVERSITY_ID" />
+        </property>
+        <property name="facebookLink" type="string">
+            <column name="facebook_link" length="150" />
+        </property>
+        <property name="twitterLink" type="string">
+            <column name="twitter_link" length="150" />
+        </property>
+        <property name="linkedInLink" type="string">
+            <column name="linkedIn_link" length="150" />
         </property>
     </class>
 </hibernate-mapping>

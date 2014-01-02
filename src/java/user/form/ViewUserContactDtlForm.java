@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
@@ -22,8 +23,9 @@ import user.model.UserContactDtls;
  * @author SACHIN PATEL
  */
 public class ViewUserContactDtlForm extends org.apache.struts.action.ActionForm {
-    
-   
+
+    private static final Logger logger = Logger.getLogger(ViewUserContactDtlForm.class);
+
     public ViewUserContactDtlForm() {
         super();
         // TODO Auto-generated constructor stub
@@ -52,6 +54,7 @@ public class ViewUserContactDtlForm extends org.apache.struts.action.ActionForm 
             }
             request.setAttribute("userContactDtl", lObjUserContactDtls);
         } catch (Exception e) {
+            logger.error("Error in view user contact detail form : " + e, e);
             e.printStackTrace();
         }
         return errors;

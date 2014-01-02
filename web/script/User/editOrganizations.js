@@ -103,6 +103,7 @@ function addNewOrganizationRow()
         
             newCell = newRow.insertCell(4);
             newCell.innerHTML = document.getElementById("orgLocation").value
+            +'<input type="hidden" name="hdnOrgWorkExArea" id="hdnOrgWorkExArea'+Number(rowCnt)+'" value="'+document.getElementById("orgWorkExArea").value+'"/>'
             +'<input type="hidden" name="hdnOrgLocation" id="hdnOrgLocation'+Number(rowCnt)+'" value="'+document.getElementById("orgLocation").value+'"/>'
             +'<input type="hidden" name="hdnOrgDesc" id="hdnOrgDesc'+Number(rowCnt)+'" value="'+document.getElementById("orgDesc").value+'"/>';
             
@@ -168,7 +169,7 @@ function editOrganizationRow(row,rowCnt) {
         {
             document.getElementById("orgEndYear").value = document.getElementById("hdnOrgEndYear"+rowCnt).value;
         }
-        
+        document.getElementById("orgWorkExArea").value = document.getElementById("hdnOrgWorkExArea"+rowCnt).value;
         document.getElementById("orgLocation").value = document.getElementById("hdnOrgLocation"+rowCnt).value;
         document.getElementById("orgDesc").value = document.getElementById("hdnOrgDesc"+rowCnt).value;
        
@@ -274,6 +275,7 @@ function updateOrgRowData()
             //            +'<input type="hidden" name="hdnOrgEndYear" id="hdnOrgEndYear'+Number(rowCnt)+'" value="'+document.getElementById("orgEndYear").value+'"/>';
 
             table.rows[i].cells["4"].innerHTML = document.getElementById("orgLocation").value
+            +'<input type="hidden" name="hdnOrgWorkExArea" id="hdnOrgWorkExArea'+Number(rowCnt)+'" value="'+document.getElementById("orgWorkExArea").value+'"/>'
             +'<input type="hidden" name="hdnOrgLocation" id="hdnOrgLocation'+Number(rowCnt)+'" value="'+document.getElementById("orgLocation").value+'"/>'
             +'<input type="hidden" name="hdnOrgDesc" id="hdnOrgDesc'+Number(rowCnt)+'" value="'+document.getElementById("orgDesc").value+'"/>';
             
@@ -298,6 +300,7 @@ function resetFields()
     document.getElementById("orgStartYear").value = "-1";
     document.getElementById("orgEndMonth").value = "-1";
     document.getElementById("orgEndYear").value = "-1";
+    document.getElementById("orgWorkExArea").value = "";
     document.getElementById("orgLocation").value = "";
     document.getElementById("orgDesc").value = "";
 }   

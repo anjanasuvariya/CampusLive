@@ -44,8 +44,9 @@ public class UserAchievementDtlDAOImpl implements UserAchievementDtlDAO{
 
     @Override
     public void saveUserAchievementDtls(UserAchievementDtls userAchievementDtl) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = null;
         try {
+            session = HibernateUtil.getSessionFactory().openSession();
             Transaction tx = session.beginTransaction();
             System.out.println("userAchievementDtl.getUserAchievementId....." + userAchievementDtl.getUserAchievementId());
             if (userAchievementDtl.getUserAchievementId() != null) {
@@ -63,8 +64,9 @@ public class UserAchievementDtlDAOImpl implements UserAchievementDtlDAO{
     }
     
     public void deleteUserAchievementDtls(List<UserAchievementDtls> lLstUserAchievementDtls) throws Exception {
-       Session session = HibernateUtil.getSessionFactory().openSession();
+       Session session = null;
         try {
+            session = HibernateUtil.getSessionFactory().openSession();
             Transaction tx = session.beginTransaction();
             
             for(UserAchievementDtls lObjUserAchievementDtl : lLstUserAchievementDtls)

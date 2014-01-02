@@ -7,6 +7,7 @@ package user.form;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import org.apache.log4j.Logger;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
@@ -19,6 +20,7 @@ import user.model.UserEducationDtls;
  */
 public class UserEducationDtlForm extends org.apache.struts.action.ActionForm {
 
+    private static final Logger logger = Logger.getLogger(UserEducationDtlForm.class);
     List<UserEducationDtls> userEducationDtlList = new ArrayList<UserEducationDtls>();
 
     public List<UserEducationDtls> getUserEducationDtlList() {
@@ -46,6 +48,7 @@ public class UserEducationDtlForm extends org.apache.struts.action.ActionForm {
      */
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
+        
         try {
             String[] lStrName = request.getParameterValues("hdnName");
             String[] lStrCity = request.getParameterValues("hdnCity");
@@ -55,6 +58,7 @@ public class UserEducationDtlForm extends org.apache.struts.action.ActionForm {
             String[] lStrTitle = request.getParameterValues("hdnTitle");
             String[] lStrMajor = request.getParameterValues("hdnMajor");
             String[] lStrMinorMajor = request.getParameterValues("hdnMinorMajor");
+            String[] lStrPercentage = request.getParameterValues("hdnPercentage");
 
             UserEducationDtls lObjUserEducationDtl = null;
             if(lStrName != null && lStrName.length >0) {
@@ -84,6 +88,9 @@ public class UserEducationDtlForm extends org.apache.struts.action.ActionForm {
                 if (!"".equals(lStrMinorMajor[lIntCnt])) {
                     lObjUserEducationDtl.setOtherMinorMajorSubject(lStrMinorMajor[lIntCnt]);
                 }
+                if (!"".equals(lStrPercentage[lIntCnt])) {
+                    lObjUserEducationDtl.setPercentage(Double.parseDouble(lStrPercentage[lIntCnt]));
+                }
                 userEducationDtlList.add(lObjUserEducationDtl);
               }
             }
@@ -93,6 +100,7 @@ public class UserEducationDtlForm extends org.apache.struts.action.ActionForm {
             }
             
         } catch (Exception e) {
+            logger.error("Error in user education detail form : " + e, e);
             e.printStackTrace();
         }
 

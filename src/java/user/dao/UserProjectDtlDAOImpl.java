@@ -21,8 +21,9 @@ public class UserProjectDtlDAOImpl implements UserProjectDtlDAO{
 
     @Override
     public void saveUserProjectDtls(UserProjectDtls userProjectDtl) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = null;
         try {
+            session = HibernateUtil.getSessionFactory().openSession();
             Transaction tx = session.beginTransaction();
             System.out.println("userProjectDtl.getProjDtlId....." + userProjectDtl.getProjDtlId());
             if (userProjectDtl.getProjDtlId() != null) {
@@ -62,8 +63,9 @@ public class UserProjectDtlDAOImpl implements UserProjectDtlDAO{
 
     @Override
     public void deleteUserProjectDtls(List<UserProjectDtls> lLstUserProjectDtls) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = null;
         try {
+            session = HibernateUtil.getSessionFactory().openSession();
             Transaction tx = session.beginTransaction();
             
             for(UserProjectDtls lObjUserProjectDtl : lLstUserProjectDtls)

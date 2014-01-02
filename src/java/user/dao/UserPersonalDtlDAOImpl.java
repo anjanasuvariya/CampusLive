@@ -20,8 +20,9 @@ public class UserPersonalDtlDAOImpl implements UserPersonalDtlDAO{
 
     @Override
     public void saveUserPersonalDtls(UserPersonalDtls userPersonalDtl) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = null;
         try {
+            session = HibernateUtil.getSessionFactory().openSession();
             Transaction tx = session.beginTransaction();
             System.out.println("userPersonalDtl.getPersonalDtlId....." + userPersonalDtl.getPersonalDtlId());
             if (userPersonalDtl.getPersonalDtlId() != null) {

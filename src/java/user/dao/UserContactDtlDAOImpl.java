@@ -13,7 +13,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import user.model.UserContactDtls;
 
-
 /**
  *
  * @author SACHIN PATEL
@@ -22,8 +21,9 @@ public class UserContactDtlDAOImpl implements UserContactDtlDAO {
 
     @Override
     public void saveUserContactDtls(UserContactDtls userContactDtl) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = null;
         try {
+            session = HibernateUtil.getSessionFactory().openSession();
             Transaction tx = session.beginTransaction();
             System.out.println("userContactDtl.getUserContactId....." + userContactDtl.getUserContactId());
             if (userContactDtl.getUserContactId() != null) {
@@ -50,7 +50,7 @@ public class UserContactDtlDAOImpl implements UserContactDtlDAO {
             String SQL_QUERY = " from UserContactDtls u where u.createdUserId=" + lLngUserId;
             System.out.println("Query======" + SQL_QUERY);
             Query query = session.createQuery(SQL_QUERY);
-            
+
             lLstUserContactDtls = query.list();
             tx.commit();
             session.close();

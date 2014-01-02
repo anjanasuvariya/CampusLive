@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 25, 2013 10:09:54 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="placeComm.model.PcAppointmentDtls" table="pc_appointment_dtls" catalog="placecom">
+        <id name="appntDtlId" type="java.lang.Long">
+            <column name="APPNT_DTL_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="appntTitle" type="string">
+            <column name="APPNT_TITLE" length="200" />
+        </property>
+        <property name="appntPurpose" type="string">
+            <column name="APPNT_PURPOSE" length="200" />
+        </property>
+        <property name="appntFileName" type="string">
+            <column name="APPNT_FILE_NAME" length="200" />
+        </property>
+        <property name="appntCompany" type="string">
+            <column name="APPNT_COMPANY" length="15" />
+        </property>
+        <property name="assignedTo" type="string">
+            <column name="ASSIGNED_TO" length="20" />
+        </property>
+        <property name="universityId" type="java.lang.Long">
+            <column name="UNIVERSITY_ID" not-null="true" />
+        </property>
+        <property name="appntPriority" type="string">
+            <column name="APPNT_PRIORITY" length="1" />
+        </property>
+        <property name="createdUserId" type="long">
+            <column name="CREATED_USER_ID" not-null="true" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CREATED_DATE" length="19" not-null="true" />
+        </property>
+        <property name="updatedUserId" type="java.lang.Long">
+            <column name="UPDATED_USER_ID" />
+        </property>
+        <property name="updatedDate" type="timestamp">
+            <column name="UPDATED_DATE" length="19" />
+        </property>
+        <property name="ownerId" type="java.lang.Long">
+            <column name="OWNER_ID" />
+        </property>
+    </class>
+</hibernate-mapping>

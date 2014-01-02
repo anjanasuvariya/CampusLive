@@ -13,6 +13,8 @@ import org.hibernate.Transaction;
 import common.model.CmnRoleActivationMpg;
 import common.model.CmnUserMst;
 import common.model.CmnUserRoleRlt;
+import placeComm.model.PcHrDtls;
+import admin.model.TmpUserExcelData;
 
 /**
  *
@@ -21,11 +23,15 @@ import common.model.CmnUserRoleRlt;
 public class UserDAOImpl implements UserDAO {
 
     @Override
-    public void createUser(CmnUserMst cmnUserMst) throws Exception {
+    public void saveUser(CmnUserMst cmnUserMst) throws Exception {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             Transaction tx = session.beginTransaction();
-            session.save(cmnUserMst);
+            if (cmnUserMst.getUserId() != null) {
+                session.update(cmnUserMst);
+            } else {
+                session.save(cmnUserMst);
+            }
             tx.commit();
 
         } catch (Exception e) {
@@ -39,9 +45,10 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public List<CmnRoleActivationMpg> validateActivationCode(String lStrActivationCode) throws Exception {
         List<CmnRoleActivationMpg> lLstCmnRoleActivationMpg = null;
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session =null;
 
         try {
+            session = HibernateUtil.getSessionFactory().openSession();
             Transaction tx = session.beginTransaction();
             session.beginTransaction();
             String lStrHqlQuery = " from CmnRoleActivationMpg u where u.activationCode=:activationCode";
@@ -60,11 +67,38 @@ public class UserDAOImpl implements UserDAO {
         }
         return lLstCmnRoleActivationMpg;
     }
+    
+    @Override
+    public List<PcHrDtls> validateActivationCodeForHR(String lStrActivationCode) throws Exception {
+        List<PcHrDtls> lLstPcHrDtls = null;
+        Session session =null;
+
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Transaction tx = session.beginTransaction();
+            session.beginTransaction();
+            String lStrHqlQuery = " from PcHrDtls where activationCode=:activationCode";
+            
+            Query query = session.createQuery(lStrHqlQuery);
+            query.setString("activationCode", lStrActivationCode);
+
+            lLstPcHrDtls =  query.list();
+
+            tx.commit();
+
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            session.close();
+        }
+        return lLstPcHrDtls;
+    }
 
     @Override
     public void insertUserRoleMpgDtl(CmnUserRoleRlt cmnUserRoleRlt) throws Exception {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = null;
         try {
+             session = HibernateUtil.getSessionFactory().openSession();
             Transaction tx = session.beginTransaction();
             session.save(cmnUserRoleRlt);
             tx.commit();
@@ -79,9 +113,10 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public List<CmnUserMst> validateUserName(String lStrUserName) throws Exception {
        List<CmnUserMst> lLstCmnUserMst = null;
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = null;
 
         try {
+            session = HibernateUtil.getSessionFactory().openSession();
             Transaction tx = session.beginTransaction();
             session.beginTransaction();
             String lStrHqlQuery = " from CmnUserMst u where u.userName=:userName";
@@ -100,4 +135,59 @@ public class UserDAOImpl implements UserDAO {
         }
         return lLstCmnUserMst;
     }
+
+    @Override
+    public List validateActnCodeForStudOrAlumniOfFaculty(String lStrUserType, String lStrActivationCode) throws Exception {
+        List lLstResult = null;
+        Session session =null;
+
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Transaction tx = session.beginTransaction();
+            session.beginTransaction();
+            String lStrHqlQuery = " from TmpUserExcelData where userType = :userType and activationCode=:activationCode";
+            
+            Query query = session.createQuery(lStrHqlQuery);
+            query.setString("activationCode", lStrActivationCode);
+            query.setString("userType", lStrUserType);
+
+            lLstResult =  query.list();
+
+            tx.commit();
+
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            session.close();
+        }
+        return lLstResult;
+    }
+
+    @Override
+    public List validateActivationCodeWithExistingCode(String lStrActivationCode) throws Exception {
+         List lLstResult = null;
+        Session session =null;
+
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Transaction tx = session.beginTransaction();
+            session.beginTransaction();
+            String lStrHqlQuery = " from CmnUserMst where userActivationCode=:activationCode";
+            
+            Query query = session.createQuery(lStrHqlQuery);
+            query.setString("activationCode", lStrActivationCode);
+            
+            lLstResult =  query.list();
+
+            tx.commit();
+
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            session.close();
+        }
+        return lLstResult;
+    }
+
+   
 }

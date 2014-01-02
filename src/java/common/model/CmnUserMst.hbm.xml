@@ -26,8 +26,8 @@
         <property name="userMiddleName" type="string">
             <column name="USER_MIDDLE_NAME" length="80" />
         </property>
-        <property name="userLastname" type="string">
-            <column name="USER_LASTNAME" length="80" />
+        <property name="userLastName" type="string">
+            <column name="USER_LAST_NAME" length="80" />
         </property>
         <property name="userDateOfBirth" type="date">
             <column name="USER_DATE_OF_BIRTH" length="10" />
@@ -50,7 +50,7 @@
         <property name="unlockTime" type="timestamp">
             <column name="UNLOCK_TIME" length="19" />
         </property>
-        <property name="universityId" type="long">
+        <property name="universityId" type="java.lang.Long">
             <column name="UNIVERSITY_ID" not-null="true" />
         </property>
         <property name="userActivationCode" type="string">

@@ -306,7 +306,7 @@
                 <li><html:link page="/theAssignment.do">the Assignment F</html:link></li>
                 <li><a href="#contact">Activity Center</a></li>
                 <li><a href="#contact">Announcements</a></li>
-                <li><a href="#contact">Placements</a></li>
+                <li><html:link page="/loadPlaceCommHomePage.do">Placements</html:link></li>
                 <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings<b class="caret"></b></a>
@@ -320,6 +320,8 @@
                     <li><a href="#">One more separated link</a></li>
                   </ul>
                 </li>
+                <li><html:link page="/studentInterestInvites.do">Student interest invite</html:link></li>
+                <li><html:link page="/logOut.do">logout</html:link></li>
               </ul>
                 <ul class="nav pull-right">
                     <li class="active"><a href="#">Welcome, ${sessionScope.userName}</a></li>

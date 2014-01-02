@@ -7,6 +7,20 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="HRWorkListForm" type="HR.form.HRWorkListForm"/>
+        <form-bean name="ViewUserActivationDtlForm" type="admin.form.ViewUserActivationDtlForm"/>
+        <form-bean name="StudentInterestInviteForm" type="placeComm.form.StudentInterestInviteForm"/>
+        <form-bean name="ViewStudentInterestInviteForm" type="placeComm.form.ViewStudentInterestInviteForm"/>
+        <form-bean name="ViewInterestInvitesForm" type="placeComm.form.ViewInterestInvitesForm"/>
+        <form-bean name="InterestInvitesForm" type="placeComm.form.InterestInvitesForm"/>
+        <form-bean name="ViewAppointmentDtlForm" type="placeComm.form.ViewAppointmentDtlForm"/>
+        <form-bean name="AppointmentDtlForm" type="placeComm.form.AppointmentDtlForm"/>
+        <form-bean name="ViewAlumniDtlForm" type="placeComm.form.ViewAlumniDtlForm"/>
+        <form-bean name="AlumniDtlForm" type="placeComm.form.AlumniDtlForm"/>
+        <form-bean name="ViewHrDtlForm" type="placeComm.form.ViewHrDtlForm"/>
+        <form-bean name="HrDtlForm" type="placeComm.form.HrDtlForm"/>
+        <form-bean name="ViewCompanyDtlForm" type="placeComm.form.ViewCompanyDtlForm"/>
+        <form-bean name="CompanyDtlForm" type="placeComm.form.CompanyDtlForm"/>
         <form-bean name="ViewUserPersonalDtlForm" type="user.form.ViewUserPersonalDtlForm"/>
         <form-bean name="ViewUserRecommendationDtlForm" type="user.form.ViewUserRecommendationDtlForm"/>
         <form-bean name="UserRecommendationDtlForm" type="user.form.UserRecommendationDtlForm"/>
@@ -282,14 +296,138 @@
         <forward name="quiz" path="/WEB-INF/jsp/theAssignment/Students/CreateQuizStudent/createQuestions.jsp" />
         <forward name="edit" path="/WEB-INF/jsp/theAssignment/Students/CreateQuizStudent/editQuestion.jsp" />
     </action>
+    
     <!--Jyot entry end-->
-         
-         
+     <!--Added after merge-->
+     
+     <action  path="/loadPlaceCommHomePage"
+                 forward="/WEB-INF/jsp/PlaceComm/placeCommHomePage.jsp" />  
+     
+     <action  path="/viewCompanyDtls" name="ViewCompanyDtlForm" scope="request" 
+                 forward="/WEB-INF/jsp/PlaceComm/editCompanyDtls.jsp" />    
+     
+    <action input="/WEB-INF/jsp/PlaceComm/editCompanyDtls.jsp" 
+                name="CompanyDtlForm" path="/saveCompanyDtl"
+                scope="request" type="placeComm.action.CompanyDtlAction">
+  
+            <forward name="success" path="/WEB-INF/jsp/User/homePage.jsp" />
+    </action>
+    
+    <action input="/WEB-INF/jsp/PlaceComm/editCompanyDtls.jsp" 
+        path="/deleteCompanyDtls" name="ViewCompanyDtlForm" scope="request" 
+            type="placeComm.action.DeleteCompanyDtlAction"/>
+    
+     <action input="/WEB-INF/jsp/PlaceComm/editHrDtls.jsp" 
+                name="HrDtlForm" path="/saveHrDtls"
+                scope="request" type="placeComm.action.HrDtlAction">
+  
+            <forward name="success" path="/WEB-INF/jsp/User/homePage.jsp" />
+    </action>
+           
+    <action input="/WEB-INF/jsp/PlaceComm/editHrDtls.jsp" 
+        path="/deleteHrDtls" name="ViewHrDtlForm" scope="request" 
+            type="placeComm.action.DeleteHrDtlAction"/>
+       
+     <action  path="/viewHrDtls" scope="request" name="ViewHrDtlForm" 
+                 forward="/WEB-INF/jsp/PlaceComm/editHrDtls.jsp" /> 
+     
+      <action input="/WEB-INF/jsp/PlaceComm/editAlumniDtls.jsp" 
+        path="/deleteAlumniDtls" name="ViewAlumniDtlForm" scope="request" 
+            type="placeComm.action.DeleteAlumniDtlAction"/>
+     
+     <action input="/WEB-INF/jsp/PlaceComm/editAlumniDtls.jsp" 
+                name="AlumniDtlForm" path="/saveAlumniDtls"
+             scope="request" type="placeComm.action.AlumniDtlAction">
+     </action>
+     
+      <action input="/WEB-INF/jsp/PlaceComm/callingAndAppointment.jsp" 
+                name="AppointmentDtlForm" path="/saveAppointmentDtls" parameter="callmethod"
+                scope="request" type="placeComm.action.AppointmentDtlAction">
+  
+            <forward name="success" path="/WEB-INF/jsp/User/homePage.jsp" />
+    </action>
+     
+     <action  path="/viewAlumniDtls" name="ViewAlumniDtlForm" scope="request" 
+                 forward="/WEB-INF/jsp/PlaceComm/editAlumniDtls.jsp" />    
+     
+     <action  path="/loadStoryBoardHomePage" scope="request" 
+                 forward="/WEB-INF/jsp/PlaceComm/storyBoardHomePage.jsp" />  
+     
+     <action  path="/callingAndAppointment" scope="request" name="ViewAppointmentDtlForm"
+                 forward="/WEB-INF/jsp/PlaceComm/callingAndAppointment.jsp" />  
+     
+     <action input="/WEB-INF/jsp/PlaceComm/callingAndAppointment.jsp" 
+        path="/deleteAppointmentDtls" name="ViewAppointmentDtlForm" scope="request" 
+            type="placeComm.action.DeleteAppointmentDtlAction"/>
+     
+     <action path = "/viewAppntHistory"  parameter="callmethod" type="placeComm.action.AppointmentDtlAction"> 
+         <forward name="success" path="/WEB-INF/jsp/PlaceComm/callingAndAppointment.jsp" />
+    </action>
+    
+    <action path = "/saveAppntHstDtls"  parameter="callmethod" type="placeComm.action.AppointmentDtlAction"> 
+         <forward name="success" path="/WEB-INF/jsp/PlaceComm/callingAndAppointment.jsp" />
+    </action>
+    
+    <action input="/WEB-INF/jsp/PlaceComm/editInterestInvites.jsp" 
+                name="InterestInvitesForm" path="/saveInterestInviteDtl" parameter="callmethod"
+                scope="request" type="placeComm.action.InterestInvitesAction">
+  
+            <forward name="success" path="/WEB-INF/jsp/User/homePage.jsp" />
+    </action>
+      
+     <action  path="/viewInterestInvitesDtl" name="ViewInterestInvitesForm" scope="request" 
+                 forward="/WEB-INF/jsp/PlaceComm/editInterestInvites.jsp" /> 
+          
+     <action path = "/deleteInvtDtls"  parameter="callmethod" type="placeComm.action.InterestInvitesAction"> 
+         <forward name="success" path="/WEB-INF/jsp/PlaceComm/editInterestInvites.jsp" />
+    </action>
+     <action path="/logOut" type="common.action.LogOutAction">
+         <forward name="success" path="/WEB-INF/jsp/User/login.jsp"/>
+     </action>
+    <action path="/studentInterestInvites" scope="request"
+          name="ViewStudentInterestInviteForm" forward="/WEB-INF/jsp/PlaceComm/studentInterestInvites.jsp">
+             
+    </action>
+    <action path="/saveStudentInterestInviteDtl" parameter="callmethod" 
+             type="placeComm.action.StudentInterestInviteAction">
+             <forward name="success" path="/WEB-INF/jsp/PlaceComm/studentInterestInvites.jsp" />
+    </action>
+    <action path="/loadUserExcelFileUpload" 
+              forward="/WEB-INF/jsp/Admin/userExcelFileUpload.jsp" >
+            
+    </action>
+    <action path="/userExcelFileUpload" 
+               type="admin.action.UserExcelFileUpload">
+            <forward name="success" path="/WEB-INF/jsp/Admin/userExcelFileUpload.jsp" />
+    </action>
+     <action path="/viewUserActivationDtls" scope="request"
+          name="ViewUserActivationDtlForm" forward="/WEB-INF/jsp/Admin/viewUserActivationDtls.jsp">
+             
+    </action>
+    
+     <action path="/sendUserActivationDtl" parameter="callmethod" 
+             type="admin.action.UserActivationDtlAction">
+             <forward name="success" path="/WEB-INF/jsp/Admin/viewUserActivationDtls.jsp" />
+    </action>
+    
+    
+    <action path="/testmail" forward="/WEB-INF/jsp/User/sendmail.jsp"/>
+    
+    <action input="/" name="StudentInterestInviteForm" path="/approveOrRejectStudent.do" scope="session" type="HR.action.HRSelectionAction"/>
+    <action  path="/hrSelectionScreen" forward="/WEB-INF/jsp/HR/hrSelectionScreen.jsp" scope="request"/>
+    <action  path="/hrSelectionTable" forward="/WEB-INF/jsp/HR/hrSelectionTable.jsp" scope="request"/>
+    <action path="/hrCurrentSelection" forward="/WEB-INF/jsp/HR/hrCurrentSelection.jsp"/> 
+    
+    <action path="/hrWorkList" scope="request"
+          name="HRWorkListForm" forward="/WEB-INF/jsp/HR/hrWorkList.jsp" />
+       
+       
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
 
-    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    <message-resources parameter="common/resources/ApplicationResource"/>
+    
     
     <!-- ========================= Tiles plugin ===============================-->
     <!--

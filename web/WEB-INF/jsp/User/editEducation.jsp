@@ -3,6 +3,7 @@
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="userEducationDtlList" value="${requestScope.userEducationDtlList}"/>
+<c:set var="educationList" value="${requestScope.educationList}"/>
 <script type="text/javascript" src="script/User/editEducation.js"></script>
 
 <html lang="en">
@@ -196,8 +197,13 @@
   <label class="control-label">Graduation/Masters/
       Doctorate title</label>
   <div class="controls">
-    <input id="title" name="title" type="text" placeholder="e.g. B.Tech,B.Com,B.Sc,B.Pharm" class="input-xlarge" >
-    
+     
+    <select id="title" name="title" class="input-large">
+        <option value="-1">-- Select --</option>
+        <c:forEach items="${educationList}" var="education">
+              <option value="${education.id}">${education.value}</option>
+         </c:forEach>
+     </select>
   </div>
 </div>
 
@@ -212,6 +218,12 @@
   <div class="controls">
     <input id="minorMajor" name="minorMajor" type="text" placeholder="e.g. Finance,Marketing" class="input-xlarge">
     
+  </div>
+</div>
+<div class="control-group span5">
+  <label class="control-label">Percentage</label>
+  <div class="controls">
+    <input id="percentage" name="percentage" type="text" placeholder="percentage" class="input-xlarge">
   </div>
 </div>
 
@@ -246,6 +258,7 @@
             <input type="hidden" name="hdnTitle" id="hdnTitle${rowCnt.count}" value="${userEducationDtl.graduationMasterTitle}"/>
             <input type="hidden" name="hdnMajor" id="hdnMajor${rowCnt.count}" value="${userEducationDtl.majorSubject}"/>
             <input type="hidden" name="hdnMinorMajor" id="hdnMinorMajor${rowCnt.count}" value="${userEducationDtl.otherMinorMajorSubject}"/>
+            <input type="hidden" name="hdnPercentage" id="hdnPercentage${rowCnt.count}" value="${userEducationDtl.percentage}"/>
         </td>
         <td width="10%"><a href="#" onclick="editRow(this,'${rowCnt.count}');">Edit</a>/<a href="#" onclick="removeRow(this);">Delete</a></td>
        </tr>
