@@ -5,6 +5,15 @@
 
 $(document).ready(function() { 
         
+    $('#insertAlumniForm').click(function(e) {
+
+        $("#insertAlumni").validationEngine();
+ 
+    });
+     
+        
+        
+        
     $('#btnSaveAlumniDtl').click(function(e) {
         
         e.preventDefault();
@@ -40,7 +49,7 @@ function saveAlumniDtlsUsingAjax(param){
 
     return $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/CampusLive/saveAlumniDtls.do?'+param,
+        url: 'http://localhost:23236/CampusLive/saveAlumniDtls.do?'+param,
         timeout: 5000,
         dataType: "json",
         success: function (data) {
@@ -238,7 +247,7 @@ function deleteAlumniDtls(deleteFlag,alumniDtlId,rowCnt)
         {
             return $.ajax({
                 type: 'GET',
-                url: 'http://localhost:8080/CampusLive/deleteAlumniDtls.do?alumniDtlIds='+alumniDtlIds,
+                url: 'http://localhost:23236/CampusLive/deleteAlumniDtls.do?alumniDtlIds='+alumniDtlIds,
                 timeout: 5000,
                 dataType: "json",
                 success: function (data) {

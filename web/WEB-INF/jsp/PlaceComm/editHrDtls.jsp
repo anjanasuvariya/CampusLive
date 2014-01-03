@@ -94,9 +94,9 @@ white"></i> Add HR Profile</a>
                                     <th>Email ID</th>
                                     <th>Fax ID</th>
                                     <th>Address</th>
-                                    <th>Link</th>
-                                    <th>Link</th>
-                                    <th>Link</th>
+                                    <th>Facebook</th>
+                                    <th>Twitter</th>
+                                    <th>LinkedIn</th>
                                     <th>Other Details</th>
                                     <th>Delete</th>
                                 </tr>
@@ -115,18 +115,18 @@ white"></i> Add HR Profile</a>
                                         <td class="more">${pcHrDtls.hrEmailId}</td>
                                         <td>${pcHrDtls.faxId}</td>
                                         <td>${pcHrDtls.address}</td>
-                                        <td><div class="social-box-icon">
-                                                <a href="#" class="zocial icon facebook">${pcHrDtls.facebookLink}</a>
-                                            </div>    
+                                        
+                                        <td>
+                                            <a href="http://www.facebook.com/${pcHrDtls.facebookLink}" target="_blank" class="btn">Go</a>
                                         </td>
-                                        <td><div class="social-box-icon">
-                                                <a href="#" class="zocial icon twitter">${pcHrDtls.twitterLink}</a>
-                                            </div>    
+                                        <td>
+                                            <a href="http://www.twitter.com/${pcHrDtls.twitterLink}" target="_blank" class="btn">Go</a>
                                         </td>
-                                        <td><div class="social-box-icon">
-                                                <a href="#" class="zocial icon linkedin">${pcHrDtls.linkedinLink}</a>
-                                            </div>    
+                                        <td>
+                                            <a href="http://www.linkedin.com/${pcHrDtls.linkedinLink}" target="_blank" class="btn">Go</a>
                                         </td>
+                                        
+                                        
                                         <td class="more">${pcHrDtls.otherDtls}</td>
                                         <td align ="center">
                                             <i class="icon-trash" onclick="deleteHrDtls('N','${pcHrDtls.hrDtlId}','${rowCnt.count}')"></i> 

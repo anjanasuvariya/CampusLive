@@ -17,20 +17,15 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta name="description" content="A preview of the jQuery UI Bootstrap theme.">
             <meta name="author" content="Addy Osmani">
-
-            <!-- Le styles -->
-    <link rel="stylesheet" href="resources/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/css/custom-theme/jquery-ui-1.10.3.custom.css">
-    <link rel="stylesheet" href="resources/assets/css/font-awesome.min.css">
-    
-    <link href="http://utopiaadmin.themio.net/css/utopia-responsive.css" rel="stylesheet">
-    <link href="http://utopiaadmin.themio.net/css/ie.css" rel="stylesheet">
-    <link href="http://utopiaadmin.themio.net/css/social_icon/icons.css" rel="stylesheet" type="text/css"/>
-    <link href="http://utopiaadmin.themio.net/css/koottam/css/koottam.css" rel="stylesheet"/>
-
-    <script type="text/javascript" src="http://utopiaadmin.themio.net/js/jquery.min.js"></script>
-    <script type="text/javascript" src="http://utopiaadmin.themio.net/js/jquery.cookie.js"></script>
-
+                
+            <link rel="stylesheet" href="resources/assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="resources/css/custom-theme/jquery-ui-1.10.3.custom.css">
+            <link rel="stylesheet" href="resources/assets/css/font-awesome.min.css">
+            <link rel="stylesheet" href="resources/assets/css/icons.css">
+            <link rel="stylesheet" href="resources/assets/css/koottam.css">
+            
+            <link rel="stylesheet" href="resources/css/utopia-responsive.css">
+            
 
 
             <!--[if IE 7]>
@@ -41,13 +36,14 @@
             <![endif]-->
             <link rel="stylesheet" href="resources/assets/css/docs.css">
             <link rel="stylesheet" href="resources/assets/js/google-code-prettify/prettify.css">
+            <link href="resources/css/validate/validationEngine.jquery.css" rel="stylesheet" type="text/css">
 
-            <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+           
             <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
             <![endif]-->
 
-            <!-- Le fav and touch icons -->
+            
             <link rel="apple-touch-icon-precomposed" sizes="144x144" href="resources/assets/ico/apple-touch-icon-144-precomposed.png">
             <link rel="apple-touch-icon-precomposed" sizes="114x114" href="resources/assets/ico/apple-touch-icon-114-precomposed.png">
             <link rel="apple-touch-icon-precomposed" sizes="72x72" href="resources/assets/ico/apple-touch-icon-72-precomposed.png">
@@ -71,7 +67,7 @@
             <div class="container" >
                 <h1>Alumni Relations</h1>
                 <p class="lead">Add,Edit,Search,Delete,Classify & Sort Alumni Profiles</p>
-                <a data-toggle="modal" href="#myModal" class="btn btn-large btn-inverse" style="color: white" onclick="resetData()"><i class="icon-plus-sign icon-
+                <a data-toggle="modal" id="insertAlumniForm" href="#myModal" class="btn btn-large btn-inverse" style="color: white" onclick="resetData()"><i class="icon-plus-sign icon-
 white"></i> Add Alumni Profile</a>
             </div>
         </header>
@@ -102,9 +98,9 @@ white"></i> Add Alumni Profile</a>
                                     <th>Email ID</th>
                                     <th>Fax ID</th>
                                     <th>Address</th>
-                                    <th>Link</th>
-                                    <th>Link</th>
-                                    <th>Link</th>
+                                    <th>Facebook</th>
+                                    <th>Twitter</th>
+                                    <th>LinkedIn</th>
                                     <th>Other Details</th>
                                     <th>Delete</th>
                                 </tr>
@@ -123,18 +119,15 @@ white"></i> Add Alumni Profile</a>
                                     <td class="more">${pcAlumniDtl.alumniEmail}</td>
                                     <td>${pcAlumniDtl.alumniFax}</td>
                                     <td>${pcAlumniDtl.alumniAddress}</td>
-                                    <td><div class="social-box-icon">
-                                                <a href="http://www.facebook.com" class="zocial icon facebook" target="_blank">${pcAlumniDtl.facebookLink}</a>
-                                            </div>    
+                                    <td>
+                                                <a href="http://www.facebook.com/${pcAlumniDtl.facebookLink}" target="_new" class="btn">Go</a>
                                     </td>
-                                        <td><div class="social-box-icon">
-                                                <a href="http://www.twitter.com" class="zocial icon twitter" target="_blank">${pcAlumniDtl.twitterLink}</a>
-                                            </div>    
-                                        </td>
-                                        <td><div class="social-box-icon">
-                                                <a href="http://www.linkedin.com" class="zocial icon linkedin"  target="_blank">${pcAlumniDtl.linkedinLink}</a>
-                                            </div>    
-                                        </td>
+                                    <td>
+                                                    <a href="http://www.twitter.com/${pcAlumniDtl.twitterLink}" target="_blank" class="btn">Go</a>
+                                    </td>
+                                    <td>
+                                                    <a href="http://www.linkedin.com/${pcAlumniDtl.linkedinLink}" target="_blank" class="btn">Go</a>
+                                    </td>
                                         <td class="more">${pcAlumniDtl.alumniOtherDtls}</td>
                                         <td align ="center">
                                             <i class="icon-trash" onclick="deleteAlumniDtls('N','${pcAlumniDtl.alumniDtlId}','${rowCnt.count}')"></i> 
@@ -182,7 +175,7 @@ white"></i> Add Alumni Profile</a>
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4 class="modal-title">Add Alumni Profiles</h4>
         </div>
-          <form class="form-horizontal">
+          <form class="form-horizontal" id="insertAlumni">
           <div class="modal-body">
           
 <fieldset>
@@ -191,7 +184,7 @@ white"></i> Add Alumni Profile</a>
   <div class="controls">
     <input type ="hidden" id="alumniDtlId" name="alumniDtlId" />
     <input type ="hidden" id="hdnRowId" name="hdnRowId" />
-    <input id="alumniName" name="alumniName" type="text" placeholder="Enter the Name of Alumni" class="input-large" required="">
+    <input id="alumniName" name="alumniName" type="text" placeholder="Enter the Name of Alumni" class="validate[required,maxSize[300]] input-large" required="">
     
   </div>
 </div>
@@ -200,7 +193,7 @@ white"></i> Add Alumni Profile</a>
 <div class="control-group">
   <label class="control-label" for="alumniCompany">Select Company</label>
   <div class="controls">
-    <select id="alumniCompany" name="alumniCompany" class="input-large">
+    <select id="alumniCompany" name="alumniCompany" class="validate[required] input-large">
          <c:forEach items="${comanyList}" var="companyDtl">
               <option value="${companyDtl.id}">${companyDtl.value}</option>
          </c:forEach>
@@ -213,7 +206,7 @@ white"></i> Add Alumni Profile</a>
 <div class="control-group">
   <label class="control-label" for="alumniDesignation">Designation</label>
   <div class="controls">
-    <input id="alumniDesignation" name="alumniDesignation" type="text" placeholder="e.g. Manager-HR" class="input-large">
+    <input id="alumniDesignation" name="alumniDesignation" type="text" placeholder="e.g. Manager-HR" class="validate[maxSize[150]] input-large">
     
   </div>
 </div>
@@ -222,7 +215,7 @@ white"></i> Add Alumni Profile</a>
 <div class="control-group">
   <label class="control-label" for="alumniBatch">Batch</label>
   <div class="controls">
-    <input id="alumniBatch" name="alumniBatch" type="text" placeholder="e.g. 2012-14" class="input-large">
+    <input id="alumniBatch" name="alumniBatch" type="text" placeholder="e.g. 2012-14" class="validate[maxSize[15]] input-large">
   </div>
 </div>
 
@@ -230,7 +223,7 @@ white"></i> Add Alumni Profile</a>
 <div class="control-group">
   <label class="control-label" for="alumniTelephone">Telephone</label>
   <div class="controls">
-    <input id="alumniTelephone" name="alumniTelephone" type="text" placeholder="e.g. 079-1234564" class="input-large">
+    <input id="alumniTelephone" name="alumniTelephone" type="text" placeholder="e.g. 079-1234564" class="validate[minSize[10],maxSize[50]] input-large">
     
   </div>
 </div>
@@ -239,7 +232,7 @@ white"></i> Add Alumni Profile</a>
 <div class="control-group">
   <label class="control-label" for="alumniMobile">Mobile</label>
   <div class="controls">
-    <input id="alumniMobile" name="alumniMobile" type="text" placeholder="e.g. 9876543210" class="input-large">
+    <input id="alumniMobile" name="alumniMobile" type="text" placeholder="e.g. 9876543210" class="validate[minSize[10],maxSize[15]] input-large">
     
   </div>
 </div>
@@ -248,7 +241,7 @@ white"></i> Add Alumni Profile</a>
 <div class="control-group">
   <label class="control-label" for="alumniEmail">Email ID</label>
   <div class="controls">
-    <input id="alumniEmail" name="alumniEmail" type="text" placeholder="e.g. jyotpatel.imnu@gmail.com" class="input-large">
+    <input id="alumniEmail" name="alumniEmail" type="text" placeholder="e.g. jyotpatel.imnu@gmail.com" class="validate[maxSize[150],custom[email]] input-large">
     
   </div>
 </div>
@@ -257,7 +250,7 @@ white"></i> Add Alumni Profile</a>
 <div class="control-group">
   <label class="control-label" for="alumniFax">Fax ID</label>
   <div class="controls">
-    <input id="alumniFax" name="alumniFax" type="text" placeholder="" class="input-large">
+    <input id="alumniFax" name="alumniFax" type="text" placeholder="" class="validate[maxSize[150]] input-large">
     
   </div>
 </div>
@@ -266,7 +259,7 @@ white"></i> Add Alumni Profile</a>
 <div class="control-group">
   <label class="control-label" for="alumniAddress">Address</label>
   <div class="controls">                     
-    <textarea id="alumniAddress" name="alumniAddress"></textarea>
+    <textarea id="alumniAddress" name="alumniAddress" class="validate[maxSize[250]]"></textarea>
   </div>
 </div>
 
@@ -274,7 +267,7 @@ white"></i> Add Alumni Profile</a>
 <div class="control-group">
   <label class="control-label" for="alumniOtherDtls">Other Details</label>
   <div class="controls">                     
-    <textarea id="alumniOtherDtls" name="alumniOtherDtls"></textarea>
+    <textarea id="alumniOtherDtls" name="alumniOtherDtls" class="validate[maxSize[250]] "></textarea>
   </div>
 </div>
 
@@ -284,7 +277,7 @@ white"></i> Add Alumni Profile</a>
   <div class="controls">
     <div class="input-prepend">
       <span class="add-on">www.facebook.com/</span>
-      <input id="facebookLink" name="facebookLink" class="input-small"  type="text">
+      <input id="facebookLink" name="facebookLink" class="validate[maxSize[150]] input-small"  type="text">
     </div>
     
   </div>
@@ -295,7 +288,7 @@ white"></i> Add Alumni Profile</a>
   <div class="controls">
     <div class="input-prepend">
       <span class="add-on">www.twitter.com/</span>
-      <input id="twitterLink" name="twitterLink" class="input-small"  type="text">
+      <input id="twitterLink" name="twitterLink" class="validate[maxSize[150]] input-small"  type="text">
     </div>
     
   </div>
@@ -307,7 +300,7 @@ white"></i> Add Alumni Profile</a>
   <div class="controls">
     <div class="input-prepend">
       <span class="add-on">www.LinkedIn.com/</span>
-      <input id="linkedinLink" name="linkedinLink" class="input-small"  type="text">
+      <input id="linkedinLink" name="linkedinLink" class="validate[maxSize[150]] input-small"  type="text">
     </div>
     
   </div>
@@ -330,7 +323,6 @@ white"></i> Add Alumni Profile</a>
 
 
 
-<!-- Placed at the end of the document so the pages load faster -->
 <script src="resources/assets/js/jquery-1.9.0.min.js"></script>
 <script src="resources/assets/js/bootstrap.min.js"></script>
 <script src="resources/assets/js/holder.js"></script>
@@ -338,51 +330,27 @@ white"></i> Add Alumni Profile</a>
 <script src="resources/assets/js/google-code-prettify/prettify.js"></script>
 <script src="resources/assets/js/docs.js"></script>
 <script src="resources/assets/js/demo.js"></script>
-<script type="text/javascript" src="resources/js1/u/utopia.js"></script>
-<script type="text/javascript" src="resources/assets/js/module/placecomm/jquery.easyModal.js"></script>     
-<script type="text/javascript" src="resources/assets/js/module/placecomm/jquery.shorten.js"></script>     
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" />
-<script type="text/javascript">
 
-$(function() {
-
-    $(".more").shorten({
-                
-		width: 40,
-		tail: ' <a href="#">more</a>',
-		tooltip: true
-	});
-
-    });
-
-</script>
-
-
-
-
-
-
-
-
-<script type="text/javascript" src="resources/js/u/jquery.min.js"></script>
+<!-- REPLACE THIS WITH ALREADY EXISTING PATHS OF THE FILES -->
 
 <script type="text/javascript" src="resources/js/u/utopia.js"></script>
+<script type="text/javascript" src="resources/js/u/jquery.min.js"></script>
 <script type="text/javascript" src="resources/js/u/jquery.datatable.js"></script>
 <script type="text/javascript" src="resources/js/u/tables.js"></script>
-<script type="text/javascript" src="resources/css/utopia-white.css"></script>
 
-    <script type="text/javascript" src="http://utopiaadmin.themio.net/js/koottam/js/jquery.koottam.js"></script>
-    <script type="text/javascript" src="http://utopiaadmin.themio.net/js/api.js"></script>
-    <script type="text/javascript" src="http://utopiaadmin.themio.net/js/header.js?v1"></script>
-    <script type="text/javascript" src="http://utopiaadmin.themio.net/js/sidebar.js"></script>
-    
-    <script type="text/javascript" src="resources/js/noty/jquery.noty.js"></script>
+<script type="text/javascript" src="resources/js/noty/jquery.noty.js"></script>
 <script type="text/javascript" src="resources/js/noty/layouts/top.js"></script>
 <script type="text/javascript" src="resources/js/noty/layouts/topLeft.js"></script>
 <script type="text/javascript" src="resources/js/noty/layouts/topRight.js"></script>
 <script type="text/javascript" src="resources/js/noty/themes/default.js"></script>
 <script type="text/javascript" src="script/PlaceComm/editAlumniDtls.js"></script>
 
+<script type="text/javascript" src="resources/js/validate/jquery.validationEngine.js"></script>
+<script type="text/javascript" src="resources/js/validate/jquery.validationEngine-en.js"></script>
+
+
+<script type="text/javascript" src="resources/js/u/jquery.koottam.js"></script>
+<script type="text/javascript" src="resources/js/u/api.js"></script>
 
 </body>
 </html>
