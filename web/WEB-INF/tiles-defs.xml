@@ -60,4 +60,6 @@
     <definition path="/WEB-INF/jsp/PlaceComm/layoutPlaceCommStory.jsp" name="project-template-placecomm-story">
         <put name="placecomm-story" value="/WEB-INF/jsp/PlaceComm/placeCommStory.jsp"/>
     </definition>
+
+
 </tiles-definitions>
