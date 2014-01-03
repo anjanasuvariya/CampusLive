@@ -5,6 +5,16 @@
 
 $(document).ready(function() { 
         
+       
+   $('#insertHRForm').click(function(e) {
+
+        $("#insertHR").validationEngine();
+ 
+    });
+ 
+        
+        
+        
     $('#btnSaveHrDtl').click(function(e) {
         
         e.preventDefault();
@@ -38,7 +48,7 @@ function saveHrDtlsUsingAjax(param){
 
     return $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/CampusLive/saveHrDtls.do?'+param,
+        url: 'http://localhost:23236/CampusLive/saveHrDtls.do?'+param,
         timeout: 5000,
         dataType: "json",
         success: function (data) {
@@ -231,7 +241,7 @@ function deleteHrDtls(deleteFlag,hrDtlId,rowCnt)
         {
             return $.ajax({
                 type: 'GET',
-                url: 'http://localhost:8080/CampusLive/deleteHrDtls.do?hrdtlIds='+hrDtlIds,
+                url: 'http://localhost:23236/CampusLive/deleteHrDtls.do?hrdtlIds='+hrDtlIds,
                 timeout: 5000,
                 dataType: "json",
                 success: function (data) {

@@ -19,20 +19,10 @@
             <meta name="author" content="Addy Osmani">
 
             <!-- Le styles -->
-    <link rel="stylesheet" href="resources/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/css/custom-theme/jquery-ui-1.10.3.custom.css">
-    <link rel="stylesheet" href="resources/assets/css/font-awesome.min.css">
-    
-    <link href="http://utopiaadmin.themio.net/css/utopia-responsive.css" rel="stylesheet">
-    <link href="http://utopiaadmin.themio.net/css/ie.css" rel="stylesheet">
-    <link href="http://utopiaadmin.themio.net/css/social_icon/icons.css" rel="stylesheet" type="text/css"/>
-    <link href="http://utopiaadmin.themio.net/css/koottam/css/koottam.css" rel="stylesheet"/>
-
-    <script type="text/javascript" src="http://utopiaadmin.themio.net/js/jquery.min.js"></script>
-    <script type="text/javascript" src="http://utopiaadmin.themio.net/js/jquery.cookie.js"></script>
-
-
-
+<!-- Le styles -->
+			<link rel="stylesheet" href="resources/assets/css/bootstrap.min.css">
+			<link rel="stylesheet" href="resources/css/custom-theme/jquery-ui-1.10.3.custom.css">
+            <link rel="stylesheet" href="resources/assets/css/font-awesome.min.css">
             <!--[if IE 7]>
             <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css">
             <![endif]-->
@@ -41,6 +31,7 @@
             <![endif]-->
             <link rel="stylesheet" href="resources/assets/css/docs.css">
             <link rel="stylesheet" href="resources/assets/js/google-code-prettify/prettify.css">
+            <link href="resources/css/validate/validationEngine.jquery.css" rel="stylesheet" type="text/css">
 
             <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
             <!--[if lt IE 9]>
@@ -53,6 +44,7 @@
             <link rel="apple-touch-icon-precomposed" sizes="72x72" href="resources/assets/ico/apple-touch-icon-72-precomposed.png">
             <link rel="apple-touch-icon-precomposed" href="resources/assets/ico/apple-touch-icon-57-precomposed.png">
             <link rel="shortcut icon" href="resources/assets/ico/favicon.png">
+
 
         </head>
 
@@ -72,7 +64,7 @@
             <div class="container" >
                 <h1>Human Resources</h1>
                 <p class="lead">Add,Edit,Search,Delete,Classify & Sort HR Profiles</p>
-                <a data-toggle="modal" href="#myModal" class="btn btn-large btn-success" style="color: white" onclick="resetData()"><i class="icon-plus-sign icon-
+                <a data-toggle="modal" id="insertHRForm" href="#myModal" class="btn btn-large btn-success" style="color: white" onclick="resetData()"><i class="icon-plus-sign icon-
 white"></i> Add HR Profile</a>
             </div>
         </header>
@@ -183,7 +175,7 @@ white"></i> Add HR Profile</a>
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4 class="modal-title">Add HR Profiles</h4>
         </div>
-          <form class="form-horizontal">
+          <form class="form-horizontal" id="insertHR">
           <div class="modal-body">
           
 <fieldset>
@@ -192,7 +184,7 @@ white"></i> Add HR Profile</a>
   <div class="controls">
     <input type ="hidden" id="hrDtlId" name="hrDtlId" />
     <input type ="hidden" id="hdnRowId" name="hdnRowId" />
-    <input id="hrName" name="hrName" type="text" placeholder="Enter the Name of Lead" class="input-large" required="">
+    <input id="hrName" name="hrName" type="text" placeholder="Enter the Name of Lead" class="validate[required,maxSize[300]] input-large" required="">
     
   </div>
 </div>
@@ -201,7 +193,7 @@ white"></i> Add HR Profile</a>
 <div class="control-group">
   <label class="control-label" for="hrCompany">Select Company</label>
   <div class="controls">
-    <select id="companyId" name="companyId" class="input-large">
+    <select id="companyId" name="companyId" class="validate[required] input-large">
          <c:forEach items="${comanyList}" var="companyDtl">
               <option value="${companyDtl.id}">${companyDtl.value}</option>
          </c:forEach>
@@ -214,7 +206,7 @@ white"></i> Add HR Profile</a>
 <div class="control-group">
   <label class="control-label" for="designation">Designation</label>
   <div class="controls">
-    <input id="designation" name="designation" type="text" placeholder="e.g. Manager-HR" class="input-large">
+    <input id="designation" name="designation" type="text" placeholder="e.g. Manager-HR" class="validate[maxSize[150]] input-large">
     
   </div>
 </div>
@@ -223,7 +215,7 @@ white"></i> Add HR Profile</a>
 <div class="control-group">
   <label class="control-label" for="hrTeleNo">Telephone</label>
   <div class="controls">
-    <input id="hrTeleNo" name="hrTeleNo" type="text" placeholder="e.g. 079-1234564" class="input-large">
+    <input id="hrTeleNo" name="hrTeleNo" type="text" placeholder="e.g. 079-1234564" class="validate[minSize[10],maxSize[50]] input-large">
     
   </div>
 </div>
@@ -232,7 +224,7 @@ white"></i> Add HR Profile</a>
 <div class="control-group">
   <label class="control-label" for="hrMobileNo">Mobile</label>
   <div class="controls">
-    <input id="hrMobileNo" name="hrMobileNo" type="text" placeholder="e.g. 9876543210" class="input-large">
+    <input id="hrMobileNo" name="hrMobileNo" type="text" placeholder="e.g. 9876543210" class="validate[minSize[10],maxSize[15]] input-large">
     
   </div>
 </div>
@@ -241,7 +233,7 @@ white"></i> Add HR Profile</a>
 <div class="control-group">
   <label class="control-label" for="hrEmailId">Email ID</label>
   <div class="controls">
-    <input id="hrEmailId" name="hrEmailId" type="text" placeholder="e.g. jyotpatel.imnu@gmail.com" class="input-large">
+    <input id="hrEmailId" name="hrEmailId" type="text" placeholder="e.g. jyotpatel.imnu@gmail.com" class="validate[maxSize[150],custom[email]] input-large">
     
   </div>
 </div>
@@ -250,7 +242,7 @@ white"></i> Add HR Profile</a>
 <div class="control-group">
   <label class="control-label" for="faxId">Fax ID</label>
   <div class="controls">
-    <input id="faxId" name="faxId" type="text" placeholder="" class="input-large">
+    <input id="faxId" name="faxId" type="text" placeholder="" class="validate[minSize[6],maxSize[150]] input-large">
     
   </div>
 </div>
@@ -259,7 +251,7 @@ white"></i> Add HR Profile</a>
 <div class="control-group">
   <label class="control-label" for="address">Address</label>
   <div class="controls">                     
-    <textarea id="address" name="address"></textarea>
+    <textarea id="address" name="address" class="validate[maxSize[250]] "></textarea>
   </div>
 </div>
 
@@ -267,7 +259,7 @@ white"></i> Add HR Profile</a>
 <div class="control-group">
   <label class="control-label" for="otherDtls">Other Details</label>
   <div class="controls">                     
-    <textarea id="otherDtls" name="otherDtls"></textarea>
+    <textarea id="otherDtls" name="otherDtls" class="validate[maxSize[250]]" ></textarea>
   </div>
 </div>
 
@@ -277,7 +269,7 @@ white"></i> Add HR Profile</a>
   <div class="controls">
     <div class="input-prepend">
       <span class="add-on">www.facebook.com/</span>
-      <input id="facebookLink" name="facebookLink" class="input-small"  type="text">
+      <input id="facebookLink" name="facebookLink" class="validate[maxSize[150]] input-small"  type="text">
     </div>
     
   </div>
@@ -288,7 +280,7 @@ white"></i> Add HR Profile</a>
   <div class="controls">
     <div class="input-prepend">
       <span class="add-on">www.twitter.com/</span>
-      <input id="twitterLink" name="twitterLink" class="input-small"  type="text">
+      <input id="twitterLink" name="twitterLink"  class="validate[maxSize[150]] input-small"  type="text">
     </div>
     
   </div>
@@ -300,7 +292,7 @@ white"></i> Add HR Profile</a>
   <div class="controls">
     <div class="input-prepend">
       <span class="add-on">www.LinkedIn.com/</span>
-      <input id="linkedinLink" name="linkedinLink" class="input-small"  type="text">
+      <input id="linkedinLink" name="linkedinLink"  class="validate[maxSize[150]] input-small"  type="text">
     </div>
     
   </div>
@@ -308,9 +300,6 @@ white"></i> Add HR Profile</a>
 
 </fieldset>
 
-
-            
-            
         </div>
         <div class="modal-footer">
           <a href="#" class="btn btn-inverse"><i class="icon-retweet icon-white"></i> Reset</a>
@@ -332,41 +321,23 @@ white"></i> Add HR Profile</a>
 <script src="resources/assets/js/google-code-prettify/prettify.js"></script>
 <script src="resources/assets/js/docs.js"></script>
 <script src="resources/assets/js/demo.js"></script>
-<script type="text/javascript" src="resources/js1/u/utopia.js"></script>
-<script type="text/javascript" src="resources/assets/js/module/placecomm/jquery.easyModal.js"></script>     
-<script type="text/javascript" src="resources/assets/js/module/placecomm/jquery.shorten.min.js"></script>     
-<script type="text/javascript">
-    $(function() {
-			$(".more").shorten();
-		});
-</script>
 
-
-
-
-
-
-
-
-<script type="text/javascript" src="resources/js/u/jquery.min.js"></script>
+<!-- REPLACE THIS WITH ALREADY EXISTING PATHS OF THE FILES -->
 
 <script type="text/javascript" src="resources/js/u/utopia.js"></script>
+<script type="text/javascript" src="resources/js/u/jquery.min.js"></script>
 <script type="text/javascript" src="resources/js/u/jquery.datatable.js"></script>
 <script type="text/javascript" src="resources/js/u/tables.js"></script>
-<script type="text/javascript" src="resources/css/utopia-white.css"></script>
 
-    <script type="text/javascript" src="http://utopiaadmin.themio.net/js/koottam/js/jquery.koottam.js"></script>
-    <script type="text/javascript" src="http://utopiaadmin.themio.net/js/api.js"></script>
-    <script type="text/javascript" src="http://utopiaadmin.themio.net/js/header.js?v1"></script>
-    <script type="text/javascript" src="http://utopiaadmin.themio.net/js/sidebar.js"></script>
-    
-    <script type="text/javascript" src="resources/js/noty/jquery.noty.js"></script>
+<script type="text/javascript" src="resources/js/noty/jquery.noty.js"></script>
 <script type="text/javascript" src="resources/js/noty/layouts/top.js"></script>
 <script type="text/javascript" src="resources/js/noty/layouts/topLeft.js"></script>
 <script type="text/javascript" src="resources/js/noty/layouts/topRight.js"></script>
 <script type="text/javascript" src="resources/js/noty/themes/default.js"></script>
 <script type="text/javascript" src="script/PlaceComm/editHrDtls.js"></script>
 
+<script type="text/javascript" src="resources/js/validate/jquery.validationEngine.js"></script>
+<script type="text/javascript" src="resources/js/validate/jquery.validationEngine-en.js"></script>
 
 </body>
 </html>
