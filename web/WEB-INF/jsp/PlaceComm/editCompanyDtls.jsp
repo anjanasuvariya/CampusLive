@@ -30,6 +30,7 @@
             <![endif]-->
             <link rel="stylesheet" href="resources/assets/css/docs.css">
             <link rel="stylesheet" href="resources/assets/js/google-code-prettify/prettify.css">
+            <link href="resources/css/validate/validationEngine.jquery.css" rel="stylesheet" type="text/css">
 
             <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
             <!--[if lt IE 9]>
@@ -154,14 +155,15 @@
      </tiles:insert> 
 </footer>
 
-  <div class="modal fade" id="myModal" style="z-index: 1500; display: none">
-    <div class="modal-dialog" style="z-index: 901" >
-      <div class="modal-content" style="z-index: 902">
+  <div class="modal fade" id="myModal" style="z-index: 1100; display: none">
+    <div class="modal-dialog" style="z-index: 445" >
+      <div class="modal-content" style="z-index: 450">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4 class="modal-title">Add Recruiters</h4>
         </div>
-        <form class="form-horizontal">
+<br/>
+          <form class="form-horizontal" id="insertCmp">        
           <div class="modal-body">
           
 <fieldset>
@@ -175,7 +177,7 @@
   <div class="controls">
       <input type ="hidden" id="companyId" name="companyId" />
       <input type ="hidden" id="hdnRowId" name="hdnRowId" />
-      <input id="companyTitle" name="companyTitle" type="text" placeholder="e.g. Tata Consultancy Services Pvt Ltd" class="input-xlarge" required="">
+      <input id="companyTitle" name="companyTitle" type="text" placeholder="e.g. Tata Consultancy Services Pvt Ltd" class="validate[required,maxSize[300]] input-xlarge" required="">
     
   </div>
 </div>
@@ -184,7 +186,7 @@
 <div class="control-group">
   <label class="control-label">3-Digit Code</label>
   <div class="controls">
-    <input id="companyCode" name="companyCode" type="text" placeholder="E.g. TCS" class="input-xlarge" required="">
+    <input id="companyCode" name="companyCode" type="text" placeholder="E.g. TCS" class="validate[required,maxSize[3]] input-xlarge" required="">
     
   </div>
 </div>
@@ -193,7 +195,7 @@
 <div class="control-group">
   <label class="control-label">Contact Person</label>
   <div class="controls">
-    <input id="contactPersonName" name="contactPersonName" type="text" placeholder="Primary Contact Person" class="input-xlarge">
+    <input id="contactPersonName" name="contactPersonName" type="text" placeholder="Primary Contact Person" class="validate[required,maxSize[150]] input-xlarge">
     
   </div>
 </div>
@@ -202,7 +204,7 @@
 <div class="control-group">
   <label class="control-label">Contact Number</label>
   <div class="controls">
-    <input id="contactNumber" name="contactNumber" type="text" placeholder="e.g. 9876543210" class="input-xlarge">
+    <input id="contactNumber" name="contactNumber" type="text" placeholder="e.g. 9876543210" class="validate[minSize[10]] input-xlarge">
     
   </div>
 </div>
@@ -219,7 +221,7 @@
 <div class="control-group">
   <label class="control-label">Email</label>
   <div class="controls">
-    <input id="contactEmail" name="contactEmail" type="text" placeholder="xxx@xxx.com" class="input-xlarge">
+    <input id="contactEmail" name="contactEmail" type="text" placeholder="xxx@xxx.com" class="validate[custom[email]] input-xlarge">
     
   </div>
 </div>
@@ -228,7 +230,7 @@
 <div class="control-group">
   <label class="control-label">Location</label>
   <div class="controls">
-    <input id="companyLocation" name="companyLocation" type="text" placeholder="e.g. Banglore" class="input-xlarge" required="">
+    <input id="companyLocation" name="companyLocation" type="text" placeholder="e.g. Banglore" class="validate[required,maxSize[200]] input-xlarge" required="">
     
   </div>
 </div>
@@ -263,11 +265,10 @@
           
           <a href="#" class="btn btn-primary" id="saveCompanyDtl" ><i class="icon-share-alt icon-white"></i> Save</a>
         </div>
-          </form>
+</form>          
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
-
 
 
 <!-- Placed at the end of the document so the pages load faster -->
@@ -292,5 +293,9 @@
 <script type="text/javascript" src="resources/js/noty/layouts/topRight.js"></script>
 <script type="text/javascript" src="resources/js/noty/themes/default.js"></script>
 <script type="text/javascript" src="script/PlaceComm/editCompanyDtls.js"></script>
+
+<script type="text/javascript" src="resources/js/validate/jquery.validationEngine.js"></script>
+<script type="text/javascript" src="resources/js/validate/jquery.validationEngine-en.js"></script>
+
 </body>
 </html>

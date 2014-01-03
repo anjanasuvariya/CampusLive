@@ -2,8 +2,15 @@
 
 $(document).ready(function() { 
     
-    $('#saveCompanyDtl').click(function(e) {
-        
+ $('#insertCompany').click(function(e) {
+
+    $("#insertCmp").validationEngine();
+ 
+});
+ 
+ $('#saveCompanyDtl').click(function(e) {
+ 
+
         e.preventDefault();
         
         var companyTitle=$("#companyTitle").val();
@@ -42,7 +49,7 @@ function saveCompanyDtlsUsingAjax(param){
 
     return $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/CampusLive/saveCompanyDtl.do?'+param,
+        url: 'http://localhost:23236/CampusLive/saveCompanyDtl.do?'+param,
         timeout: 5000,
         dataType: "json",
         success: function (data) {
@@ -360,13 +367,13 @@ function deleteCompanyDtls(deleteFlag,companyId,rowCnt)
         {
             return $.ajax({
                 type: 'GET',
-                url: 'http://localhost:8080/CampusLive/deleteCompanyDtls.do?companyIds='+companyIds,
+                url: 'http://localhost:23236/CampusLive/deleteCompanyDtls.do?companyIds='+companyIds,
                 timeout: 5000,
                 dataType: "json",
                 success: function (data) {
                    
                     if(rowCntStr != "")
-                    {
+                    {   alert("Here");
                         var rowId = rowCntStr.split("~");
                         for(i=0;i<rowId.length;i++)
                         {

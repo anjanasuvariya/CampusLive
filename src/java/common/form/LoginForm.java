@@ -83,7 +83,7 @@ public class LoginForm extends org.apache.struts.action.ActionForm {
             if (getUserName() != null && getUserName().length() >= 1 && getUserPassword() != null && getUserPassword().length() >= 1) {
 
                 cmnUserMstList = lObjLoginDAO.getUserDtlFromUserNameAndPassword(getUserName().toUpperCase(), getUserPassword());
-                if (cmnUserMstList.isEmpty()) {
+                if (cmnUserMstList.isEmpty()) {             
                     actionErrors.add("userPassword", new ActionMessage("error.loginFail"));
                 }
 
