@@ -304,8 +304,6 @@
                 <li><html:link page="/GroupDiscussion.do">GD</html:link></li>
                 <li><html:link page="/theAssignmentStudent.do">the asSignment</html:link></li>
                 <li><html:link page="/theAssignment.do">the Assignment F</html:link></li>
-                <li><a href="#contact">Activity Center</a></li>
-                <li><a href="#contact">Announcements</a></li>
                 <li><html:link page="/loadPlaceCommHomePage.do">Placements</html:link></li>
                 <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
                 <li class="dropdown">
