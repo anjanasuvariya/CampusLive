@@ -409,13 +409,13 @@
           
         </div><!-- /.span4 -->
         <div class="span2" align="left" style="border-right: 1px dotted tomato;">
-            <h3>Achievements</h3>
+            <h3>Achievement</h3>
             <html:link action="/viewUserAchievementDtls" ><img class="img-rounded" src="resources/img/User/achievement.png"/></html:link>
           <p>Love to win the game ? Now boast of your winning attitude by recording your achievements.</p>
           
         </div><!-- /.span4 -->
         <div class="span2" align="left" >
-            <h3>Account Details</h3>
+            <h3>Account</h3>
             <html:link action="/editAccountDtl" ><img class="img-rounded" src="resources/img/User/settings.png"/></html:link>
           <p>Here you can change your username, password, section, etc.</p>
           
