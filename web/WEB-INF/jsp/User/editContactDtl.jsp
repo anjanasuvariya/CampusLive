@@ -69,10 +69,12 @@
               <center><h2>Contact Info</h2>
             <img class="img-rounded" src="resources/img/User/contactinfo.png"/>
           
-          <p>Check your current contact details below and update the same in the right pane, if required. Don't forget to save it once updated.</p>
-          <p><a class="btn" href="#">Edit</a></p> </center>
+          <p>Check your current contact details on the right and update the same.</p>
+                                      _________________________
+                           <br/><br/>
+            </center>
             <ul class="nav nav-list">
-              <li class="nav-header">Contact Details Include</li>
+              <li class="nav-header active">Contact Details Include</li>
               <li><a href="#">Mobile Number</a></li>
               <li><a href="#">Home Contact</a></li>
               <li><a href="#">Work Phone</a></li>
