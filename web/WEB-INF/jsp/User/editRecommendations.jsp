@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 
@@ -11,7 +12,7 @@
 <c:set var="userRecommendationDtlList" value="${requestScope.userRecommendationDtlList}"/>
 <script type="text/javascript" src="script/User/editRecommendations.js"></script>
 
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -91,7 +92,7 @@ alert("Welcome " + name + ", the " + job);
  <br><br>
   
               
- <form class="form-horizontal" action="saveUserRecommendationDtls.do">
+ <form class="form-horizontal" action="saveUserRecommendationDtls.do" target="_top">
 <fieldset>
 <!-- Form Name -->
 <table width="100%" id="mytable">
@@ -148,7 +149,7 @@ alert("Welcome " + name + ", the " + job);
 <div class="control-group">
   <label class="control-label"></label>
   <div class="controls">
-      <input type="button" id="btnAddRecmd" name="btnAddRecmd" value="More Recommendations+" class="btn btn-primary btn-large" onclick="addNewRecmdRow()"/>
+      <input type="button" id="btnAddRecmd" name="btnAddRecmd" value="Add Recommendation" class="btn btn-primary btn-large" onclick="addNewRecmdRow()"/>
       <input type="button" id="btnUpdateRecmd" name="btnUpdateRecmd" value="Update" style="display:none" class="btn btn-primary btn-large" onclick="updateRecmdRowData()"/>
     
     
@@ -156,13 +157,16 @@ alert("Welcome " + name + ", the " + job);
 </div>
 </td>
 <input type="hidden" id="hdnRecmdCount" name="hdnRecmdCount" value="0"/>
-<table id="tblRecommendationDtl" name="tblRecommendationDtl" border="1" width="98%" size="98%">
+<table id="tblRecommendationDtl" name="tblRecommendationDtl" border="0" width="98%" size="98%" class="table">
+    <thead>
     <tr>
-        <td width="20%">Title</td>
-        <td width="10%">Recommended By</td>
-        <td width="10%">Company / Location</td>
-        <td width="10%">Action</td>
+        <th width="20%">Title</td>
+        <th width="10%">Recommended By</td>
+        <th width="10%">Company / Location</td>
+        <th width="10%">Action</td>
     </tr>
+    </thead>
+    <tbody>
      <c:forEach items="${userRecommendationDtlList}" var="userRecommendationDtl" varStatus="rowCnt">
        <tr>
         <td width="20%">${userRecommendationDtl.recmdTitle}<input type="hidden" name="hdnRecmdTitle" id="hdnRecmdTitle${rowCnt.count}" value="${userRecommendationDtl.recmdTitle}"/></td>
@@ -180,6 +184,7 @@ alert("Welcome " + name + ", the " + job);
            document.getElementById("hdnRecmdCount").value=Number(count)+1;
        </script>
     </c:forEach>
+       </tbody>
 </table>
 <tr>
 <td>
@@ -188,7 +193,7 @@ alert("Welcome " + name + ", the " + job);
 <div class="control-group">
   <label class="control-label"></label>
   <div class="controls">
-    <button id="btnRecmdSubmit" name="btnRecmdSubmit" class="btn btn-inverse btn-large">Save</button>
+    <button id="btnRecmdSubmit" name="btnRecmdSubmit" class="btn btn-success btn-large">Save</button>
   </div>
 </div></td>
             </tr>
