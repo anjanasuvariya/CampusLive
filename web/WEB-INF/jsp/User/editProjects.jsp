@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 
@@ -90,7 +91,7 @@ alert("Welcome " + name + ", the " + job);
  <br><br>
             
  
- <form class="form-horizontal" action="saveUserProjectDtls.do">
+ <form class="form-horizontal" action="saveUserProjectDtls.do" target="_top">
 <fieldset>
 <!-- Form Name -->
 <table width="100%" id="mytable">
@@ -175,7 +176,7 @@ alert("Welcome " + name + ", the " + job);
 <div class="control-group">
   <label class="control-label"></label>
   <div class="controls">
-      <input type="button" id="btnAddProj" name="btnAddProj" value="Add More Projects+" class="btn btn-primary btn-large" onclick="addNewProjRow()"/>
+      <input type="button" id="btnAddProj" name="btnAddProj" value="Add Project" class="btn btn-primary btn-large" onclick="addNewProjRow()"/>
       <input type="button" id="btnUpdateProj" name="btnUpdateProj" value="Update" style="display:none" class="btn btn-primary btn-large" onclick="updateProjRowData()"/>
         
   </div>
@@ -183,14 +184,17 @@ alert("Welcome " + name + ", the " + job);
 </td>
 <div size="100%">
     <input type="hidden" id="hdnProjCount" name="hdnProjCount" value="0"/>
-<table id="tblProjectDtl" name="tblProjectDtl" border="1" width="98%" size="90%">
+<table id="tblProjectDtl" name="tblProjectDtl" border="0" width="98%" size="90%" class="table">
+    <thead>
     <tr>
-        <td width="20%">Project Name</td>
-        <td width="10%">Role</td>
-        <td width="10%">Start Date</td>
-        <td width="10%">End Date</td>
-        <td width="10%">Action</td>
+        <th width="20%">Project Name</td>
+        <th width="10%">Role</td>
+        <th width="10%">Start Date</td>
+        <th width="10%">End Date</td>
+        <th width="10%">Action</td>
     </tr>
+    </thead>
+    <tbody>
      <c:forEach items="${userProjectDtlList}" var="userProjectDtl" varStatus="rowCnt">
        <tr>
         <td width="20%">${userProjectDtl.projName}<input type="hidden" name="hdnProjName" id="hdnProjName${rowCnt.count}" value="${userProjectDtl.projName}"/>
@@ -211,6 +215,7 @@ alert("Welcome " + name + ", the " + job);
            document.getElementById("hdnProjCount").value=Number(count)+1;
        </script>
     </c:forEach>
+</tbody>
 </table>
 </div>
 <td>

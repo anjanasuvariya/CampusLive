@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 
@@ -72,7 +73,9 @@
             <img class="img-rounded" src="resources/img/User/education.png"/>
           
           <p>Add/Update your Educational Background here. Including schooling, graduation, post-graduation & doctorate details.</p>
-          <p><a class="btn" href="#">Edit</a></p> </center>
+                          _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+                           <br/><br/>
+            </center>
             <ul class="nav nav-list">
               <li class="nav-header">Education Includes</li>
               <li><a href="#">School Name</a></li>
@@ -89,35 +92,24 @@
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
+
         <div class="span9">
-          <div class="well sidebar-nav">
-  <html:errors/>            
+            <html:errors/> 
 <form class="form-horizontal" action="saveUserEducationDtl.do">
 <fieldset>
+            
 
+             
+
+
+  
 <!-- Form Name -->
 
 <!-- Text input-->
-<h3 class="offset1">School, College & Masters Details</h3>
-<div class="control-group span4">
-    <label class="control-label"></label>
-  <div class="controls">
-    
-    
-  </div>
-</div>
-<div class="control-group span3 offset1">
-  <label class="control-label"></label>
-  <div class="controls">
-    
-    
-  </div>
-</div>
+<br/>
 
-
-<div class="control-group span4">
-  <label class="control-label">School/High School/
-      College/Institute Name</label>
+<div class="control-group span5">
+  <label class="control-label">Institute Name</label>
   <div class="controls">
       <input id="name" name="name" type="text"  class="input-xlarge" >
       <input id="hdnRowCnt" name="hdnRowCnt" type="hidden"/>
@@ -125,22 +117,16 @@
   </div>
 </div>
 
+
 <!-- File Button --> 
-<div class="control-group span5 offset1">
+<div class="control-group span5">
   <label class="control-label">City</label>
   <div class="controls">
     <input id="city" name="city" type="text" placeholder="City Name" class="input-xlarge" >
   </div>
 </div>
-<br/>
+
 <!-- Text input-->
-<div class="control-group span4">
-  <label class="control-label"></label>
-  <div class="controls">
-    
-    
-  </div>
-</div>
 <div class="control-group span5">
   <label class="control-label">From</label>
   <div class="controls">
@@ -172,7 +158,7 @@
 <!-- File Button --> 
 <div class="control-group span4">
     <div style="border-bottom: 1px;border-bottom-color: grey" >
-  <label class="control-label">Specialization</label>
+  <label class="control-label">University(Spec)</label>
   <div class="controls">
     <input id="specialization" name="specialization" type="text" placeholder="e.g. Technical, Science" class="input-xlarge">
   </div>
@@ -180,8 +166,7 @@
 </div>
 
 <div class="control-group span3 offset1">
-  <label class="control-label">Graduation/Masters/
-      Doctorate title</label>
+  <label class="control-label">Title</label>
   <div class="controls">
      
     <select id="title" name="title" class="input-large">
@@ -200,7 +185,7 @@
   </div>
 </div>
 <div class="control-group span5">
-  <label class="control-label">Minor/Major2</label>
+  <label class="control-label">Minor</label>
   <div class="controls">
     <input id="minorMajor" name="minorMajor" type="text" placeholder="e.g. Finance,Marketing" class="input-xlarge">
     
@@ -209,28 +194,36 @@
 <div class="control-group span5">
   <label class="control-label">Percentage</label>
   <div class="controls">
-    <input id="percentage" name="percentage" type="text" placeholder="percentage" class="input-xlarge">
+    <input id="percentage" name="percentage" type="text" placeholder="Percentage Out of 100" class="input-xlarge">
   </div>
 </div>
 
 <div class="control-group span9">
   
   <div class="controls" >
-      <input class="btn btn-large btn-primary" id="btnAdd" type="button" onclick="addNewEducationRow()" value="Add"/>
+      <input class="btn btn-large btn-primary" id="btnAdd" type="button" onclick="addNewEducationRow()" value="Add / Update"/>
       <input class="btn btn-large btn-primary" id="btnUpdate" type="button" onclick="updateRowData()" style="display: none" value="Update"/>
       
   </div>
 </div>
+
+        
+
+        
+       
 <div size="100%">
     <input type="hidden" id="hdnCount" name="hdnCount" value="0"/>
-<table id="tblEducationdtl" name="tblEducationdtl" border="1" width="90%" size="90%">
+<table id="tblEducationdtl" name="tblEducationdtl" border="1" width="90%" size="90%" class="table">
+    <thead>
     <tr>
-        <td width="20%">School/High School/College/Institute Name</td>
-        <td width="10%">City</td>
-        <td width="10%">From - To</td>
-        <td width="10%">Specialization</td>
-        <td width="10%">Action</td>
+        <th width="20%">Institute Name</td>
+        <th width="10%">City</td>
+        <th width="10%">From - To</td>
+        <th width="10%">Specialization</td>
+        <th width="10%">Action</td>
     </tr>
+    </thead>
+    <tbody>
     <c:forEach items="${userEducationDtlList}" var="userEducationDtl" varStatus="rowCnt">
        <tr>
         <td width="20%">${userEducationDtl.schoolCollegeName}<input type="hidden" name="hdnName" id="hdnName${rowCnt.count}" value="${userEducationDtl.schoolCollegeName}"/></td>
@@ -253,9 +246,13 @@
            document.getElementById("hdnCount").value=Number(count)+1;
        </script>
     </c:forEach>
+       </tbody>
 </table>
 </div>
+       
 <br><br><br>
+
+
 <div class="control-group span9">
   
   <div class="controls">
@@ -263,6 +260,7 @@
     
   </div>
 </div>
+
 </fieldset>
 </form>
           
@@ -277,7 +275,7 @@
           <p>CampusLive Initiative by <a href="#">Jyot Patel</a> & <a href="#">Bhushan Zalavadia</a></p>
       </footer>
 
-    </div><!--/.fluid-container-->
+    <!--/.fluid-container-->
 
     <!-- Le javascript
     ================================================== -->

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 
@@ -11,7 +12,7 @@
 <c:set var="userOrganizationDtlList" value="${requestScope.userOrganizationDtlList}"/>
 <script type="text/javascript" src="script/User/editOrganizations.js"></script>
 
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -87,28 +88,21 @@ alert("Welcome " + name + ", the " + job);
   </head>
 
   <body>
-      <br><br>
-           
-<form class="form-horizontal" action="saveUserOrganizationDtls.do">
+      
+    <div class="span12">
+          <div class=" sidebar-nav">
+               
+              <form class="form-horizontal" action="saveUserOrganizationDtls.do" target="_top">
 <fieldset>
 <!-- Form Name -->
-<table width="100%" id="mytable">
-    <tbody class="clonedInput">
-             <tr>
-                 <td>
+
 <!-- Text input-->
 <div class="control-group">
   <label class="control-label">Name</label>
   <div class="controls">
-    <input id="orgName" name="orgName" type="text" placeholder="e.g. Tata Consultancy Services Pvt Ltd." class="input-xlarge" >
-     <input id="hdnOrgRowCnt" name="hdnRowCnt" type="hidden"/>
-    <input id="hdnOrgRowObj" name="hdnRowObj" type="hidden"/>
+    <input id="orgName" name="orgName" type="text" placeholder="e.g. Tata Consultancy Services Pvt Ltd." class="input-xlarge" ><input id="hdnOrgRowCnt" name="hdnRowCnt" type="hidden"/><input id="hdnOrgRowObj" name="hdnRowObj" type="hidden"/>
   </div>
 </div>
-              </td>
-              <td></td>
-            </tr>
-            <tr><td>
 <!-- Text input-->
 <div class="control-group">
   <label class="control-label">Title</label>
@@ -117,13 +111,11 @@ alert("Welcome " + name + ", the " + job);
     
   </div>
 </div>
-</td>
-<td></td>
-            </tr>
-            <tr><td>
+
+            
 <!-- Select Basic -->
-<div class="control-group span4">
-  <label class="control-label">Start Month</label>
+<div class="control-group span6">
+  <label class="control-label ">Start Month</label>
   <div class="controls">
     <select id="orgStartMonth" name="orgStartMonth" class="input-xlarge">
       <option value="-1">--Select--</option>
@@ -142,11 +134,9 @@ alert("Welcome " + name + ", the " + job);
     </select>
   </div>
 </div>
-</td>
-<td>
 <!-- Select Basic -->
-<div class="control-group pull-left">
-  <label class="control-label">Start Year</label>
+<div class="control-group span6">
+  <label class="control-label ">Start Year</label>
   <div class="controls">
     <select id="orgStartYear" name="orgStartYear" class="input-xlarge">
       <option value="-1">--Select--</option>
@@ -166,11 +156,8 @@ alert("Welcome " + name + ", the " + job);
     </select>
   </div>
 </div>
-</td>            </tr>
-            <tr>
-<!-- Select Basic -->
-<td>
-         <div class="control-group span4">
+
+         <div class="control-group span6">
   <label class="control-label">End Month</label>
   <div class="controls">
     <select id="orgEndMonth" name="orgEndMonth" class="input-xlarge">
@@ -190,10 +177,7 @@ alert("Welcome " + name + ", the " + job);
     </select>
   </div>
 </div>
-</td>
-<!-- Select Basic -->
-<td>
-         <div class="control-group pull-left">
+         <div class="control-group span6">
   <label class="control-label">End Year</label>
   <div class="controls">
     <select id="orgEndYear" name="orgEndYear" class="input-xlarge">
@@ -214,69 +198,49 @@ alert("Welcome " + name + ", the " + job);
     </select>
   </div>
 </div>
-</td>
-            </tr>
-
-<tr>
-
-<td>
- <div class="control-group">
+ <div class="control-group span12">
   <label class="control-label">WorkEx Area</label>
   <div class="controls"> 
       <input id="orgWorkExArea" name="orgWorkExArea" type="text" placeholder="Work Experience area" class="input-xlarge" >
     
   </div>
 </div>
-</td>
-<td>
-</td>    
-            </tr>
-            <tr>
-<!-- Textarea -->
-<td>
-         <div class="control-group">
+         <div class="control-group span12">
   <label class="control-label">Location</label>
   <div class="controls">                     
         <input id="orgLocation" name="orgLocation" type="text" placeholder="City where you worked" class="input-xlarge" >
   </div>
 </div>
-</td>
-<td>
- 
-</td>    
-            </tr>
-            <tr>
-<!-- Textarea -->
-<td>
-<div class="control-group">
+
+<div class="control-group span12" >
   <label class="control-label">Description</label>
   <div class="controls">                     
     <textarea id="orgDesc" name="orgDesc"></textarea>
   </div>
 </div>
-<td><td></td>        </tr>
-            <tr>
-<!-- Button --><td>
+
 <div class="control-group">
   <label class="control-label"></label>
   <div class="controls">
-      <input type="button" id="btnAddOrg" name="btnAddOrg" value="Add More Company+" class="btn btn-primary btn-large" onclick="addNewOrganizationRow()"/>
+      <input type="button" id="btnAddOrg" name="btnAddOrg" value="Add Company" class="btn btn-primary btn-large" onclick="addNewOrganizationRow()"/>
       <input type="button" id="btnUpdateOrg" name="btnUpdateOrg" value="Update" style="display:none" class="btn btn-primary btn-large" onclick="updateOrgRowData()"/>
     
   </div>
 </div>
-</td>
 
 <input type="hidden" id="hdnOrgCount" name="hdnOrgCount" value="0"/>
-<table id="tblOrganizationDtl" name="tblOrganizationDtl" border="1" width="98%" size="98%">
+<table id="tblOrganizationDtl" name="tblOrganizationDtl" border="0" width="98%" size="100%" class="table">
+    <thead>
     <tr>
-        <td width="20%">Organization Name</td>
-        <td width="10%">Title</td>
-        <td width="10%">Start Month - Year</td>
-        <td width="10%">End Month - Year</td>
-        <td width="10%">Location</td>
-        <td width="10%">Action</td>
+        <th width="20%">Organization Name</td>
+        <th width="10%">Title</td>
+        <th width="10%">Start Month - Year</td>
+        <th width="10%">End Month - Year</td>
+        <th width="10%">Location</td>
+        <th width="10%">Action</td>
     </tr>
+    </thead>
+    <tbody>
      <c:forEach items="${userOrganizationDtlList}" var="userOrganizationDtl" varStatus="rowCnt">
        <tr>
         <td width="20%">${userOrganizationDtl.orgName}<input type="hidden" name="hdnOrgName" id="hdnOrgName${rowCnt.count}" value="${userOrganizationDtl.orgName}"/></td>
@@ -301,19 +265,19 @@ alert("Welcome " + name + ", the " + job);
            document.getElementById("hdnOrgCount").value=Number(count)+1;
        </script>
     </c:forEach>
+       </tbody>
 </table>
-<td>
+
 <br/><br/>
 <!-- Button -->
 <div class="control-group">
   <label class="control-label"></label>
   <div class="controls">
-    <button id="orgSubmit" name="orgSubmit" class="btn btn-inverse btn-large">Save</button>
+    <button id="orgSubmit" name="orgSubmit" class="btn btn-success btn-large">Save</button>
   </div>
-</div></td>
+</div>
            
-    </tbody>
-</table>
+
 </fieldset>
 
 </form>

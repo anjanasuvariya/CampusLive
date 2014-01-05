@@ -79,7 +79,7 @@
                             <img class="img-rounded" src="resources/img/User/personalinfo.png"/>
                             <br/><br/>
                             <p>Check your current details on the right and Update if it's not correct.</p>
-                           _________________________
+                           _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
                            <br/><br/>
                         </center>
                         <ul class="nav nav-list">

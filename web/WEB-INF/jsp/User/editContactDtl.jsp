@@ -70,7 +70,7 @@
             <img class="img-rounded" src="resources/img/User/contactinfo.png"/>
           
           <p>Check your current contact details on the right and update the same.</p>
-                                      _________________________
+                                      _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
                            <br/><br/>
             </center>
             <ul class="nav nav-list">
@@ -167,7 +167,7 @@
 <div class="control-group">
   
   <div class="controls">
-    <button class="btn btn-large btn-success" type="submit">Save</button>
+    <button class="btn btn-large btn-success" type="submit">Save / Update</button>
     
   </div>
 </div>

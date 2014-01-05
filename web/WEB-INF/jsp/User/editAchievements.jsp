@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 
@@ -71,11 +72,13 @@
               <center><h2>Achievements</h2>
             <img class="img-rounded" src="resources/img/User/achievement.png"/>
           
-            <p class="pull-left">Don't miss out to include any of your achievements, whether be it participation in On-campus/Off-campus events or research papers presented. Don't forget to include sports here. </p>
-          <p><a class="btn" href="#">Edit</a></p> </center>
+            <p>Time to show your achievements</p>
+             _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+                           <br/><br/>
+          </center>
             <ul class="nav nav-list">
               <li class="nav-header">Achievements Include</li>
-              <li class="active"><a href="#">Achievement Title</a></li>
+              <li><a href="#">Achievement Title</a></li>
               <li><a href="#">Achievement Description</a></li>
               <li><a href="#">Sports Participation</a></li>
               <li><a href="#">Research Publications</a></li>
@@ -88,13 +91,13 @@
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
-          <div class="well sidebar-nav">
+          <div class="sidebar-nav">
             
               <form class="form-horizontal" action="saveUserAchievementDtls.do">
 <fieldset>
 
 <!-- Form Name -->
-<h3 class="offset1">Achievements & Participation</h3>
+
 <div class="control-group"></div>
 <!-- Text input-->
 <div class="control-group">
@@ -153,20 +156,24 @@
 <div class="control-group">
   
   <div class="controls">
-      <input class="btn btn-large btn-info" id="btnAdd" type="button" onclick="addNewAchievementRow()" value="More Achievements+"/>
+      <input class="btn btn-large btn-info" id="btnAdd" type="button" onclick="addNewAchievementRow()" value="Add Achievement"/>
       <input class="btn btn-large btn-primary" id="btnUpdate" type="button" onclick="updateAchmntRowData()" style="display: none" value="Update"/>
             
   </div>
 </div>
 <input type="hidden" id="hdnCount" name="hdnCount" value="0"/>
-<table id="tblAchievementdtl" name="tblAchievementdtl" border="1" width="90%" size="90%">
+
+<table id="tblAchievementdtl" name="tblAchievementdtl" border="1" width="90%" size="90%" class="table">
+    <thead>
     <tr>
-        <td width="20%">Achievement Title</td>
-        <td width="10%">Category</td>
-        <td width="10%">Event Name</td>
-        <td width="10%">Organizers</td>
-        <td width="10%">Action</td>
+        <th width="20%">Achievement Title</td>
+        <th width="10%">Category</td>
+        <th width="10%">Event Name</td>
+        <th width="10%">Organizers</td>
+        <th width="10%">Action</td>
     </tr>
+    </thead>
+    <tbody>
     <c:forEach items="${userAchievementDtlList}" var="userAchievementDtl" varStatus="rowCnt">
        <tr>
         <td width="20%">${userAchievementDtl.achievementTitle}
@@ -191,6 +198,7 @@
            document.getElementById("hdnCount").value=Number(count)+1;
        </script>
     </c:forEach>
+       </tbody>
 </table>
 <br/><br/>
    <button class="btn btn-large btn-success offset1" type="submit">Save</button>
@@ -203,9 +211,7 @@
 
       <hr>
 
-      <footer>
-        <p>&copy; Company 2013</p>
-      </footer>
+    
 
     </div><!--/.fluid-container-->
 

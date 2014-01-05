@@ -51,7 +51,7 @@ function addNewEducationRow()
             {
                 toYear = "";
             }
-            
+            alert("adding");
             newCell = newRow.insertCell(2);
             newCell.innerHTML = fromYear +' - '+ toYear
                 +'<input type="hidden" name="hdnFromYear" id="hdnFromYear'+Number(rowCnt)+'" value="'+fromYear+'"/>'

@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 
@@ -117,7 +119,8 @@ function setFrameSrc(tab)
             <img class="img-rounded" src="resources/img/User/workex.png"/>
           
           <p>Add your Work Experience including Organization and the projects you have worked upon. Don't forget to include the role you performed in a team</p>
-          <p><a class="btn" href="#">Edit</a></p> </center>
+          _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+                           <br/><br/></center>
             <ul class="nav nav-list">
               <li class="nav-header">WorkEx Includes</li>
               <li><a href="#">Organization Name</a></li>
@@ -132,19 +135,18 @@ function setFrameSrc(tab)
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
-          <div class="well sidebar-nav">
+          
              
-<h4 class="offset1" style="color: #999">Good judgment comes from experience, and experience comes from bad judgment.</h4>  
-              
-<ul class="nav nav-tabs offset1 span9">
+              <ul class="nav nav-pills  nav-justified">
                 
-  <li onclick="setFrameSrc('tab1')"><a href="#" data-toggle="tab">Organization</a></li>
-  <li onclick="setFrameSrc('tab2')"><a href="#" data-toggle="tab" class="offset2">Projects</a></li>
-  <li onclick="setFrameSrc('tab3')"><a href="#" data-toggle="tab" class="offset2">Recommendations</a></li>
-  <iframe id="frmWorkExp" height="700" width="760" border="no" src="${contextPath}/viewUserOrganizations.do">
-               
+  <li onclick="setFrameSrc('tab1')"><a href="#" data-toggle="tab" class="active">
+          Organization</a></li><li onclick="setFrameSrc('tab2')"><a href="#" data-toggle="tab" >
+                  Projects</a></li><li onclick="setFrameSrc('tab3')"><a href="#" data-toggle="tab" >
+                          Recommendations</a></li>
+  <iframe id="frmWorkExp" height="800" width="100%" frameborder="0" src="${contextPath}/viewUserOrganizations.do">
+  </iframe>
 </ul>
-<table width="100%" id="mytable">
+<table width="100%" id="mytable" class="table">
     <tbody class="clonedInput">
              
     <tr>
@@ -155,9 +157,7 @@ function setFrameSrc(tab)
                     </div>
                     <hr>
 
-      <footer>
-          <p class="offset2">CampusLive Initiative by <a href="#">Jyot Patel</a> & <a href="#">Bhushan Zalavadia</a></p>
-      </footer>
+     
                 </td><td></td>
 </tr>
     </tbody>

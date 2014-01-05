@@ -67,9 +67,10 @@
           <div class="well sidebar-nav">
               <center><h2>Account Details</h2>
             <img class="img-rounded" src="resources/img/User/settings.png"/>
-          
-          <p>Change your username, password & other settings specific to your batch, university & class.</p>
-          <p><a class="btn" href="#">Edit</a></p> </center>
+          <br/><br/>
+          <p>Change your Account Details</p>
+          _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+                           <br/><br/></center>
             <ul class="nav nav-list">
               <li class="nav-header">Account Details Include</li>
               <li><a href="#">Username</a></li>
