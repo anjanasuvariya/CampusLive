@@ -22,11 +22,11 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="#">&nbsp; Placecom </a>
+            <html:link page="/studhome.do" styleClass="brand">&nbsp;&nbsp;Placecom </html:link>
             <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
             <div class="nav-collapse collapse">
               <ul class="nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#about">Resume</a></li>
                 <li><html:link page="/GroupDiscussion.do">GD</html:link></li>
                 <li><html:link page="/theAssignmentStudent.do">the asSignment</html:link></li>

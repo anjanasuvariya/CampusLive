@@ -64,6 +64,11 @@
         <action  path="/testphoto"
                  forward="/WEB-INF/jsp/User/testphoto.jsp" />
         
+        <action  path="/studhome"
+                 forward="/WEB-INF/jsp/User/homePage.jsp" />
+        
+        
+        
         <action  path="/viewUserPersonalinfo" name="ViewUserPersonalDtlForm"
                  scope="request" 
                  forward="/WEB-INF/jsp/User/editPersonalDtls.jsp" />
