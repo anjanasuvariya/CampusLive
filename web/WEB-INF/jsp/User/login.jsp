@@ -78,11 +78,11 @@
 
     </style>
   
-     <link rel="apple-touch-icon-precomposed"  href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png"/>
-    <link rel="apple-touch-icon-precomposed"  href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png"/>
-      <link rel="apple-touch-icon-precomposed"  href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png"/>
-                    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png"/>
-                                   <link rel="shortcut icon" href="http://twitter.github.io/bootstrap/assets/ico/favicon.png"/>
+     <link rel="apple-touch-icon-precomposed"  href="resources/ico/apple-touch-icon-144-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed"  href="resources/ico/apple-touch-icon-114-precomposed.png"/>
+      <link rel="apple-touch-icon-precomposed"  href="resources/ico/apple-touch-icon-72-precomposed.png"/>
+                    <link rel="apple-touch-icon-precomposed" href="resources/ico/apple-touch-icon-57-precomposed.png"/>
+                                   <link rel="shortcut icon" href="resources/ico/favicon.png"/>
   
   </head>
   <body>
@@ -187,18 +187,18 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-transition.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-alert.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-modal.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-dropdown.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-scrollspy.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-tab.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-tooltip.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-popover.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-button.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-collapse.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-carousel.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-typeahead.js"></script>
+    <script src="resources/js/bootstrap-transition.js"></script>
+    <script src="resources/js/bootstrap-alert.js"></script>
+    <script src="resources/js/bootstrap-modal.js"></script>
+    <script src="resources/js/bootstrap-dropdown.js"></script>
+    <script src="resources/js/bootstrap-scrollspy.js"></script>
+    <script src="resources/js/bootstrap-tab.js"></script>
+    <script src="resources/js/bootstrap-tooltip.js"></script>
+    <script src="resources/js/bootstrap-popover.js"></script>
+    <script src="resources/js/bootstrap-button.js"></script>
+    <script src="resources/js/bootstrap-collapse.js"></script>
+    <script src="resources/js/bootstrap-carousel.js"></script>
+    <script src="resources/js/bootstrap-typeahead.js"></script>
     
   </body>
 </html>

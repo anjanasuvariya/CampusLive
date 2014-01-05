@@ -378,65 +378,49 @@
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
     
-    <div class="container marketing">
-
       <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="span4">
-          <h2>Personal Info</h2>
+      <div class="span1" align="left" style="border-right: 1px dotted tomato;"></div>
+        <div class="span2" align="left" style="border-right: 1px dotted tomato;">
+          <h3>Personal Info</h3>
           <html:link action="/viewUserPersonalinfo" ><img class="img-rounded" src="resources/img/User/personalinfo.png"/></html:link>
           
           
           <p>Let's update your Personal Information including Name, Image, DoB, Interests, etc.</p>
-          <p><a class="btn" href="#">Edit Here</a></p>
+          
         </div><!-- /.span4 -->
-        <div class="span4">
-            <h2>Contact Info</h2>  
+        <div class="span2" align="left"  style="border-right: 1px dotted tomato;">
+            <h3>Contact Info</h3>  
         <html:link action="/viewUserContactDtls" ><img class="img-rounded" src="resources/img/User/contactinfo.png"/></html:link>
-          <p>Edit your contact information such as Contact Number, Email and update your blogs created recently.</p>
-          <p><a class="btn" href="#">Edit Here</a></p>
+          <p>Edit your contact information such as Contact Number, Email and update your blogs.</p>
+          
         </div><!-- /.span4 -->
-        <div class="span4">
-          <h2>Education</h2>
+        <div class="span2" align="left"  style="border-right: 1px dotted tomato;">
+          <h3>Education</h3>
           <html:link action="/viewUserEducationDtls" ><img class="img-rounded" src="resources/img/User/education.png"/></html:link>
           <p>Update your School, High School & Graduation Details and even include your grades if you want to.</p>
-          <p><a class="btn" href="#">Edit Here </a></p>
+          
         </div><!-- /.span4 -->
-      </div><!-- /.row -->
-
-      <div class="row">
-        <div class="span4">
-          <h2>Work Experience</h2>
+      
+        <div class="span2" align="left" style="border-right: 1px dotted tomato;">
+          <h3>Work Ex</h3>
         <html:link action="/editWorKExperience" > <img class="img-rounded" src="resources/img/User/workex.png"/></html:link>
           
           <p>Earlier worked with any organization ? Update details regarding the projects you worked upon.</p>
-          <p><a class="btn" href="#">Edit Here</a></p>
+          
         </div><!-- /.span4 -->
-        <div class="span4">
-            <h2>Achievements</h2>
+        <div class="span2" align="left" style="border-right: 1px dotted tomato;">
+            <h3>Achievements</h3>
             <html:link action="/viewUserAchievementDtls" ><img class="img-rounded" src="resources/img/User/achievement.png"/></html:link>
           <p>Love to win the game ? Now boast of your winning attitude by recording your achievements.</p>
-          <p><a class="btn" href="#">Edit Here</a></p>
+          
         </div><!-- /.span4 -->
-        <div class="span4">
-            <h2>Account Details</h2>
+        <div class="span2" align="left" >
+            <h3>Account Details</h3>
             <html:link action="/editAccountDtl" ><img class="img-rounded" src="resources/img/User/settings.png"/></html:link>
           <p>Here you can change your username, password, section, etc.</p>
-          <p><a class="btn" href="#">Edit Here</a></p>
+          
         </div><!-- /.span4 -->
-      </div><!-- /.row -->
-
-
-
-
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p> CampusLive  Initiative by <a href="#">Jyot Patel</a> and <a href="#">Anjana Suvariya</a></p>
-      </footer>
-
-    </div><!-- /.container -->
-
+      
 
 
     <!-- Le javascript
