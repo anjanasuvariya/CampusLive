@@ -81,6 +81,7 @@
                             <p>Check your current details on the right and Update if it's not correct.</p>
                            _________________________
                            <br/><br/>
+                        </center>
                         <ul class="nav nav-list">
                             <li class="nav-header active">Personal Details Include</li>
                             <li ><a href="#">Person Name</a></li>

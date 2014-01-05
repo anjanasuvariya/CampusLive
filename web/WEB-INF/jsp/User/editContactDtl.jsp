@@ -99,7 +99,7 @@
 <!-- Form Name -->
 
 <!-- Text input-->
-<h3 class="span11 offset1">Phone, Web & Address Details</h3>
+<br/>
 <div class="control-group">
   <label class="control-label">Mobile Number</label>
   <div class="controls">

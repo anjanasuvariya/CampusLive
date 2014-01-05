@@ -379,36 +379,36 @@
     <!-- Wrap the rest of the page in another container to center all the content. -->
     
       <!-- Three columns of text below the carousel -->
-      <div class="span1" align="left" style="border-right: 1px dotted tomato;"></div>
-        <div class="span2" align="left" style="border-right: 1px dotted tomato;">
+      <div class="span1" align="left" style="border-right: 2px dotted tomato;"></div>
+        <div class="span2" align="left" style="border-right: 2px dotted tomato;">
           <h3>Personal Info</h3>
           <html:link action="/viewUserPersonalinfo" ><img class="img-rounded" src="resources/img/User/personalinfo.png"/></html:link>
           
           
-          <p>Let's update your Personal Information including Name, Image, DoB, Interests, etc.</p>
+          <p>Update your Personal Information including Name, Image, DoB, Interests, etc.</p>
           
         </div><!-- /.span4 -->
-        <div class="span2" align="left"  style="border-right: 1px dotted tomato;">
+        <div class="span2" align="left"  style="border-right: 2px dotted tomato;">
             <h3>Contact Info</h3>  
         <html:link action="/viewUserContactDtls" ><img class="img-rounded" src="resources/img/User/contactinfo.png"/></html:link>
           <p>Edit your contact information such as Contact Number, Email and update your blogs.</p>
           
         </div><!-- /.span4 -->
-        <div class="span2" align="left"  style="border-right: 1px dotted tomato;">
+        <div class="span2" align="left"  style="border-right: 2px dotted tomato;">
           <h3>Education</h3>
           <html:link action="/viewUserEducationDtls" ><img class="img-rounded" src="resources/img/User/education.png"/></html:link>
           <p>Update your School, High School & Graduation Details and even include your grades if you want to.</p>
           
         </div><!-- /.span4 -->
       
-        <div class="span2" align="left" style="border-right: 1px dotted tomato;">
+        <div class="span2" align="left" style="border-right: 2px dotted tomato;">
           <h3>Work Ex</h3>
         <html:link action="/editWorKExperience" > <img class="img-rounded" src="resources/img/User/workex.png"/></html:link>
           
           <p>Earlier worked with any organization ? Update details regarding the projects you worked upon.</p>
           
         </div><!-- /.span4 -->
-        <div class="span2" align="left" style="border-right: 1px dotted tomato;">
+        <div class="span2" align="left" style="border-right: 2px dotted tomato;">
             <h3>Achievement</h3>
             <html:link action="/viewUserAchievementDtls" ><img class="img-rounded" src="resources/img/User/achievement.png"/></html:link>
           <p>Love to win the game ? Now boast of your winning attitude by recording your achievements.</p>
