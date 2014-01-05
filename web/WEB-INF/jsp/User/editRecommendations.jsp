@@ -1,4 +1,13 @@
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
+
+
+<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+<%@taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+<%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
+
 <c:set var="userRecommendationDtlList" value="${requestScope.userRecommendationDtlList}"/>
 <script type="text/javascript" src="script/User/editRecommendations.js"></script>
 
@@ -50,24 +59,24 @@
 function myFunction(name,job)
 {
 
-                var num     = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
-                var newNum  = new Number(num + 1);      // the numeric ID of the new input field being added
- 
-                // create the new element via clone(), and manipulate it's ID using newNum value
-                var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
- 
-                // manipulate the name/id values of the input inside the new element
-                newElem.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
- 
-                // insert the new element after the last "duplicatable" input field
-                $('#input' + num).after(newElem);
- 
-                // enable the "remove" button
-                $('#btnDel').attr('disabled','');
- 
-                // business rule: you can only add 5 names
-                if (newNum == 5)
-                    $('#btnAdd').attr('disabled','disabled');
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â var numÂ Â Â Â  = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â var newNumÂ  = new Number(num + 1);Â Â Â Â Â  // the numeric ID of the new input field being added
+Â 
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â // create the new element via clone(), and manipulate it's ID using newNum value
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
+Â 
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â // manipulate the name/id values of the input inside the new element
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â newElem.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+Â 
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â // insert the new element after the last "duplicatable" input field
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â $('#input' + num).after(newElem);
+Â 
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â // enable the "remove" button
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â $('#btnDel').attr('disabled','');
+Â 
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â // business rule: you can only add 5 names
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â if (newNum == 5)
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â $('#btnAdd').attr('disabled','disabled');
     
 alert("Welcome " + name + ", the " + job);
 }

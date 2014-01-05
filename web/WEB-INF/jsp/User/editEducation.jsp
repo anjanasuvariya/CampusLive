@@ -1,7 +1,13 @@
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
 
-<!DOCTYPE html>
-<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+
+<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+<%@taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+<%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
+
 <c:set var="userEducationDtlList" value="${requestScope.userEducationDtlList}"/>
 <c:set var="educationList" value="${requestScope.educationList}"/>
 <script type="text/javascript" src="script/User/editEducation.js"></script>
@@ -51,31 +57,11 @@
 
   <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="#">CampusLive</a>
-          <div class="nav-collapse collapse">
-            <p class="navbar-text pull-right">
-              Welcome, <a href="#" class="navbar-link">${sessionScope.userName}</a>
-            </p>
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">Resume</a></li>
-                <li><a href="#contact">GD</a></li>
-                <li><a href="#contact">Activity Center</a></li>
-                <li><a href="#contact">Announcements</a></li>
-                <li><a href="#contact">Placements</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
+           <!-- ================================================== -->
+        <tiles:insert definition="project-template-studentlogin-header" >
+             <tiles:put name="studentlogin-header" value="/WEB-INF/jsp/Templates/studentlogin_header.jsp" />
+        </tiles:insert>  
+
 
     <div class="container-fluid">
       <div class="row-fluid">
@@ -296,19 +282,27 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="resources/js/jquery.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-transition.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-alert.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-modal.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-dropdown.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-scrollspy.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-tab.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-tooltip.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-popover.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-button.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-collapse.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-carousel.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-typeahead.js"></script>
+                <script src="resources/js/jquery.js"></script>
+                <script src="resources/js/bootstrap-transition.js"></script>
+                <script src="resources/js/bootstrap-alert.js"></script>
+                <script src="resources/js/bootstrap-modal.js"></script>
+                <script src="resources/js/bootstrap-scrollspy.js"></script>
+                <script src="resources/js/bootstrap-tab.js"></script>
+                <script src="resources/js/bootstrap-tooltip.js"></script>
+                <script src="resources/js/bootstrap-popover.js"></script>
+                <script src="resources/js/bootstrap-button.js"></script>
+                <script src="resources/js/bootstrap-collapse.js"></script>
+                <script src="resources/js/bootstrap-carousel.js"></script>
+                <script src="resources/js/bootstrap-typeahead.js"></script>
 
-  </body>
-</html>
+                <script src="resources/assets/js/bootstrap.min.js"></script>
+
+
+                <script>
+                    $(document).ready(function(){
+                        $('.dropdown-toggle').dropdown()
+                    });
+                </script>
+
+                </body>
+                </html>

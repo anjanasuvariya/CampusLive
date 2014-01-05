@@ -264,15 +264,15 @@
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="http://twitter.github.io/bootstrap/assets/js/html5shiv.js"></script>
+      <script src="resources/js/html5shiv.js"></script>
     <![endif]-->
 
     <!-- Fav and touch icons -->
-<link rel="apple-touch-icon-precomposed"  href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png"/>
-<link rel="apple-touch-icon-precomposed"  href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png"/>
-<link rel="apple-touch-icon-precomposed"  href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png"/>
-<link rel="apple-touch-icon-precomposed" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png"/>
-<link rel="shortcut icon" href="http://twitter.github.io/bootstrap/assets/ico/favicon.png"/>
+<link rel="apple-touch-icon-precomposed"  href="resources/ico/apple-touch-icon-144-precomposed.png"/>
+<link rel="apple-touch-icon-precomposed"  href="resources/ico/apple-touch-icon-114-precomposed.png"/>
+<link rel="apple-touch-icon-precomposed"  href="resources/ico/apple-touch-icon-72-precomposed.png"/>
+<link rel="apple-touch-icon-precomposed" href="resources/ico/apple-touch-icon-57-precomposed.png"/>
+<link rel="shortcut icon" href="resources/ico/favicon.png"/>
 
 
   </head>
@@ -303,7 +303,7 @@
                 <li><a href="#about">Resume</a></li>
                 <li><html:link page="/GroupDiscussion.do">GD</html:link></li>
                 <li><html:link page="/theAssignmentStudent.do">the asSignment</html:link></li>
-                <li><html:link page="/theAssignment.do">the Assignment F</html:link></li>
+                <li><html:link page="/theAssignment.do">Faculty</html:link></li>
                 <li><html:link page="/loadPlaceCommHomePage.do">Placements</html:link></li>
                 <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
                 <li class="dropdown">
@@ -338,7 +338,7 @@
     <div id="myCarousel" class="carousel slide">
       <div class="carousel-inner">
         <div class="item active">
-          <img src="http://twitter.github.io/bootstrap/assets/img/examples/slide-01.jpg" alt=""/>
+          <img src="resources/img/slide/slide-01.jpg" alt=""/>
           <div class="container">
             <div class="carousel-caption">
               <h1>What's New on Campus ?</h1>
@@ -348,7 +348,7 @@
           </div>
         </div>
         <div class="item">
-          <img src="http://twitter.github.io/bootstrap/assets/img/examples/slide-02.jpg" alt=""/>
+          <img src="resources/img/slide/slide-02.jpg" alt=""/>
           <div class="container">
             <div class="carousel-caption">
               <h1>Fear of Group Discussion ?</h1>
@@ -358,7 +358,7 @@
           </div>
         </div>
         <div class="item">
-          <img src="http://twitter.github.io/bootstrap/assets/img/examples/slide-03.jpg" alt=""/>
+          <img src="resources/img/slide/slide-03.jpg" alt=""/>
           <div class="container">
             <div class="carousel-caption">
               <h1>Have a Great news for Everyone ?</h1>
@@ -368,8 +368,8 @@
           </div>
         </div>
       </div>
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">L</a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">R</a>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div><!-- /.carousel -->
 
 
@@ -443,18 +443,18 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="resources/js/jquery.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-transition.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-alert.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-modal.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-dropdown.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-scrollspy.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-tab.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-tooltip.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-popover.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-button.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-collapse.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-carousel.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-typeahead.js"></script>
+    <script src="resources/js/bootstrap-transition.js"></script>
+    <script src="resources/js/bootstrap-alert.js"></script>
+    <script src="resources/js/bootstrap-modal.js"></script>
+    <script src="resources/js/bootstrap-dropdown.js"></script>
+    <script src="resources/js/bootstrap-scrollspy.js"></script>
+    <script src="resources/js/bootstrap-tab.js"></script>
+    <script src="resources/js/bootstrap-tooltip.js"></script>
+    <script src="resources/js/bootstrap-popover.js"></script>
+    <script src="resources/js/bootstrap-button.js"></script>
+    <script src="resources/js/bootstrap-collapse.js"></script>
+    <script src="resources/js/bootstrap-carousel.js"></script>
+    <script src="resources/js/bootstrap-typeahead.js"></script>
     <script>
       !function ($) {
         $(function(){
@@ -463,6 +463,6 @@
         })
       }(window.jQuery)
     </script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/holder/holder.js"></script>
+    <script src="resources/js/holder.js"></script>
   </body>
 </html>

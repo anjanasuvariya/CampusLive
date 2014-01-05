@@ -1,4 +1,13 @@
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
+
+
+<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+<%@taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+<%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -47,24 +56,24 @@
 function myFunction(name,job)
 {
 
-                var num     = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
-                var newNum  = new Number(num + 1);      // the numeric ID of the new input field being added
- 
-                // create the new element via clone(), and manipulate it's ID using newNum value
-                var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
- 
-                // manipulate the name/id values of the input inside the new element
-                newElem.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
- 
-                // insert the new element after the last "duplicatable" input field
-                $('#input' + num).after(newElem);
- 
-                // enable the "remove" button
-                $('#btnDel').attr('disabled','');
- 
-                // business rule: you can only add 5 names
-                if (newNum == 5)
-                    $('#btnAdd').attr('disabled','disabled');
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â var numÂ Â Â Â  = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â var newNumÂ  = new Number(num + 1);Â Â Â Â Â  // the numeric ID of the new input field being added
+Â 
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â // create the new element via clone(), and manipulate it's ID using newNum value
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
+Â 
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â // manipulate the name/id values of the input inside the new element
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â newElem.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+Â 
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â // insert the new element after the last "duplicatable" input field
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â $('#input' + num).after(newElem);
+Â 
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â // enable the "remove" button
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â $('#btnDel').attr('disabled','');
+Â 
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â // business rule: you can only add 5 names
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â if (newNum == 5)
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â $('#btnAdd').attr('disabled','disabled');
     
 alert("Welcome " + name + ", the " + job);
 }
@@ -93,31 +102,11 @@ function setFrameSrc(tab)
   <body>
       
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="#">CampusLive</a>
-          <div class="nav-collapse collapse">
-            <p class="navbar-text pull-right">
-              Welcome, <a href="#" class="navbar-link">Jyot Patel</a>
-            </p>
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">Resume</a></li>
-                <li><a href="#contact">GD</a></li>
-                <li><a href="#contact">Activity Center</a></li>
-                <li><a href="#contact">Announcements</a></li>
-                <li><a href="#contact">Placements</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
+          <!-- ================================================== -->
+        <tiles:insert definition="project-template-studentlogin-header" >
+             <tiles:put name="studentlogin-header" value="/WEB-INF/jsp/Templates/studentlogin_header.jsp" />
+        </tiles:insert>  
+
 
     <div class="container-fluid">
       <div class="row-fluid">
@@ -172,25 +161,33 @@ function setFrameSrc(tab)
                 </td><td></td>
 </tr>
     </tbody>
-</table>          
-             
-  </body>
+</table>                       
+  
   
    <!-- Le javascript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="resources/js/jquery.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-transition.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-alert.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-modal.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-dropdown.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-scrollspy.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-tab.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-tooltip.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-popover.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-button.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-collapse.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-carousel.js"></script>
-    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-typeahead.js"></script>
+<!-- Placed at the end of the document so the pages load faster -->
+                <script src="resources/js/jquery.js"></script>
+                <script src="resources/js/bootstrap-transition.js"></script>
+                <script src="resources/js/bootstrap-alert.js"></script>
+                <script src="resources/js/bootstrap-modal.js"></script>
+                <script src="resources/js/bootstrap-scrollspy.js"></script>
+                <script src="resources/js/bootstrap-tab.js"></script>
+                <script src="resources/js/bootstrap-tooltip.js"></script>
+                <script src="resources/js/bootstrap-popover.js"></script>
+                <script src="resources/js/bootstrap-button.js"></script>
+                <script src="resources/js/bootstrap-collapse.js"></script>
+                <script src="resources/js/bootstrap-carousel.js"></script>
+                <script src="resources/js/bootstrap-typeahead.js"></script>
 
+                <script src="resources/assets/js/bootstrap.min.js"></script>
+
+
+                <script>
+                    $(document).ready(function(){
+                        $('.dropdown-toggle').dropdown()
+                    });
+                </script>
+
+                </body>
 </html>
