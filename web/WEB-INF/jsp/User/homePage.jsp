@@ -300,7 +300,7 @@
             <div class="nav-collapse collapse">
               <ul class="nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><html:link page="/editResume.do?callmethod=uploadResume">Resume</html:link></li>
+                <li><html:link page="/editResume.do?callmethod=uploadResumePage">Resume</html:link></li>
                 <li><html:link page="/GroupDiscussion.do">GD</html:link></li>
                 <li><html:link page="/theAssignmentStudent.do">the asSignment</html:link></li>
                 <li><html:link page="/theAssignment.do">Faculty</html:link></li>

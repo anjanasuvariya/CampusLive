@@ -89,40 +89,21 @@
         </div><!--/span-->
         <div class="span9">
           <div class="sidebar-nav">
-            
- <!-- -------------------------------------- -->
-              <form action="/uploads" enctype="multipart/form-data" method="post">
-    <input type="file" name="uploadFile" />
-    <input type="submit" />
-</form>
- <!-- -------------------------------------- -->             
               
               
- <form class="form-horizontal" action="saveUserAchievementDtls.do">
+              <html:form styleClass="form-horizontal" action="/editResume.do?callmethod=uploadResume" enctype="multipart/form-data" method="post" >
 <fieldset>
 
-<!-- Form Name -->
-
-<div class="control-group"></div>
-<!-- Text input-->
-
-
-
-<!-- File Button --> 
 <div class="control-group">
-  <label class="control-label">Upload Doc</label>
+  <label class="control-label">Upload Document</label>
   <div class="controls">
-    <input id="achievementImage" name="achievementImage" class="input-file" type="file">
-  </div>
+<html:file property="file"  styleClass="input-file"  />  </div>
 </div>
-
-
-
-<br/><br/>
-   <button class="btn btn-large btn-success offset1" type="submit">Upload</button>
+<br/>
+<button class="btn btn-large btn-success offset1" type="submit">Upload</button>
 
 </fieldset>
-</form>
+</html:form>
 
               
           </div>

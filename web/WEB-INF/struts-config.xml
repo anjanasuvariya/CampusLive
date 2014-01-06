@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="ResumeUploadActionForm" type="CV.form.ResumeUploadActionForm"/>
         <form-bean name="HRWorkListForm" type="HR.form.HRWorkListForm"/>
         <form-bean name="ViewUserActivationDtlForm" type="admin.form.ViewUserActivationDtlForm"/>
         <form-bean name="StudentInterestInviteForm" type="placeComm.form.StudentInterestInviteForm"/>
@@ -416,7 +417,8 @@
     </action>
     
     <action path="/editResume" parameter="callmethod" 
-             type="CV.action.ResumeUploadAction">
+             type="CV.action.ResumeUploadAction" 
+             name="ResumeUploadActionForm" scope="request">
              <forward name="success" path="/WEB-INF/jsp/Resume/editResume.jsp" />
     </action>
     
