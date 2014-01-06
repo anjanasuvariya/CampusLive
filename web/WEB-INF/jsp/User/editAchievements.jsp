@@ -163,7 +163,7 @@
 </div>
 <input type="hidden" id="hdnCount" name="hdnCount" value="0"/>
 
-<table id="tblAchievementdtl" name="tblAchievementdtl" border="1" width="90%" size="90%" class="table">
+<table id="tblAchievementdtl" name="tblAchievementdtl" border="0" width="90%" size="90%" class="table">
     <thead>
     <tr>
         <th width="20%">Achievement Title</td>

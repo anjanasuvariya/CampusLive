@@ -213,7 +213,7 @@
        
 <div size="100%">
     <input type="hidden" id="hdnCount" name="hdnCount" value="0"/>
-<table id="tblEducationdtl" name="tblEducationdtl" border="1" width="90%" size="90%" class="table">
+<table id="tblEducationdtl" name="tblEducationdtl" border="0" width="90%" size="90%" class="table">
     <thead>
     <tr>
         <th width="20%">Institute Name</td>
