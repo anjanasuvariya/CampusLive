@@ -415,6 +415,11 @@
              <forward name="success" path="/WEB-INF/jsp/Admin/viewUserActivationDtls.jsp" />
     </action>
     
+    <action path="/editResume" parameter="callmethod" 
+             type="CV.action.ResumeUploadAction">
+             <forward name="success" path="/WEB-INF/jsp/Resume/editResume.jsp" />
+    </action>
+    
     
     <action path="/testmail" forward="/WEB-INF/jsp/User/sendmail.jsp"/>
     
