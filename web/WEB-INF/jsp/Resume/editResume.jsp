@@ -94,13 +94,22 @@
               <html:form styleClass="form-horizontal" action="/editResume.do?callmethod=uploadResume" enctype="multipart/form-data" method="post" >
 <fieldset>
 
-<div class="control-group">
-  <label class="control-label">Upload Document</label>
-  <div class="controls">
+    
+     <html:link action="/editResume.do?callmethod=downloadResume">
+         <button class="btn btn-large btn-success" type="button">Download Resume</button>
+     </html:link> 
+ 
+     <hr/>
+    <br/>
+    
+    <h3> Upload Resume Here </h3>
+<div class="control-group span12">
+  
+  
 <html:file property="file"  styleClass="input-file"  />  </div>
-</div>
-<br/>
-<button class="btn btn-large btn-success offset1" type="submit">Upload</button>
+
+<br/><br/><br/>
+<button class="btn btn-large btn-info" type="submit">Upload</button>
 
 </fieldset>
 </html:form>

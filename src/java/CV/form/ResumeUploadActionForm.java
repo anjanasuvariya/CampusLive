@@ -4,6 +4,7 @@
  */
 package CV.form;
 
+import java.io.File;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -18,7 +19,21 @@ import org.apache.struts.upload.FormFile;
 public class ResumeUploadActionForm extends org.apache.struts.action.ActionForm {
     
     private FormFile file;
+    private File resume;
 
+    
+    
+    public void setResume(File resume) {
+        this.resume = resume;
+    }
+
+    public File getResume() {
+        return resume;
+    }
+
+    
+    
+    
     public FormFile getFile() {
         return file;
     }
@@ -41,6 +56,8 @@ public class ResumeUploadActionForm extends org.apache.struts.action.ActionForm 
         super();
         // TODO Auto-generated constructor stub
     }
+
+   
 
     /**
      * This is the action called from the Struts framework.
