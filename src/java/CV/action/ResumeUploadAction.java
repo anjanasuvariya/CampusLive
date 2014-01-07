@@ -6,6 +6,7 @@ package CV.action;
 
 import CV.form.ResumeUploadActionForm;
 import CV.model.Uploads;
+import common.model.CmnUserMst;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,6 +15,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.text.MessageFormat;
+import java.util.ResourceBundle;
  
 import javax.activation.MimetypesFileTypeMap;
 import javax.servlet.ServletException;
@@ -22,6 +25,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -47,7 +51,16 @@ public class ResumeUploadAction extends DispatchAction {
   public ActionForward uploadResumePage(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-  
+      
+      HttpSession session = request.getSession(); 
+      CmnUserMst lObjCmnUserMst = (CmnUserMst) session.getAttribute("cmnUserMst");
+      
+      ResourceBundle resourceBundle = ResourceBundle.getBundle("common/resources/Constants");
+   
+      System.out.println(MessageFormat.format(resourceBundle.getString("UPLOADPATH.RESUME"),lObjCmnUserMst.getUserId()));
+   
+      
+      
   return mapping.findForward("success");
   }
   
@@ -64,6 +77,9 @@ public class ResumeUploadAction extends DispatchAction {
         
         ResumeUploadActionForm resumeUploadActionForm = (ResumeUploadActionForm) form;
         FormFile file = resumeUploadActionForm.getFile();
+
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("common/resources/Constants");
+        
         
         if (file != null) {
                 fileURL = uploadFile(request, file);
