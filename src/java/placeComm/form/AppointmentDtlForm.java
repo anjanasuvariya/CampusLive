@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
+import org.apache.struts.upload.FormFile;
 
 /**
  *
@@ -25,7 +26,16 @@ public class AppointmentDtlForm extends org.apache.struts.action.ActionForm {
     private String appntStatus;
     private String appntMessage;
     private String appntPriority;
+    private FormFile file;
 
+    public FormFile getFile() {
+        return file;
+    }
+
+    public void setFile(FormFile file) {
+        this.file = file;
+    }
+    
     public Long getAppntDtlId() {
         return appntDtlId;
     }

@@ -33,7 +33,9 @@ $(document).ready(function() {
                 break;
             }
         }
-             
+        
+        
+        
         var param = 'appntDtlId='+appntDtlId+'&appntTitle='+appntTitle+'&appntPurpose='+appntPurpose
         +'&appntFileName='+appntFileName+'&appntCompany='+appntCompany+'&assignedTo='+assignedTo
         +'&appntStatus='+appntStatus+'&appntMessage='+appntMessage+'&appntPriority='+appntPriority+'&callmethod=saveAppointmentDtls';
@@ -49,7 +51,7 @@ function saveAppntDtlsUsingAjax(param){
 
     return $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/CampusLive/saveAppointmentDtls.do?'+param,
+        url: 'http://localhost:23236/CampusLive/saveAppointmentDtls.do?'+param,
         timeout: 5000,
         dataType: "json",
         success: function (data) {
@@ -282,7 +284,7 @@ function deleteAppntDtls(deleteFlag,appntDtlId,rowCnt)
         {
             return $.ajax({
                 type: 'GET',
-                url: 'http://localhost:8080/CampusLive/deleteAppointmentDtls.do?appntDtlIds='+appntDtlIds,
+                url: 'http://localhost:23236/CampusLive/deleteAppointmentDtls.do?appntDtlIds='+appntDtlIds,
                 timeout: 5000,
                 dataType: "json",
                 success: function (data) {
@@ -397,7 +399,7 @@ function viewAppntHistory(appntDtlId,appntTitle,rowCnt)
     }
     return $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/CampusLive/viewAppntHistory.do?callmethod=viewAppntHistory&appntDtlId='+appntDtlId,
+        url: 'http://localhost:23236/CampusLive/viewAppntHistory.do?callmethod=viewAppntHistory&appntDtlId='+appntDtlId,
         timeout: 5000,
         dataType: "json",
         success: function (responseJson) {
@@ -437,7 +439,7 @@ function saveAppntHistory()
     
     return $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/CampusLive/viewAppntHistory.do?callmethod=saveAppntHstDtls&appntDtlId='+appntDtlId+'&message='+message+'&status='+status,
+        url: 'http://localhost:23236/CampusLive/viewAppntHistory.do?callmethod=saveAppntHstDtls&appntDtlId='+appntDtlId+'&message='+message+'&status='+status,
         timeout: 5000,
         dataType: "json",
         success: function (responseJson) {

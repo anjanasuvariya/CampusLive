@@ -11,6 +11,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.omg.PortableServer.REQUEST_PROCESSING_POLICY_ID;
 import placeComm.model.AppointmentCustomVO;
 import placeComm.model.HstAppointmentDtls;
 import placeComm.model.PcAppointmentDtls;
@@ -202,7 +203,7 @@ public class AppointmentDtlDAOImpl implements AppointmentDtlDAO {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             Transaction tx = session.beginTransaction();
-            System.out.println("hstAppointmentDtls.getHstAppntDtlId()....." + hstAppointmentDtls.getHstAppntDtlId());
+//            System.out.println("hstAppointmentDtls.getHstAppntDtlId()....." + +hstAppointmentDtls.getHstAppntDtlId());
             if (hstAppointmentDtls.getHstAppntDtlId() != null) {
                 session.update(hstAppointmentDtls);
             } else {
@@ -228,7 +229,7 @@ public class AppointmentDtlDAOImpl implements AppointmentDtlDAO {
             String lStrQuery = "select new placeComm.model.AppointmentCustomVO(hpd.hstAppntDtlId,"
                     + " (cum.userFirstName || ' '|| coalesce(cum.userMiddleName , '')|| ' '|| coalesce(cum.userLastName,'')) as userName,hpd.message,hpd.status) "
                     + " from HstAppointmentDtls hpd, CmnUserMst cum "
-                    + " where hpd.userId = cum.userId and hpd.appntDtlId= :appntDtlId order by hpd.hstAppntDtlId";
+                    + " where hpd.userId = cum.userId and hpd.appntDtlId= :appntDtlId order by hpd.hstAppntDtlId desc";
             System.out.println("Query======" + lStrQuery);
             Query query = session.createQuery(lStrQuery);
             query.setParameter("appntDtlId", lLngAppntDtlId);

@@ -6,13 +6,20 @@ package placeComm.action;
 
 import com.google.gson.Gson;
 import common.model.CmnUserMst;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.commons.io.FileUtils;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -27,6 +34,7 @@ import placeComm.model.AppointmentCustomVO;
 import placeComm.model.HstAppointmentDtls;
 import placeComm.model.PcAppointmentDtls;
 import org.apache.log4j.Logger;
+import org.apache.struts.upload.FormFile;
 
 /**
  *
@@ -63,6 +71,8 @@ public class AppointmentDtlAction extends DispatchAction {
 
             AppointmentDtlForm appntDtlForm = (AppointmentDtlForm) form;
 
+            FormFile file = appntDtlForm.getFile();
+            
             if (appntDtlForm.getAppntDtlId() != null && appntDtlForm.getAppntDtlId() != 0L) {
                 lObjPcAppointmentDtl = lObjAppointmentDtlDAO.getAppntDtlFromId(appntDtlForm.getAppntDtlId());
 
@@ -111,6 +121,20 @@ public class AppointmentDtlAction extends DispatchAction {
             if (appntDtlForm.getAppntDtlId() == null || appntDtlForm.getAppntDtlId() == 0L) {
                 lObjHstAppointmentDtls.setAppntDtlId(lObjPcAppointmentDtl.getAppntDtlId());
                 lObjAppointmentDtlDAO.saveAppntHstDtls(lObjHstAppointmentDtls);
+                System.out.println("Inserted object id is :::"+lObjHstAppointmentDtls.getHstAppntDtlId());
+                /////Inserting file now
+                
+                if (file != null) {
+                
+                ResourceBundle resourceBundle = ResourceBundle.getBundle("common/resources/Constants");
+                String UploadPath = MessageFormat.format(resourceBundle.getString("UPLOADPATH.RESUME"), System.getenv(resourceBundle.getString("UPLOADPATH.BASE")), lObjHstAppointmentDtls.getHstAppntDtlId());    
+                System.out.println("Upload Path Calling is :: "+UploadPath);
+                String fileURL = uploadFile(request, file, UploadPath);
+            
+            }else{
+                    System.out.println("Hello...it's null");
+                }
+                
             }
 
             JSONObject jsonResult = new JSONObject();
@@ -174,7 +198,7 @@ public class AppointmentDtlAction extends DispatchAction {
 
             if (lStrHstAppntDtlId != null && !"".equals(lStrHstAppntDtlId)) {
                 lObjHstAppointmentDtls = lObjAppointmentDtlDAO.getHstAppntDtlFromId(Long.parseLong(lStrHstAppntDtlId));
-
+                
                 lObjHstAppointmentDtls.setUpdatedUserId(lObjCmnUserMst.getUserId());
                 lObjHstAppointmentDtls.setUpdatedDate(cal.getTime());
             } else {
@@ -196,8 +220,9 @@ public class AppointmentDtlAction extends DispatchAction {
             if (!"".equals(lStrStatus)) {
                 lObjHstAppointmentDtls.setStatus(lStrStatus);
             }
-
-
+            if(lStrHstAppntDtlId != null && lStrHstAppntDtlId != ""){
+            lObjHstAppointmentDtls.setHstAppntDtlId(Long.parseLong(lStrHstAppntDtlId)); // Added by Jyot, It was coming NULL
+            }
             lObjAppointmentDtlDAO.saveAppntHstDtls(lObjHstAppointmentDtls);
 
             JSONObject jsonResult = new JSONObject();
@@ -215,4 +240,43 @@ public class AppointmentDtlAction extends DispatchAction {
         }
         return null;
     }
+    
+    
+    private String uploadFile(HttpServletRequest request, FormFile file, String filePath) throws FileNotFoundException, IOException {
+
+        try {
+
+
+
+            File folder = new File(filePath);
+
+            FileUtils.cleanDirectory(folder);
+
+            if (!folder.exists()) {
+                System.out.println("Creating:" + filePath);
+                folder.mkdirs();
+                //folder.mkdir();
+            }
+            String fileName = file.getFileName();
+            if (!("").equals(fileName)) {
+
+                System.out.println("Server path:" + filePath);
+                File newFile = new File(filePath, fileName);
+
+                if (!newFile.exists()) {
+                    FileOutputStream fos = new FileOutputStream(newFile);
+                    System.out.println("Now writing");
+                    fos.write(file.getFileData());
+                    fos.flush();
+                    fos.close();
+                    return newFile.getAbsolutePath();
+                }
+            }
+        } catch (Exception ex) {
+
+            ex.printStackTrace();
+        }
+        return "";
+    }
+    
 }

@@ -53,6 +53,8 @@ public class CommonDAOImpl implements CommonDAO {
 
             System.out.println("Query======" + lStrQuery);
             Query query = session.createQuery(lStrQuery);
+            System.out.println("Role ID ="+lLngRoleId);
+            System.out.println("Univ ID ="+lLngUnivesityId);
             query.setLong("roleId", lLngRoleId);
             query.setLong("universityId", lLngUnivesityId);
 

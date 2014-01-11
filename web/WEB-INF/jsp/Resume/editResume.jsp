@@ -79,7 +79,7 @@
             <ul class="nav nav-list">
               <li class="nav-header">Resume Includes</a></li>
               <li><a href="#">Personal Details</a></li>
-              <li><a href="#">Conatact Details</a></li>
+              <li><a href="#">Contact Details</a></li>
               <li><a href="#">Educational Details</a></li>
               <li><a href="#">Work Experience</a></li>
               <li><a href="#">Awards & Achievements</a></li>
