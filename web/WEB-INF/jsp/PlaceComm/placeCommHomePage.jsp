@@ -101,29 +101,6 @@
                                     <li><a tabindex="-1" href="theme/united/index.html">Interview Scheduling</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    Plan <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                                    <li><a tabindex="-1" href="./index.html">Resource Utilization</a></li>
-                                    <li><a tabindex="-1" href="theme/united/index.html">Performance Indicators</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    Placecomms <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                                    <li><a tabindex="-1" href="./index.html">Jyot Patel</a></li>
-                                    <li><a tabindex="-1" href="theme/united/index.html">Arpen Vora</a></li>
-                                    <li><a tabindex="-1" href="theme/united/index.html">Syed Shoeb</a></li>
-                                    <li><a tabindex="-1" href="theme/united/index.html">Bhushan Zalavadia</a></li>
-                                    <li><a tabindex="-1" href="theme/united/index.html">Saurabh Kumar</a></li>
-                                    <li><a tabindex="-1" href="theme/united/index.html">Natali Mathew</a></li>
-                                    <li><a tabindex="-1" href="theme/united/index.html">Vanditha Ravi</a></li>
-                                </ul>
-                            </li>
                             
                         </ul>
                         <div id="twitter-share" class="pull-right">
@@ -401,7 +378,7 @@ guidance to the Placement Committee in making strategic decisions.
             <div class="span4">
                 <h3><span class="icon-group"></span> Team</h3>
                 <ul class="unstyled">
-                    <li>Lead Product Developer : <a class="targetblank" href="http://addyosmani.com/blog/" hreflang="en">Anjana Suvariya</a></li>
+                    <li>Lead Product Developer : <a class="targetblank" href="http://addyosmani.com/blog/" hreflang="en">Jyot Patel1</a></li>
                     <li>Chief Product Designer : <a class="targetblank" href="http://blog.aurelien-gerits.be" hreflang="fr">Jyot Patel</a></li>
                 </ul>
             </div>

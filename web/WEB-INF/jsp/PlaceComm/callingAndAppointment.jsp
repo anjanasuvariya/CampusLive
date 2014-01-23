@@ -194,7 +194,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title">Add Calling / Appointment</h4>
                 </div>
-                <html:form styleId="insertAssg" styleClass="form-horizontal" action="/saveAppointmentDtls" method="post"  enctype="multipart/form-data" >
+                <form class="form-horizontal" ENCTYPE="multipart/form-data" action="/saveAppointmentDtls.do" id="myFormId" method="POST">
                     <div class="modal-body">
 
                         <fieldset>
@@ -223,10 +223,9 @@
                             </div>
 
                             <div class="control-group">
-                                <label class="control-label" >Question Document</label>
+                                <label class="control-label" >Calling Doc</label>
                                 <div class="controls">
-                                    <html:file property="file"  styleClass="input-file"  />
-                       
+                                    <input type="file" name="uploadFile" id="uploadFile"/>
                                 </div>
                             </div>
 
@@ -314,7 +313,7 @@
 
                         <a href="#" class="btn btn-primary" id="btnSaveAppntDtl" ><i class="icon-share-alt icon-white"></i> Save</a>
                     </div>
-                </html:form>
+                </form>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
@@ -324,7 +323,7 @@
             <div class="modal-content" style="z-index: 902">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="hdDisscussionTopic">Discussions on : Calling XYZ Company</h4>
+                    <h4 class="modal-title" id="hdDisscussionTopic">Discussions on : Calling TCS</h4>
                 </div>
                 <form class="form-horizontal">
                     <div class="modal-body">
@@ -350,7 +349,7 @@
 
                                 </table>
 
-                            </div>    
+
                         </fieldset>
 
 
@@ -403,6 +402,7 @@
     <script type="text/javascript" src="resources/js/u/jquery.min.js"></script>
     <script type="text/javascript" src="resources/js/u/jquery.datatable.js"></script>
     <script type="text/javascript" src="resources/js/u/tables.js"></script>
+    <script type="text/javascript" src="resources/js/jquery/jquery.form.min.js"></script>
 
     <script type="text/javascript" src="resources/js/noty/jquery.noty.js"></script>
     <script type="text/javascript" src="resources/js/noty/layouts/top.js"></script>

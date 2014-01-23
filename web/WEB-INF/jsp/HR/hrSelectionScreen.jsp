@@ -386,7 +386,7 @@ white"></i> &nbsp;Table View </html:link>
             <div class="span4">
                 <h3><span class="icon-group"></span> Team</h3>
                 <ul class="unstyled">
-                    <li>Lead Product Developer : <a class="targetblank" href="http://addyosmani.com/blog/" hreflang="en">Anjana Suvariya</a></li>
+                    <li>Lead Product Developer : <a class="targetblank" href="http://addyosmani.com/blog/" hreflang="en">Jyot Patel1</a></li>
                     <li>Chief Product Designer : <a class="targetblank" href="http://blog.aurelien-gerits.be" hreflang="fr">Jyot Patel</a></li>
                 </ul>
             </div>

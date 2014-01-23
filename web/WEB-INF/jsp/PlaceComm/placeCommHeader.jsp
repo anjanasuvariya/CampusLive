@@ -55,29 +55,6 @@
                                     <li><a tabindex="-1" href="theme/united/index.html">Custom Stories</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    Plan <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                                    <li><a tabindex="-1" href="./index.html">Resource Utilization</a></li>
-                                    <li><a tabindex="-1" href="theme/united/index.html">Performance Indicators</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    Placecomms <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                                    <li><a tabindex="-1" href="./index.html">Jyot Patel</a></li>
-                                    <li><a tabindex="-1" href="theme/united/index.html">Arpen Vora</a></li>
-                                    <li><a tabindex="-1" href="theme/united/index.html">Syed Shoeb</a></li>
-                                    <li><a tabindex="-1" href="theme/united/index.html">Bhushan Zalavadia</a></li>
-                                    <li><a tabindex="-1" href="theme/united/index.html">Saurabh Kumar</a></li>
-                                    <li><a tabindex="-1" href="theme/united/index.html">Natali Mathew</a></li>
-                                    <li><a tabindex="-1" href="theme/united/index.html">Vanditha Ravi</a></li>
-                                </ul>
-                            </li>
                             
                         </ul>
                         <div id="twitter-share" class="pull-right">

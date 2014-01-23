@@ -176,7 +176,7 @@
        <div id="push"></div>
      <div id="footer">
       <div class="container">
-          <p class="muted credit">CampusLive initiative by <a href="http://martinbean.co.uk">Jyot Patel</a> and <a href="http://ryanfait.com/sticky-footer/">Anjana Suvariya</a></p>
+          <p class="muted credit">CampusLive initiative by <a href="http://martinbean.co.uk">Jyot Patel</a> and <a href="http://ryanfait.com/sticky-footer/">Jyot Patel1</a></p>
       </div>
     </div>
         </div>

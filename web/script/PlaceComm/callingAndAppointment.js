@@ -10,8 +10,8 @@
  */
 
 $(document).ready(function() { 
-        
-    $('#btnSaveAppntDtl').click(function(e) {
+
+$('#btnSaveAppntDtl').click(function(e) {
         
         e.preventDefault();
         var appntDtlId=$("#appntDtlId").val();
@@ -33,28 +33,53 @@ $(document).ready(function() {
                 break;
             }
         }
-        
-        
-        
+             
         var param = 'appntDtlId='+appntDtlId+'&appntTitle='+appntTitle+'&appntPurpose='+appntPurpose
         +'&appntFileName='+appntFileName+'&appntCompany='+appntCompany+'&assignedTo='+assignedTo
         +'&appntStatus='+appntStatus+'&appntMessage='+appntMessage+'&appntPriority='+appntPriority+'&callmethod=saveAppointmentDtls';
     
-        saveAppntDtlsUsingAjax(param);
+        var file = document.getElementById("uploadFile").files[0];
+        var formdata = new FormData();
+        
+        alert('file is:::'+file.toString());
+        
+        formdata.append("uploadFile",file);
+        formdata.append("appntDtlId",appntDtlId);
+        formdata.append("appntTitle",appntTitle);
+        formdata.append("appntPurpose",appntPurpose);
+        formdata.append("appntFileName",appntFileName);
+        formdata.append("appntCompany",appntCompany);
+        formdata.append("assignedTo",assignedTo);
+        formdata.append("appntStatus",appntStatus);
+        formdata.append("appntMessage",appntMessage);
+        formdata.append("appntPriority",appntPriority);
+        formdata.append("callmethod","saveAppointmentDtls");
+        alert("Now calling saveAjax Method");
+        
+        saveAppntDtlsUsingAjax(param,formdata);
        
     });
     
 }); 
 
 
-function saveAppntDtlsUsingAjax(param){
+function saveAppntDtlsUsingAjax(param,formdata){
 
+    alert("Formdata is..."+formdata);
+    
     return $.ajax({
-        type: 'GET',
-        url: 'http://localhost:23236/CampusLive/saveAppointmentDtls.do?'+param,
-        timeout: 5000,
-        dataType: "json",
+        type: 'POST',
+        url: 'http://localhost:23236/CampusLive/saveAppointmentDtls.do',
+        timeout: 50000,
+        data:formdata,
+        cache: false,
+        enctype: 'multipart/form-data',
+        dataType: 'json',
+        processData: false, // Don't process the files
+        contentType: false, // Set content type to false as jQuery will tell the server its a query string request
         success: function (data) {
+          
+            alert(data);
           
             var appntDtlId=0;
             
@@ -90,7 +115,7 @@ function saveAppntDtlsUsingAjax(param){
             alert(thrownError);
             generate('topRight','Some Error Occured, Please try again.','error');
             generate('topRight','Click anywhere on the screen to GO back.','info');
-            
+            alert(data);
         }
     });
         
