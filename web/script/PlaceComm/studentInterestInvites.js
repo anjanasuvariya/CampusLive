@@ -49,7 +49,7 @@ function saveStudentInvtDtlsUsingAjax(param,studSelectionFlag,rowCnt,intInvtId){
 
     return $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/CampusLive/saveStudentInterestInviteDtl.do?'+param,
+        url: 'http://localhost:23236/CampusLive/saveStudentInterestInviteDtl.do?'+param,
         timeout: 5000,
         dataType: "json",
         success: function (data) {

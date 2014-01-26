@@ -11,7 +11,17 @@
 
 $(document).ready(function() { 
 
-$('#btnSaveAppntDtl').click(function(e) {
+    alert("attaching validator");
+
+    $('#insertCalling').click(function() {
+        alert("inside validate method");
+        $("#insertAppt").validationEngine();
+ 
+    });
+ 
+        
+
+    $('#btnSaveAppntDtl').click(function(e) {
         
         e.preventDefault();
         var appntDtlId=$("#appntDtlId").val();
@@ -243,7 +253,7 @@ function updateAppntRowData(row)
         var rowCnt = rowId.substr(9);
    
         $('#tblApptDtl').dataTable().fnUpdate( [
-           '<td><input type="checkbox" name="chkAppntDtlId" id = "chkAppntDtlId'+Number(rowCnt)+'" value='+appntDtlId+'></td>',
+            '<td><input type="checkbox" name="chkAppntDtlId" id = "chkAppntDtlId'+Number(rowCnt)+'" value='+appntDtlId+'></td>',
             '<td>'+'<a data-toggle="modal" href="#myModal" onclick="populateAppntData(this,'+appntDtlId+','+appntTitle+')">'+appntTitle+'</a>'+'</td>',
             '<td>'+appntPurpose+'</td>',
             '<td>Download</td>',
@@ -412,7 +422,7 @@ function populateAppntData(rowCnt,appntDtlId,appntTitle)
 }
 function viewAppntHistory(appntDtlId,appntTitle,rowCnt)
 {
-   // var row = document.getElementById("trAppntId"+rowCnt);
+    // var row = document.getElementById("trAppntId"+rowCnt);
     document.getElementById("hdnRowId").value="trAppntId"+rowCnt;
     document.getElementById("apptMessage").value = "";
     document.getElementById("apptStatus").value = "";

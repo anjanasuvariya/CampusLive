@@ -32,7 +32,7 @@
         <![endif]-->
         <link rel="stylesheet" href="resources/assets/css/docs.css">
         <link rel="stylesheet" href="resources/assets/js/google-code-prettify/prettify.css">
-
+        <link href="resources/css/validate/validationEngine.jquery.css" rel="stylesheet" type="text/css">
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -63,7 +63,7 @@
             <div class="container" >
                 <h1>Interest Invite</h1>
                 <p class="lead">Invite candidate applications for recruitment</p>
-                <a data-toggle="modal" href="#myModal" class="btn btn-large btn-danger" style="color: white"><i class="icon-plus-sign icon-white"></i> Float an Invite</a>
+                <a data-toggle="modal" id="insertInvite" href="#myModal" class="btn btn-large btn-danger" style="color: white"><i class="icon-plus-sign icon-white"></i> Float an Invite</a>
             </div>
         </header>
 
@@ -157,7 +157,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title">Create Interest Invite</h4>
                     </div>
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" id="insertInv">
                         <div class="modal-body">
 
                             <fieldset>
@@ -171,7 +171,7 @@
                                     <div class="controls">
                                         <input type ="hidden" id="invtDtlId" name="invtDtlId" />
                                         <input type ="hidden" id="hdnRowId" name="hdnRowId" />
-                                         <select id="companyId" name="companyId" class="input-large">
+                                         <select id="companyId" name="companyId" class="input-large validate[required]" >
                                              <option value="-1">--Select--</option>
                                             <c:forEach items="${comanyList}" var="companyDtl">
                                                 <option value="${companyDtl.id}">${companyDtl.value}</option>
@@ -186,7 +186,7 @@
                                 <div class="control-group">
                                     <label class="control-label">Description</label>
                                     <div class="controls">
-                                        <input id="jobDesc" name="jobDesc" type="text" placeholder="E.g. For Marketing Students Only" class="input-xlarge" required="">
+                                        <input id="jobDesc" name="jobDesc" type="text" placeholder="E.g. For Marketing Students Only" class="input-xlarge validate[required]" required="">
 
                                     </div>
                                 </div>
@@ -194,7 +194,7 @@
                                 <div class="control-group">
                                     <label class="control-label" for="datepicker">Deadline</label>
                                     <div class="controls">
-                                        <input type="date" name ="lastDate" id ="lastDate" placeholder="Last Date" class="input-xlarge" />
+                                        <input type="date" name ="lastDate" id ="lastDate" placeholder="Last Date" class="input-xlarge validate[required]"  />
                                        
                                     </div>
                                 </div>
@@ -372,5 +372,8 @@
 <script type="text/javascript" src="resources/js/noty/layouts/topRight.js"></script>
 <script type="text/javascript" src="resources/js/noty/themes/default.js"></script>
 <script type="text/javascript" src="script/PlaceComm/editInterestInvites.js"></script>
+
+<script type="text/javascript" src="resources/js/validate/jquery.validationEngine.js"></script>
+<script type="text/javascript" src="resources/js/validate/jquery.validationEngine-en.js"></script>
     </body>
 </html>

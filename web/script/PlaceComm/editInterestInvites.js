@@ -4,6 +4,12 @@
  */
 
 $(document).ready(function() { 
+    
+    $('#insertInvite').click(function(e) {
+
+    $("#insertInv").validationEngine();
+ 
+    });
         
     $('#btnSaveInvtDtl').click(function(e) {
         
@@ -29,7 +35,7 @@ function saveInvtDtlsUsingAjax(param){
 
     return $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/CampusLive/saveInterestInviteDtl.do?'+param,
+        url: 'http://localhost:23236/CampusLive/saveInterestInviteDtl.do?'+param,
         timeout: 5000,
         dataType: "json",
         success: function (data) {
@@ -200,7 +206,7 @@ function deleteInvtDtls(deleteFlag,invtDtlId,rowCnt)
         {
             return $.ajax({
                 type: 'GET',
-                url: 'http://localhost:8080/CampusLive/deleteInvtDtls.do?callmethod=deleteInvtDtls&invtDtlIds='+invtDtlIds,
+                url: 'http://localhost:23236/CampusLive/deleteInvtDtls.do?callmethod=deleteInvtDtls&invtDtlIds='+invtDtlIds,
                 timeout: 5000,
                 dataType: "json",
                 success: function (data) {

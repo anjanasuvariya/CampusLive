@@ -27,6 +27,7 @@
         <link rel="stylesheet" href="resources/assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="resources/css/custom-theme/jquery-ui-1.10.3.custom.css">
         <link rel="stylesheet" href="resources/assets/css/font-awesome.min.css">
+        <link href="resources/css/validate/validationEngine.jquery.css" rel="stylesheet" type="text/css">
         <!--[if IE 7]>
         <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css">
         <![endif]-->
@@ -64,7 +65,7 @@
             <div class="container" >
                 <h1>Calling & Appointment</h1>
                 <p class="lead">Manage your calling status and appointments here</p>
-                <a data-toggle="modal" href="#myModal" class="btn btn-large btn-danger" style="color: white"  onclick="resetData()"><i class="icon-plus-sign icon-white"></i> Add Calling</a>
+                <a data-toggle="modal" href="#myModal" id="insertCalling" class="btn btn-large btn-danger" style="color: white"  onclick="resetData()"><i class="icon-plus-sign icon-white"></i> Add Calling</a>
             </div>
         </header>
 
@@ -194,7 +195,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title">Add Calling / Appointment</h4>
                 </div>
-                <form class="form-horizontal" ENCTYPE="multipart/form-data" action="/saveAppointmentDtls.do" id="myFormId" method="POST">
+                <form class="form-horizontal" enctype="multipart/form-data" id="insertAppt" >
                     <div class="modal-body">
 
                         <fieldset>
@@ -208,7 +209,7 @@
                                 <div class="controls">
                                     <input type ="hidden" id="appntDtlId" name="appntDtlId" />
                                     <input type ="hidden" id="hdnRowId" name="hdnRowId" />
-                                    <input id="appntTitle" name="appntTitle" type="text" placeholder="e.g. PPV Calling " class="input-xlarge" required="">
+                                    <input id="appntTitle" name="appntTitle" type="text" class="validate[required,maxSize[200]]" placeholder="e.g. PPV Calling " class="input-xlarge" required="">
 
                                 </div>
                             </div>
@@ -217,7 +218,7 @@
                             <div class="control-group">
                                 <label class="control-label">Purpose</label>
                                 <div class="controls">
-                                    <input id="appntPurpose" name="appntPurpose" type="text" placeholder="E.g. Cold Calling" class="input-xlarge" required="">
+                                    <input id="appntPurpose" name="appntPurpose" type="text" class="validate[required,maxSize[200]]" placeholder="E.g. Cold Calling" class="input-xlarge" required="">
 
                                 </div>
                             </div>
@@ -225,7 +226,7 @@
                             <div class="control-group">
                                 <label class="control-label" >Calling Doc</label>
                                 <div class="controls">
-                                    <input type="file" name="uploadFile" id="uploadFile"/>
+                                    <input type="file" name="uploadFile" id="uploadFile" />
                                 </div>
                             </div>
 
@@ -276,9 +277,9 @@
 
                             <!-- Textarea -->
                             <div class="control-group">
-                                <label class="control-label">Initial Message</label>
+                                <label class="control-label" >Initial Message</label>
                                 <div class="controls">                     
-                                    <textarea id="appntMessage" name="appntMessage"></textarea>
+                                    <textarea id="appntMessage" class="validate[required,maxSize[300]]" name="appntMessage"></textarea>
                                 </div>
                             </div>
 
@@ -325,7 +326,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title" id="hdDisscussionTopic">Discussions on : Calling TCS</h4>
                 </div>
-                <form class="form-horizontal">
+                <form class="form-horizontal"  id="insertApptHst" >
                     <div class="modal-body">
 
                         <fieldset>
@@ -378,7 +379,7 @@
 
                     <div class="modal-footer">
 
-                        <a href="#" class="btn btn-primary" onclick="saveAppntHistory()"><i class="icon-share-alt icon-white"></i>Update</a>
+                        <a href="#" class="btn btn-primary" onclick="saveAppntHistory()" id="insertApptHstLink"><i class="icon-share-alt icon-white"></i>Update</a>
                     </div>
                 </form>
             </div><!-- /.modal-content -->
@@ -397,6 +398,8 @@
     <script src="resources/assets/js/demo.js"></script>
 
     <!-- REPLACE THIS WITH ALREADY EXISTING PATHS OF THE FILES -->
+    <script type="text/javascript" src="resources/js/validate/jquery.validationEngine.js"></script>
+    <script type="text/javascript" src="resources/js/validate/jquery.validationEngine-en.js"></script>
 
     <script type="text/javascript" src="resources/js/u/utopia.js"></script>
     <script type="text/javascript" src="resources/js/u/jquery.min.js"></script>
